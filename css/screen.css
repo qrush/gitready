@@ -1,5 +1,7 @@
 body { 
   background: #e0e0c0;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 13px;
 }
 
 #header {
@@ -15,6 +17,77 @@ h1 {
   padding: 0;
   margin: 0;
 }
+
+.footer {
+  background: #808060;
+  text-align: center;
+  color: #000;
+  position: absolute;
+  width: 100%;
+}
+
+.grid_4 {
+  text-align: center;
+height: 100%;
+}
+
+.articles {
+  background: #c0c0a0;
+  border: 2px solid #404040;
+}
+
+.articles a {
+  display: block;
+  font-size: 14px;
+  padding: 10px;
+}
+.articles a:hover {
+background: #a0a080;
+}
+
+h2 {
+  font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+  font-size: 28px;
+padding: 0;
+  margin-bottom: 5px;
+}
+
+.container_12 {
+  margin-top: 10px;
+}
+
+#green {
+color: #408040;
+}
+
+#yellow {
+color: #BFB130;
+}
+
+#red {
+color: #BF3030;
+}
+
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: #000;
+  }
+
+.footer a {
+  color: #e0e0e0;
+}
+.footer a:hover {
+  color: #000;
+}
+
+/*
+
+Sticky Footer by Ryan Fait
+http://ryanfait.com/
+
+*/
 
 * {
 	margin: 0;
@@ -32,26 +105,3 @@ html, body {
 	height: 22px; /* .push must be the same height as .footer */
 }
 
-.footer {
-  background: #808060;
-  text-align: center;
-  color: #000;
-}
-
-a {
-  text-decoration: none;
-}
-
-.footer a {
-  color: #e0e0e0;
-}
-.footer a:hover {
-  color: #000;
-}
-
-/*
-
-Sticky Footer by Ryan Fait
-http://ryanfait.com/
-
-*/
