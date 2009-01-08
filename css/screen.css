@@ -1,6 +1,6 @@
 body {
   background-color: white;
-  font: 13.34px helvetica, arial, clean, sans-serif;
+  font: 13.34px Verdana, helvetica, arial, clean, sans-serif;
   *font-size: small;
   text-align: center;
   background: #333 url('/images/pixel-gray.gif');
@@ -46,9 +46,12 @@ ul.posts {
 /*
 /*****************************************************************************/
 
+html, body { height: 80%; }
+
 .site {
   width: 600px;
   margin: 0 auto;
+  height: 100%;
 }
 
 .title {
@@ -75,32 +78,61 @@ ul.posts {
 }
 
 .site .wrapper {
-	background: #FFECBF;
-	height: 400px;
+	background: #FFE3A3;
+  height: 100%;
 }
 
 .site .main {
 	float: left;
 	width: 400px;
+  height: 100%;
+	border-right: 10px solid #333;
+	background: #E3DF8A;
+}
 }
 .site .sidebar {
 	float: left;
-	width: 200px;
+	width: 190px;
+}
+
+h2{
+	padding: 10px;
+	font-size: 26px;
+	font-weight: normal;
+	text-align: left;
+	color: #000;
+	border-bottom: 2px solid #333;
+	margin: 0px 15px;
+	padding-bottom: 3px;
+}
+
+h3{
+	padding: 10px;
+	font-size: 15px;
+	font-weight: bold;
 }
   
-  .site .title a.extra:hover {
-    color: black;
-  }
+.site .title a.extra:hover {
+color: black;
+}
 
-  .site .meta {
-    color: #aaa;
-  }
+.site .meta {
+color: #aaa;
+}
 
 .site .footer {
   color: #666;
-  margin-top: 2em;
+  margin-top: 1em;
   overflow: hidden;
   clear: both;
+}
+
+#counter {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	width: 100%;
 }
 
 .site .footer a {
