@@ -8,41 +8,43 @@
    <meta name="author" content="Nick Quaranto" />
    <link href="http://feeds.feedburner.com/GitReady" rel="alternate" title="RSS" type="application/rss+xml" />
    <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen, projection" />
-   <link rel="stylesheet" href="/css/960.css" type="text/css" media="screen, projection" />
    <link rel="stylesheet" href="/css/syntax.css" type="text/css" media="screen, projection" />
    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
 </head>
 <body>
-  <div class="container_12">
-    <div class="grid_12 title">
+  <div class="site">
+    <div class="title">
       <h1><a href="/">git ready</a></h1>
       <span class="extra">daily tips for the noob to the guru</span>
     </div>
-    <div class="grid_8">
-      {{ content }}
-    </div> 
-    <div class="grid_4 sidebar">
-      <div>
-        <h3>Resources</h3>
+    <div class="wrapper">
+      <div class="main">
+        {{ content }}
+      </div> 
+      <div class="sidebar">
+        <div>
+          <h3>Resources</h3>
+        </div>
+        <div>
+          <script src="http://errcount.com/ctr/762.js"></script>
+        </div>
       </div>
-      <div>
-        <script src="http://errcount.com/ctr/762.js"></script>
-      <div>
     </div>
-    <div class="grid_12 footer">    
-      <div class="contact">
-        <p>
-          <a href="/about.html">about</a><br />
-          <a href="http://github.com/qrush/gitready">contribute</a><br />
-          <a href="/">submit a tip</a>
-        </p>
-      </div>
-      <div class="rss">
-        <a href="http://feeds.feedburner.com/GitReady">
-          <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
-        </a>
-      </div>
+    <div class="footer">    
+        <a href="/about.html">about</a>
+        <a href="http://github.com/qrush/gitready">contribute</a>
+        <a href="/">submit a tip</a>
+        <a class="rss" href="http://feeds.feedburner.com/GitReady">rss</a>
     </div>
   </div>
-</body>
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+  try {
+  var pageTracker = _gat._getTracker("UA-6929260-1");
+  pageTracker._trackPageview();
+  } catch(err) {}</script>
+  </body>
 </html>

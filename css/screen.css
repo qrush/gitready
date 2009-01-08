@@ -1,20 +1,3 @@
-/*****************************************************************************/
-/*
-/* Common
-/*
-/*****************************************************************************/
-
-/* Global Reset */
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-/*  height: 100%; */
-}
-
 body {
   background-color: white;
   font: 13.34px helvetica, arial, clean, sans-serif;
@@ -23,20 +6,9 @@ body {
   background: #333 url('/images/pixel-gray.gif');
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
-}
-
-h1 {
-  margin-bottom: 1em;
-}
-
-p {
-  margin: 1em 0;
-}
-
 a {
   color: #00a;
+  text-decoration: none;
 }
 
 a:hover {
@@ -44,12 +16,7 @@ a:hover {
 }
 
 a:visited {
-  color: #a0a;
-}
-
-table {
-  font-size: inherit;
-  font: 100%;
+  color: black;
 }
 
 /*****************************************************************************/
@@ -80,34 +47,46 @@ ul.posts {
 /*****************************************************************************/
 
 .site {
-  font-size: 110%;
-  text-align: justify;
-  width: 40em;
-  margin: 3em auto 2em auto;
-  line-height: 1.5em;
-  background: #fff;
+  width: 600px;
+  margin: 0 auto;
 }
 
 .title {
-  color: #a00;
-  font-weight: bold;
-  margin-bottom: 2em;
+  margin: 2em 0;
 }
 
-  .site .title a {
-    color: #a00;
-    text-decoration: none;
-  }
-  
-  .site .title a:hover {
-    color: black;
-  }
+.title h1 {
+  display:inline;
+}
 
-  .site .title .extra {
-    color: #aaa;
-    text-decoration: none;
-    margin-left: 1em;
-  }
+.title h1 a {
+  color: #92BF6F;
+  font-weight: bold;
+  margin-bottom: 2em;
+  font-size: 50px;
+  font-family: "Consolas", "Monaco", "Courier New", "Courier", monospace;
+}
+
+.site .title .extra {
+  color: #aaa;
+  text-decoration: none;
+  margin-left: 1em;
+  font-size: 16px;
+}
+
+.site .wrapper {
+	background: #FFECBF;
+	height: 400px;
+}
+
+.site .main {
+	float: left;
+	width: 400px;
+}
+.site .sidebar {
+	float: left;
+	width: 200px;
+}
   
   .site .title a.extra:hover {
     color: black;
@@ -117,33 +96,33 @@ ul.posts {
     color: #aaa;
   }
 
-  .site .footer {
-    font-size: 80%;
-    color: #666;
-    border-top: 4px solid #eee;
-    margin-top: 2em;
-    overflow: hidden;
-  }
-  
-    .site .footer .contact {
-      float: left;
-      margin-right: 3em;
-    }
-    
-      .site .footer .contact a {
-        color: #8085C1;
-      }
-    
-    .site .footer .rss {
-      margin-top: 1.1em;
-      margin-right: -.2em;
-      float: right;
-    }
-    
-      .site .footer .rss img {
-        border: 0;
-      }
-    
+.site .footer {
+  color: #666;
+  margin-top: 2em;
+  overflow: hidden;
+  clear: both;
+}
+
+.site .footer a {
+	color: #AED180;
+	font-size: 24px;
+	display:inline-block;
+	padding: 10px;
+	font-family: "Consolas", "Monaco", "Courier New", "Courier", monospace;
+}
+
+.site .footer .rss {
+}
+
+.site .footer a:hover {
+	color: #E3DF8A;
+	text-decoration: underline;
+}
+
+.site .footer .rss img {
+	border: 0;
+}
+
 /*****************************************************************************/
 /*
 /* Posts
