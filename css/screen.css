@@ -7,7 +7,7 @@ body {
 }
 
 a {
-  color: #00a;
+  color: #618059;
   text-decoration: none;
 }
 
@@ -16,7 +16,6 @@ a:hover {
 }
 
 a:visited {
-  color: black;
 }
 
 /*****************************************************************************/
@@ -78,7 +77,6 @@ html, body { height: 80%; }
 }
 
 .site .wrapper {
-	background: #FFE3A3;
   height: 100%;
 }
 
@@ -86,13 +84,13 @@ html, body { height: 80%; }
 	float: left;
 	width: 400px;
   height: 100%;
-	border-right: 10px solid #333;
 	background: #E3DF8A;
 }
-}
+
 .site .sidebar {
 	float: left;
 	width: 190px;
+	margin-left: 10px;
 }
 
 h2{
@@ -111,6 +109,26 @@ h3{
 	font-size: 15px;
 	font-weight: bold;
 }
+
+.sidebar div
+{
+	background: #FFE3A3;
+}
+
+.sidebar div a 
+{
+	display: block;
+	padding: 3px;
+}
+.sidebar div a:hover
+{
+	background: #AED180;
+}
+
+#green { color: #99FF80; }	
+#red { color: #BF3030; }
+#yellow { color: #B3B300; }
+#blue { color: #D8CFE6; }
   
 .site .title a.extra:hover {
 color: black;
