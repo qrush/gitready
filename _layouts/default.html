@@ -7,32 +7,33 @@
    <title>{{ page.title }}</title>
    <meta name="author" content="Nick Quaranto" />
 
-   <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen, projection" />
-   <link rel="stylesheet" href="/css/text.css" type="text/css" media="screen, projection" />
    <link rel="stylesheet" href="/css/960.css" type="text/css" media="screen, projection" />
+   <link rel="stylesheet" href="/css/syntax.css" type="text/css" media="screen, projection" />
    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
 </head>
 <body>
-  <div class="wrapper">
-    <div id="header">
-      <h1>
-        <a href="/">git ready</a>
-      </h1>
-      tutorials for the noob to the guru
+  <div class="site">
+    <div class="title">
+      <a href="/">git ready</a>
+      <span class="extra">daily tips for the noob to the guru</span>
     </div>
-    <div id="main">
-      {{ content }}
+    
+    {{ content }}
+    
+    <div class="footer">    
+      <div class="contact">
+        <p>
+          <a href="/about.html">about</a><br />
+          <a href="http://github.com/qrush/gitready">contribute</a><br />
+          <a href="/">submit a tip</a>
+        </p>
+      </div>
+      <div class="rss">
+        <a href="http://feeds.feedburner.com/">
+          <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
+        </a>
+      </div>
     </div>
-    <div class="push"></div>
-  </div>
-  <div class="footer">
-    <a href="about.html">about</a>
-    &plusmn;
-    <a href="http://github.com/qrush/gitready">contribute</a>
-    &plusmn;
-    <a href="http://git-scm.com">git-scm</a>
-    &plusmn;
-    <a href="http://github.com">github</a>
   </div>
 </body>
 </html>
