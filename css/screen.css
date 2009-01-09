@@ -3,16 +3,16 @@ body {
   font: 13.34px Verdana, helvetica, arial, clean, sans-serif;
   *font-size: small;
   text-align: center;
-  background: #333 url('/images/pixel-gray.gif');
+  background: #222;
 }
 
 a {
-  color: #618059;
+  color: #000;
   text-decoration: none;
 }
 
 a:hover {
-  color: black;
+  color: #000;
 }
 
 a:visited {
