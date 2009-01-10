@@ -24,7 +24,10 @@ $ git remote show origin
 
 Luckily, the command syntax for this is quite simple:
 
-@git checkout --track -b <local branch> <remote>/<tracked branch>@
+<pre>
+git checkout --track -b 
+  <local branch> <remote>/<tracked branch>
+</pre>
 
 So in my case, I used this command:
 

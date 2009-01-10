@@ -19,7 +19,6 @@ a {
 a:visited {
 }
 
-pre { padding: 10px 15px; word-wrap: break-word; text-align: left; font-size: 90%; }
 
 p {
   text-align: left;
@@ -200,6 +199,9 @@ color: #aaa;
     border: 1px solid #ddd;
     background-color: #eef;
     padding: 0 .4em;
+    text-align: left; 
+    font-size: 90%;
+    margin: 0 15px;
   }
   
   #post code {
