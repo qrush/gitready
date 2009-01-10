@@ -7,16 +7,19 @@ body {
 }
 
 a {
-  color: #000;
+  color: #8A003D;
   text-decoration: none;
 }
 
-a:hover {
+.main a:hover {
   color: #000;
+	background: #AED180;
 }
 
 a:visited {
 }
+
+pre { padding: 10px 15px; word-wrap: break-word; text-align: left; font-size: 90%; }
 
 p {
   text-align: left;
@@ -32,6 +35,8 @@ p {
 ul.posts {
   list-style-type: none;
   margin-bottom: 2em;
+  padding-left: 2em;
+  text-align: left;
 }
 
   ul.posts li {
@@ -39,7 +44,6 @@ ul.posts {
   }
 
   ul.posts span {
-    color: #aaa;
     font-family: Monaco, "Courier New", monospace;
     font-size: 80%;
   }
@@ -50,12 +54,10 @@ ul.posts {
 /*
 /*****************************************************************************/
 
-html, body { height: 84%; }
 
 .site {
   width: 600px;
   margin: 0 auto;
-  height: 100%;
 }
 
 .title {
@@ -82,14 +84,12 @@ html, body { height: 84%; }
 }
 
 .site .wrapper {
-  height: 100%;
 }
 
 .site .main {
 	float: left;
 	width: 400px;
-  height: 100%;
-	background: #E3DF8A;
+	background: #FFFEE6;
 }
 
 .site .sidebar {
@@ -98,15 +98,18 @@ html, body { height: 84%; }
 	margin-left: 10px;
 }
 
+.site .sidebar a, .site .sidebar a:hover {
+  color: #000;
+}
+
 h2{
 	padding: 10px;
-	font-size: 26px;
+	font-size: 21px;
 	font-weight: normal;
 	text-align: left;
 	color: #000;
 	border-bottom: 2px solid #333;
-	margin: 0px 15px;
-	padding-bottom: 3px;
+	margin: 10px 15px;
 }
 
 h3{
@@ -130,7 +133,7 @@ h3{
 	background: #AED180;
 }
 
-#green { color: #99FF80; }	
+#green { padding-top: 0; color: #99FF80; }	
 #red { color: #BF3030; }
 #yellow { color: #B3B300; }
 #blue { color: #D8CFE6; }
