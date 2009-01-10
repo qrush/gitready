@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: checkout tracked remote branch
 ---
 
