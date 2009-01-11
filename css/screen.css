@@ -35,7 +35,7 @@ p {
 
 ul.posts {
   list-style-type: none;
-  margin-bottom: 2em;
+  margin-bottom: 1.6em;
   padding-left: 2em;
   text-align: left;
 }
@@ -99,13 +99,13 @@ ul.posts {
 	margin-left: 10px;
 }
 
-.site .sidebar a, .site .sidebar a:hover {
+.site .sidebar div a, .site .sidebar div a:hover {
   color: #000;
   font-size: 82%;
 }
 
 h2{
-	padding: 10px;
+	padding: 0 10px 10px;
 	font-size: 21px;
 	font-weight: normal;
 	text-align: left;
@@ -135,10 +135,12 @@ h3{
 	background: #AED180;
 }
 
-#green { padding-top: 0; color: #99FF80; }	
+#green { color: #99FF80; }	
 #red { color: #BF3030; }
 #yellow { color: #B3B300; }
-#blue { color: #D8CFE6; }
+#blue { color: #809FFF; }
+#purple {padding: 0; }
+#purple a, #purple a:visited { color: #FF80FF; }
   
 .site .title a.extra:hover {
 color: black;
