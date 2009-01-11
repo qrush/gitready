@@ -3,8 +3,6 @@ layout: post
 title: stashing your changes
 ---
 
-h2. {{ page.title }}
-
 Stashing is a great way to pause what you're currently working on and come back to it later. For example, if you working on that awesome, brand new feature but someone just found a bug that you need to fix. Add your changes to the index using
 
 @git add .@
@@ -24,3 +22,7 @@ You can also do multiple layers of stashes, so make sure to use
 To check out all of your current ones. If you need to apply a stash from deeper in the stack, that's easy too. Here's how to apply the second stash you've got:
 
 <code>git stash apply stash@{1}</code>
+
+You can also easily apply the top stash on the stack by using ("Thanks jamesgolick!":http://jamesgolick.com/):
+
+@git stash pop@

@@ -22,9 +22,11 @@
         {{ content }}
       </div> 
       <div class="sidebar">
+        <h3 id="purple"><a href="/">home</a></h3>
         <h3 id="green">beginner</h3>
         <div>
           <a href="/2009/01/10/stashing-your-changes.html">stashing your changes</a>
+          <a href="/2009/01/11/reverting-files.html">reverting files</a>
         {% for post in site.categories.beginner %}
           <a href="{{ post.url }}">{{ post.title }}</a>
         {% endfor %}
@@ -38,6 +40,7 @@
         </div>
         <h3 id="red">advanced</h3>
         <div>
+          <a href="#">coming soon!</a>
         {% for post in site.categories.advanced %}
           <a href="{{ post.url }}">{{ post.title }}</a>
         {% endfor %}
@@ -50,6 +53,7 @@
           <a href="http://gitcasts.com">GitCasts</a>
           <a href="http://www.kernel.org/pub/software/scm/git/docs/gittutorial.html">Git for everyone</a>
           <a href="http://git.or.cz/course/svn.html">Git-SVN Crash Course</a>
+          <a href="http://cheat.errtheblog.com/s/git">Git Cheat Sheet</a>
         </div>
       </div>
     </div>
