@@ -1,0 +1,42 @@
+---
+layout: post
+title: fixing broken commit messages
+---
+
+Someone just committed and pushed a commit that just isn't right. Either some information isn't filled out, the commit message is wrong, or something else is just messed up. Let's go over what can be done to fix the associated data after the fact.
+
+Fixing the previous commit is very simple. Just use
+
+@git commit --amend@
+
+And that will fire up the commit patch in $EDITOR for you to mess with. Simply edit the message right on the top line of the file, save, quit and you're done. 
+
+Now let's say you've got a few commits to fix, or the commit that is broken is a few commits back. This process is a little more complex, but isn't too bad. (Thanks to "Evan Phoenix":http://blog.fallingsnow.net/ for this one.)
+
+Here's the scenario: the last 3 commits don't have the right username, email, or perhaps commit message. Let's start by generating patch files for the commits:
+
+@git format-patch HEAD^^^@
+
+That will generate files in the form of 0001-commit-message that contains the commit diff and metadata. One note with the 3 caret symbols: just add one for each commit you need to go back, and be consistent! Go ahead and edit these files so they have the proper information. Once that's done, we'll need to reset our repository back a few commits:
+
+@git reset --hard HEAD^^^@
+
+Now we can apply each commit to fix the information. Make sure you do it in the right order! (Usually it's ascending)
+
+<pre>
+git am < 0001...
+git am < 0002...
+git am < 0003...
+</pre>
+
+Now if you check @git log@ you should see the right information. If for some reason stuff got messed up, doing a 
+
+@git reset --hard origin/master@
+
+will bring you back to your original changes. Once you've got the information fixed, you'll need to do a force push on the repo:
+
+@git push -f@
+
+If you don't add the @-f@, git will complain. Just be aware that modifying commit messages may muck up other's repositories and should be used with caution. 
+
+If you know of any unexpected or uncovered consequences please let us know in the comments. Another tip in the future will cover fixing the actual committed files and making sure that all repos are up to date.
