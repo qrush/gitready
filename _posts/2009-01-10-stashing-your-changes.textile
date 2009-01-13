@@ -27,10 +27,10 @@ You can also easily apply the top stash on the stack by using ("Thanks jamesgoli
 
 @git stash pop@
 
-A note with this command, it deletes that stash for good, while apply does not. You can manually delete stashes with
+A note with this command, it deletes that stash for good, while apply does not. You can manually delete stashes with:
 
 @git stash drop <id>@
 
-Or delete all of the stored stashes with
+Or delete all of the stored stashes with:
 
 @git stash clear@
