@@ -17,7 +17,7 @@ Here's the scenario: the last 3 commits don't have the right username, email, or
 
 @git format-patch HEAD^^^@
 
-That will generate files in the form of 0001-commit-message that contains the commit diff and metadata. One note with the 3 caret symbols: just add one for each commit you need to go back, and be consistent! Go ahead and edit these files so they have the proper information. Once that's done, we'll need to reset our repository back a few commits:
+That will generate files in the form of 0001-commit-message that contains the commit diff and metadata. One note with the 3 caret symbols: just add one for each commit you need to go back, and be consistent! *EDIT:* You can also refer to past commits with the syntax HEAD~n, so for this example we'd use HEAD~3. Go ahead and edit these files so they have the proper information. Once that's done, we'll need to reset our repository back a few commits:
 
 @git reset --hard HEAD^^^@
 
@@ -37,6 +37,6 @@ will bring you back to your original changes. Once you've got the information fi
 
 @git push -f@
 
-If you don't add the @-f@, git will complain. Just be aware that modifying commit messages may muck up other's repositories and should be used with caution. 
+If you don't add the @-f@, git will complain. *WARNING!* Just be aware that modifying commit messages may muck up other's repositories and should be used with caution. In fact, other developers may flat out hate you for doing this. If it's far back enough it's probably a "bad idea to rewrite history anyway.":http://www.youtube.com/watch?v=BytKSy8M4bk
 
 If you know of any unexpected or uncovered consequences please let us know in the comments. Another tip in the future will cover fixing the actual committed files and making sure that all repos are up to date.
