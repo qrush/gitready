@@ -1,0 +1,34 @@
+---
+layout: post
+title: visualizing your repo
+---
+
+So, you want to see your repository in a brand new way. You're sick of the command line, you need to see some graphs! Pixels! Buttons! Graphics! Dialog boxes! Ok, we get the point. 
+
+Our first option is viewing your repo in a browser. This functionality is packaged with most git installs:
+
+@git instaweb@
+
+This will fire up a server, usually "Thin":http://code.macournoyer.com/thin/, to serve a simple web interface for your repository. You can browse commits, trees, view files, what have you. 
+
+p=. !/images/instaweb.png!
+
+This is really useful if you need to dive down and see history but you don't know the commands yet. (And it's easier too.) If you don't have Thin installed and don't want to bother with it, running
+
+@git instaweb --httpd webrick@
+
+will force WEBrick to serve the page, which will work just as well if Ruby is installed on your system.
+
+Webpages are great and all, but what if you want to see your commits in a more...graphical manner? Look no further than gitk or gitx then. These programs give you a more dynamic view of your repository and let you actually see branches and merges take place:
+
+p=. !/images/gitk.png!
+
+Need some graphical git loving? Use gitk with most git installs by running @gitk@ or "download gitx for OSX":http://gitx.frim.nl/. Windows users, if you know of an equivalent, comment away!
+
+There's also plenty of git graphical love over at "GitHub":http://github.com for every project, be it visualizing the impact individuals have had on the project, times that people have worked on the project, and even more. Definitely play around with various graphs they have to offer if you haven't yet.
+
+p=. !/images/impact.png!
+
+p=. !/images/punchcard.png!
+
+There's also plenty of other good visualizers over at the "GitWiki":http://git.or.cz/gitwiki/InterfacesFrontendsAndTools#head-60c66fc11f2aaab74873cbb3c434f2075abd5d87. If you know of any other good ways to see your repository graphically, let us know in the comments. I'll continue to update the post with more and better knowledge as it becomes available.
