@@ -9,15 +9,15 @@ Our first option is viewing your repo in a browser. This functionality is packag
 
 @git instaweb@
 
-This will fire up a server, usually "Thin":http://code.macournoyer.com/thin/, to serve a simple web interface for your repository. You can browse commits, trees, view files, what have you. 
+This will fire up a server, usually "lighttpd":http://lighttpd.net, to serve a simple web interface for your repository. You can browse commits, trees, view files, what have you. 
 
 p=. !/images/instaweb.png!
 
-This is really useful if you need to dive down and see history but you don't know the commands yet. (And it's easier too.) If you don't have Thin installed and don't want to bother with it, running
+This is really useful if you need to dive down and see history but you don't know the commands yet. (And it's easier too.) If you don't have thin installed and don't want to bother with it, running
 
 @git instaweb --httpd webrick@
 
-will force WEBrick to serve the page, which will work just as well if Ruby is installed on your system.
+will force WEBrick to serve the page, which will work just as well if Ruby is installed on your system. It also works with Apache, just check "instaweb's manpage":http://www.kernel.org/pub/software/scm/git/docs/git-instaweb.html to see the supported server and other goodies.
 
 Webpages are great and all, but what if you want to see your commits in a more...graphical manner? Look no further than gitk or gitx then. These programs give you a more dynamic view of your repository and let you actually see branches and merges take place:
 
