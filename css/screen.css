@@ -27,6 +27,8 @@ p {
 
 #disqus { padding: 10px; }
 #date { color: #333; font-size: 80%;}
+#feedburner { padding: 15px; text-align: center; }
+#post img { padding: 10px; border: 2px solid #aaa; background: #eee; }
 
 /*****************************************************************************/
 /*
