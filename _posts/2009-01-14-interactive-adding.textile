@@ -1,0 +1,57 @@
+---
+layout: post
+title: interactive adding
+---
+
+Sometimes simple adding with @git add .@ or @git commit -am@ just isn't enough. You may want to split changes up over several commits, or you're just not ready to add everything yet. And who wants to add individual files one at a time? That's just boring. Enter the interactive adder:
+
+@git add -i@
+
+Let's go through an example of using the interactive mode. I made some changes to the "gitready":http://github.com/qrush/gitready project's readme along with another file. Calling the above command gives us this output, the status of the index:
+
+<pre>
+         staged     unstaged path
+1:    unchanged        +3/-1 README.md
+2:    unchanged        +1/-1 _layouts/default.html
+
+*** Commands ***
+1: status   2: update  3: revert  4: add untracked
+5: patch    6: diff    7: quit    8: help
+What now> 
+</pre>
+
+As you can see, we have plenty of commands available to us. If we want to see this screen again, using the @status@ command will bring us back. The +3/-1 are the number of lines that have been added/removed, the usual plus and minus symbols that you see when pulling.
+
+Let's add the changes we made to the readme. Using the @update@ command will allow us to do this. After choosing this command we'll see this output:
+
+<pre>
+           staged   unstaged path
+* 1:    unchanged      +3/-1 README.md
+  2:    unchanged      +1/-1 _layouts/default.html
+Update>>
+</pre>
+
+And if we select to update 1, will notify us that the file is staged to be committed. Now if we look at the status, you can see that our readme has been staged properly.
+
+<pre>
+          staged  unstaged  path
+1:        +3/-1    nothing  README.md
+2:    unchanged      +1/-1  _layouts/default.html
+</pre>
+
+Once you're done, you can dump out using the @quit@ command, and commit your work. If you don't trust the adder, calling @git status@ will show that only the readme has been staged for the commit:
+
+<pre>
+# On branch master
+# Changes to be committed:
+#
+# modified:   README.md
+#
+# Changed but not updated:
+#
+# modified:   _layouts/default.html
+</pre>
+
+There's plenty of other helpful commands that the interactive adding can do, this is just the start. Check out the @help@ command for the rest that's available to you. We'll have more tips in the future for the other commands available inside interactive mode.
+
+
