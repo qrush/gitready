@@ -1,0 +1,88 @@
+---
+layout: post
+title: piecemeal staging
+---
+
+This is a follow up to the comments from yesterday's article about "interactive adding":http://gitready.com/2009/01/14/interactive-adding.html. 
+
+Git's @add --patch@ mode is very similar to interactive adding, but it has a lot more power. This command is capable ofbreaking up commits in files into smaller hunks so you can commit *exactly* what you want, and not just the whole file. 
+
+This behavior is very helpful since it allows you to version any "hunk" of text in the file that you'd like. Perhaps that one line of code will break the build on others' machines or the build server, but just not yours. You get the point.
+
+Let's go through an example of using it, making changes to our project's trusty README file again. Here's what @git diff@ gives us from the changes that were just made:
+
+<pre>
+diff --git a/README.md b/README.md
+index 2556dae..45d8b6e 100644
+--- a/README.md
++++ b/README.md
+@@ -1,6 +1,14 @@
+> There is only one way...
+> ~ Henry Van Dyke
+   
++# Project information
++
++Blah blah blah...
++
+# Want to contribute?
+
+If you have ideas about... 
++
++# About
++
++This blog is just awesome.
+</pre>
+
+So as we can see, we've made changes in separate parts of the file. However, I want to only commit the lower half. Besides, who really needs documentation anyway? Enter:
+
+@git add -p@
+
+Run this and you'll be greeted with a prompt just like @git add -i@, but it has quite a few options:
+
+<pre>
+Stage this hunk [y/n/a/d/s/e/?]? ?
+y - stage this hunk
+n - do not stage this hunk
+[... removed a few ...]
+s - split the current hunk into smaller hunks
+e - manually edit the current hunk
+? - print help
+</pre>
+
+Most are pretty self-explanatory, but let"s go over the really cool ones. What we really want is the @s@ option, which will split the file into two smaller hunks of code, one for the higher "Project Information" block and one for the "About" block. Once it"s split it will prompt you with just the changes for that hunk:
+
+<pre>
+Split into 2 hunks.
+@@ -1,6 +1,10 @@
+> There is only one way...
+> ~ Henry Van Dyke
+
++# Project information
++
++Blah blah blah...
++
+# Want to contribute?
+
+If you have ideas about...
+Stage this hunk [y/n/a/d/j/J/e/?]? n
+</pre>
+
+From here we can ignore it with @n@, and move on to the next one and add it with @y@:
+
+<pre>
+@@ -4,3 +8,7 @@
+# Want to contribute?
+
+If you have ideas about...
++
++# About
++
++This blog is just awesome.
+Stage this hunk [y/n/a/d/K/e/?]? y
+</pre>
+
+Doing a @git status@ will show changes to be committed and changes to be staged on one file. Strange, but it makes sense: we staged half the changes, and the other half are not yet added to the index. 
+
+There's also the @e@ option, which will let you to manually flip the hunks on and off in your favorite editor. Instructions are included with that option, so go play around with it when you get the chance. (No pun intended.)
+
+If you've got any stories as to how @git add -p@ has helped you (or if a neat feature was missed), let us know in the comments! 
