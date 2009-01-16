@@ -3,9 +3,7 @@ layout: post
 title: piecemeal staging
 ---
 
-This is a follow up to the comments from yesterday's article about "interactive adding":http://gitready.com/2009/01/14/interactive-adding.html. 
-
-Git's @add --patch@ mode is very similar to interactive adding, but it has a lot more power. This command is capable ofbreaking up commits in files into smaller hunks so you can commit *exactly* what you want, and not just the whole file. 
+This is a follow up to the comments from yesterday's article about "interactive adding":http://gitready.com/2009/01/14/interactive-adding.html. Readers were begging coverage of powerful @git add -p@, a shortcut to the patch mode of interactive adding. This command is capable of breaking up changes in files into smaller hunks so you can commit *exactly* what you want, and not just the whole file. 
 
 This behavior is very helpful since it allows you to version any "hunk" of text in the file that you'd like. Perhaps that one line of code will break the build on others' machines or the build server, but just not yours. You get the point.
 
