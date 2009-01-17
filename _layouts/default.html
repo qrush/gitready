@@ -9,63 +9,49 @@
    <link href="http://feeds.feedburner.com/git-ready" rel="alternate" title="RSS" type="application/rss+xml" />
    <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen, projection" />
    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+   <link rel="stylesheet" href="/css/960.css" type="text/css" media="screen, projection" />
 </head>
 <body>
-  <div class="site">
-    <div class="title">
+  <div class="container_12">
+    <div class="grid_12 title">
       <h1><a href="/">git ready</a></h1>
       <span class="extra">daily tips for the noob to the guru</span>
     </div>
-    <div class="wrapper">
-      <div class="main">
-        {{ content }}
-      </div> 
-      <div class="sidebar">
-        <h3 id="purple"><a href="/">home</a></h3>
-        <h3 id="green">beginner</h3>
-        <div>
-          <a href="/2009/01/10/stashing-your-changes.html">stashing your changes</a>
-          <a href="/2009/01/11/reverting-files.html">reverting files</a>
-          <a href="/2009/01/16/cleaning-up-untracked-files.html">cleaning up untracked files</a>
-        {% for post in site.categories.beginner %}
-          <a href="{{ post.url }}">{{ post.title }}</a>
-        {% endfor %}
-        </div>
-        <h3 id="yellow">intermediate</h3>
-        <div>
-          <a href="/2009/01/09/checkout-remote-tracked-branch.html">checkout remote tracked branch</a>
-          <a href="/2009/01/13/visualizing-your-repo.html">visualizing your repo</a>
-          <a href="/2009/01/14/interactive-adding.html">interactive adding</a>
-        {% for post in site.categories.intermediate %}
-          <a href="{{ post.url }}">{{ post.title }}</a>
-        {% endfor %}
-        </div>
-        <h3 id="red">advanced</h3>
-        <div>
-          <a href="/2009/01/12/fixing-broken-commit-messages.html">fixing broken commit messages</a>
-          <a href="/2009/01/15/piecemeal-staging.html">piecemeal staging</a>
-        {% for post in site.categories.advanced %}
-          <a href="{{ post.url }}">{{ post.title }}</a>
-        {% endfor %}
-        </div>
-        <h3 id="blue">resources</h3>
-        <div>
-          <a href="http://book.git-scm.com">Git Community Book</a>
-          <a href="http://github.com/guides">GitHub Guides</a>
-          <a href="http://git.or.cz/gitwiki">GitWiki</a>
-          <a href="http://gitcasts.com">GitCasts</a>
-          <a href="http://www.kernel.org/pub/software/scm/git/docs/gittutorial.html">Git for everyone</a>
-          <a href="http://git.or.cz/course/svn.html">Git-SVN Crash Course</a>
-          <a href="http://cheat.errtheblog.com/s/git">Git Cheat Sheet</a>
-        </div>
-        <p id="feedburner"><a href="http://feeds.feedburner.com/git-ready"><img src="http://feeds.feedburner.com/~fc/git-ready?bg=FFE3A3&amp;fg=000000&amp;anim=0" height="26" width="88" style="border:0" alt="" /></a></p>
-      </div>
+    <div class="grid_8 prefix_2 suffix_2 main">
+      {{ content }}
+    </div> 
+    <div class="grid_2 prefix_2 links">
+      <h3 id="green">beginner</h3>
+      <a href="/2009/01/10/stashing-your-changes.html">stashing your changes</a>
+      <a href="/2009/01/11/reverting-files.html">reverting files</a>
+      <a href="/2009/01/16/cleaning-up-untracked-files.html">cleaning up untracked files</a>
     </div>
-    <div class="footer">    
-        <a href="/about.html">about</a>
-        <a href="http://github.com/qrush/gitready">code</a>
-        <a href="/submit.html">submit a tip</a>
-        <a class="rss" href="http://feeds.feedburner.com/git-ready">rss</a>
+    <div class="grid_2 links">
+      <h3 id="yellow">intermediate</h3>
+      <a href="/2009/01/09/checkout-remote-tracked-branch.html">checkout remote tracked branch</a>
+      <a href="/2009/01/13/visualizing-your-repo.html">visualizing your repo</a>
+      <a href="/2009/01/14/interactive-adding.html">interactive adding</a>
+    </div>
+    <div class="grid_2 links">
+      <h3 id="red">advanced</h3>
+      <a href="/2009/01/12/fixing-broken-commit-messages.html">fixing broken commit messages</a>
+      <a href="/2009/01/15/piecemeal-staging.html">piecemeal staging</a>
+    </div>
+    <div class="grid_2 suffix_2 links">
+      <h3 id="blue">resources</h3>
+      <a href="http://book.git-scm.com">Git Community Book</a>
+      <a href="http://github.com/guides">GitHub Guides</a>
+      <a href="http://git.or.cz/gitwiki">GitWiki</a>
+      <a href="http://gitcasts.com">GitCasts</a>
+      <a href="http://www.kernel.org/pub/software/scm/git/docs/gittutorial.html">Git for everyone</a>
+      <a href="http://git.or.cz/course/svn.html">Git-SVN Crash Course</a>
+      <a href="http://cheat.errtheblog.com/s/git">Git Cheat Sheet</a>
+    </div>
+    <div class="grid_12 footer">    
+      <a href="/about.html">about</a>
+      <a href="http://github.com/qrush/gitready">code</a>
+      <a href="/submit.html">submit a tip</a>
+      <a class="rss" href="http://feeds.feedburner.com/git-ready">rss</a>
     </div>
   </div>
   <script type="text/javascript">
@@ -79,6 +65,7 @@
   } catch(err) {}</script>
   <div id="counter">
     <script src="http://errcount.com/ctr/762.js"></script>
+    <p id="feedburner"><a href="http://feeds.feedburner.com/git-ready"><img src="http://feeds.feedburner.com/~fc/git-ready?bg=FFE3A3&amp;fg=000000&amp;anim=0" height="26" width="88" style="border:0" alt="" /></a></p>
   </div>
 </body>
 </html>

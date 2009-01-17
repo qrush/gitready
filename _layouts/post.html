@@ -1,8 +1,10 @@
 ---
 layout: default
 ---
-<div id="post">
-  <h2>{{ page.title }}</h2>
+<div id="post" class="grid_8 content">
+  <h2><a href="{{ page.url }}">
+    {{ page.title }}
+  </a></h2>
   <div id="date">committed {{ page.date | date_to_string }}</div>
   {{ content }}
   <div id="disqus">
