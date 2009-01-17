@@ -101,6 +101,10 @@ p {
 	background: #FFFEE6;
 }
 
+.white {
+	background: #FFFFFF;
+}
+
 .links a, .links a:hover {
   color: #000;
   font-size: 82%;
