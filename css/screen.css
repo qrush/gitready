@@ -186,7 +186,7 @@ color: #aaa;
 
   /* standard */
   
-  #post pre {
+  pre {
     border: 1px solid #ddd;
     background-color: #eef;
     padding: 0 .4em;
@@ -195,7 +195,7 @@ color: #aaa;
     margin: 0 15px;
   }
   
-  #post code {
+  code {
     border: 1px solid #ddd;
     background-color: #eef;
     font-size: 95%;
