@@ -1,0 +1,32 @@
+---
+layout: post
+title: counting your commits
+---
+
+Ever wondered how many commits you've contributed to a project? Or perhaps, which coworker has really done nothing (or maybe they have huge changes and fewer commits!) Well, wonder no more, for @git shortlog@ is a nice way to find out. 
+
+I'm running this on my "clone of jekyll":http://github.com/qrush/jekyll, which is how this blog is generated:
+
+<pre>
+$ git shortlog -s -n
+  135  Tom Preston-Werner
+  15  Jack Danger Canty
+  10  Chris Van Pelt
+  7  Mark Reid
+  6  remi
+  3  Mikael Lind
+  3  Toby DiPasquale
+  2  Aristotle Pagaltzis
+  2  Basil Shkara
+  2  John Reilly
+  2  PJ Hyett
+  1  Marc Chung
+  1  Nick Gerakines
+  1  Nick Quaranto
+  1  Tom Kirchner
+</pre>
+
+The @-s@ option squashes all of the commit messages into the number of commits, and the @-n@ option sorts the list by number of commits. 
+
+This command could also be useful for changelogs, since you could easily dump all the changes each person has done. There's a few other neat options: @-e@ will append emails, and you can control columns widths with @-w@. Check out the "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-shortlog.html for more information.
+
