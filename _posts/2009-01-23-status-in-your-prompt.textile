@@ -1,0 +1,26 @@
+---
+layout: post
+title: status in your prompt
+---
+
+Yeah, we all know about the @git status@ command but that's just way too many characters to type again and again. Why bother with those 10 keyboard strokes when you could have your shell simply output git's working state? Sounds awesome, right? Luckily a few hackers have thrown together some scripts to do just this in your bash prompt. If you have these or similiar scripts working in other shells, "submit a tip about it!":http://gitready.com/submit.html
+
+p=. <a href="http://flickr.com/photos/levitateme/195355984/" title="I need one of these for IRC.">!http://farm1.static.flickr.com/72/195355984_7d6153610b.jpg!</a>
+
+Probably the most widely used and known one "shows your current branch name and if anything's changed.":http://henrik.nyh.se/2008/12/git-dirty-prompt Using this script in your @.bashrc@ will give you a prompt like so:
+
+<pre>
+# When clean...
+user@host ~/dir[master]$
+
+# When dirty...
+user@host ~/dir[master*]$
+</pre>
+
+So then it's much easier to tell when you need to do a commit. You can check out "plenty of variants of this script at Gist.":http://gist.github.com/31631 This hack also evolved from "showing just your branch name":http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/ so feel free to build upon it or use it as you like.
+
+Oh, you wanted more? Well, there is a neat project called "git-prompt":http://github.com/lvv/git-prompt/tree/master that can give you all sorts of information about the repository in your bash prompt. You can figure out if individual files are tracked or modified, figure out if merge conflicts are resolved, and even determine if your @HEAD@ is detached. "Check out the project page":http://volnitsky.com/project/git-prompt/ for more information on what it can do. Here's a little demo of what it can show:
+
+p=. <a href="http://volnitsky.com/project/git-prompt" title="It shows commit SHAs too! Badass.">!http://farm4.static.flickr.com/3492/3221797568_41a9803e01_o.png!</a>
+
+If you've got any other helpful prompt-related tips let us know and we'll add it in!
