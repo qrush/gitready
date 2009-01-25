@@ -1,0 +1,46 @@
+---
+layout: post
+title: sharing your changes
+---
+
+Git's distributed nature does not rely on central servers to host and broadcast your code. There's more options available to you if for some reason your main server goes down, or perhaps when "GitHub goes down":http://ozmm.org/posts/when_github_goes_down.html. Probably the easiest way to quickly export and share your code in this case is by making a 'bare' clone of your repository. This contains only the @.git@ directory that's usually at your project's root folder. Since this one folder has all of the history stored in it, you can easily extract anything you need from it. Simply do:
+
+@git clone --bare ~/Dev/ruby/jekyll jekyll.git@
+
+and then upload the folder to a server somewhere, share it for others to find on your machine, etc. Copying it down onto your machine and doing these commands will restore the repository:
+
+<pre>
+$ mkdir test
+$ mv jekyll.git test/.git
+$ cd test
+$ git init
+  Reinitialized existing Git repository in /Users/qrush/Dev/test/.git/
+$ git checkout -f
+</pre>
+
+So we've created a new folder for the repo, changed the folder name back to @.git@, woke git back up and restored all the changes from the latest commit. You could also use the @git-daemon@ to quickly serve up files using the git:// protocol. It will automatically serve up projects in subfolders, so for my ruby directory doing:
+
+@git daemon --base-path=~/Dev/ruby --export-all@
+
+will then allow you to clone the jekyll repository on another machine using: 
+
+@git clone git://<ip-address>/jekyll@
+
+Make sure to check that port 4918 is open on your network for this transfer. If not, just configure a different one using the @--port@ option. Refer to the "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-daemon.html if it still doens't work for you.
+
+Using TCP is boring! What if you want to be able to get my changes over HTTP? Well, you're in luck, Git can serve that up too. Doing these three commands should do the trick:
+
+<pre>
+git --bare update-server-info
+mv hooks/post-update.sample hooks/post-update
+chmod a+x hooks/post-update
+</pre>
+
+These basically prepare Git for access via a web browser. Provided Apache or your favorite server is set up to host that directory, you should be able to clone over http like so:
+
+@git clone http://yoursite.com/yourrepo.git@
+
+There's plenty of other options as well. You could use "OSX's built in web sharing":http://toolmantim.com/articles/sharing_git_repositories_via_os_xs_built_in_web_sharing along with the previous technique to host it from your own machine. You could also use an ssh address if you have an ssh account set up on the server you want to share your code from. 
+
+If you've got any other handy ideas on how to share your repository, let us know in the comments!
+
