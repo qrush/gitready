@@ -1,0 +1,17 @@
+---
+layout: post
+title: branching and merging
+---
+
+Branching in git is ridiculously easy. It's fast (40 characters written to a file), simple (one command to create a branch), and it doesn't create a whole copy of your current working state. This creates a new tool that you can use to experiment with that's quick and can be tailored for your needs. The branches you create don't have to exist in the remote repository, so you can use them to test out new features or big fixes without breaking what's already working. Perhaps "Why Git is Better Than X":http://whygitisbetterthanx.com/#cheap-local-branching puts it best: 
+
+<blockquote>
+Git will allow you to have multiple local branches that can be entirely independent of each other and the creation, merging and deletion of those lines of development take seconds. [...] Git makes this process incredibly easy and it changes the way most developers work when they learn it. 
+</blockquote>
+
+That's nice and all, but you may still be afraid to use branches just because of the stigmas associated with your previous (or lack thereof) version control system's of handling. Worry no longer, we're going to go over a simple example of branching and merging, and resolving a conflict.
+
+
+
+Future tips will cover using helpers for this process, like "git-mergetool":http://www.kernel.org/pub/software/scm/git/docs/git-mergetool.html and @gitk --merge@. If you know of good tutorials on these or other ways to do merging, "submit a tip!":http://gitready.com/submit.html In the meantime check out "Scott Chacon's gitcast on this topic":http://gitcasts.com/posts/branching-and-merging or the "Git Community Book's guide.":http://book.git-scm.com/3_basic_branching_and_merging.html
+
