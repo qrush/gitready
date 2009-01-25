@@ -3,7 +3,9 @@ layout: post
 title: sharing your changes
 ---
 
-Git's distributed nature does not rely on central servers to host and broadcast your code. There's more options available to you if for some reason your main server goes down, or perhaps when "GitHub goes down":http://ozmm.org/posts/when_github_goes_down.html. Probably the easiest way to quickly export and share your code in this case is by making a 'bare' clone of your repository. This contains only the @.git@ directory that's usually at your project's root folder. Since this one folder has all of the history stored in it, you can easily extract anything you need from it. Simply do:
+Git's distributed nature does not rely on central servers to host and broadcast your code. There's more options available to you if for some reason your main server goes down, or perhaps when "GitHub goes down":http://ozmm.org/posts/when_github_goes_down.html. 
+
+Probably the easiest way to quickly export and share your code in this case is by making a bare clone of your repository, which contains only the stuff in the @.git@ directory that's usually at your project's root folder. Since this one folder has all of the history stored in it, you can easily extract anything you need from it. Simply do:
 
 @git clone --bare ~/Dev/ruby/jekyll jekyll.git@
 
@@ -18,7 +20,9 @@ $ git init
 $ git checkout -f
 </pre>
 
-So we've created a new folder for the repo, changed the folder name back to @.git@, woke git back up and restored all the changes from the latest commit. You could also use the @git-daemon@ to quickly serve up files using the git:// protocol. It will automatically serve up projects in subfolders, so for my ruby directory doing:
+So we've created a new folder for the repo, changed the folder name back to @.git@, woke git back up and restored all the changes from the latest commit.
+
+You could also use the @git-daemon@ to quickly serve up files using the git:// protocol. It will automatically serve up projects in subfolders, so for my ruby directory doing:
 
 @git daemon --base-path=~/Dev/ruby --export-all@
 
