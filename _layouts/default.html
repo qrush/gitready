@@ -22,31 +22,21 @@
     </div> 
     <div class="grid_2 prefix_2 links">
       <h3 id="green">beginner</h3>
-      <a href="/2009/01/10/stashing-your-changes.html">stashing your changes</a>
-      <a href="/2009/01/11/reverting-files.html">reverting files</a>
-      <a href="/2009/01/16/cleaning-up-untracked-files.html">cleaning up untracked files</a>
-      <a href="/2009/01/18/the-staging-area.html">the staging area</a>
-      <a href="/2009/01/21/pushing-and-pulling.html">pushing and pulling</a>
-      <a href="/2009/01/25/branching-and-merging.html">branching and merging</a>
-      <a href="/2009/01/27/installing-git.html">installing git</a>
+      {% for post in site.categories.beginner %}
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      {% endfor %}
     </div>
     <div class="grid_2 links">
       <h3 id="yellow">intermediate</h3>
-      <a href="/2009/01/09/checkout-remote-tracked-branch.html">checkout remote tracked branch</a>
-      <a href="/2009/01/13/visualizing-your-repo.html">visualizing your repo</a>
-      <a href="/2009/01/14/interactive-adding.html">interactive adding</a>
-      <a href="/2009/01/19/ignoring-files.html">ignoring files</a>
-      <a href="/2009/01/22/count-your-commits.html">count your commits</a>
-      <a href="/2009/01/24/sharing-your-changes.html">sharing your changes</a>
-      <a href="/2009/01/26/text-based-graph.html">text-based graph</a>
+      {% for post in site.categories.intermediate %}
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      {% endfor %}
     </div>
     <div class="grid_2 links">
       <h3 id="red">advanced</h3>
-      <a href="/2009/01/12/fixing-broken-commit-messages.html">fixing broken commit messages</a>
-      <a href="/2009/01/15/piecemeal-staging.html">piecemeal staging</a>
-      <a href="/2009/01/17/restoring-lost-commits.html">restoring lost commits</a>
-      <a href="/2009/01/20/bend-logs-to-your-will.html">bend logs to your will</a>
-      <a href="/2009/01/23/status-in-your-prompt.html">status in your prompt</a>
+      {% for post in site.categories.advanced %}
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      {% endfor %}
     </div>
     <div class="grid_2 suffix_2 links">
       <h3 id="blue">resources</h3>
