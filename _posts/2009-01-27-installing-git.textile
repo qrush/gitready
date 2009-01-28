@@ -11,9 +11,7 @@ p=. "!http://farm4.static.flickr.com/3047/2754478731_6cac6d30a8_m.jpg!":http://f
 
 *Windows*
 
-Yes, it works. Yes, you'll have to install Cygwin. No, it'll never be as fast as a real POSIX shell will be. However, there are plenty of awesome guides, and "nathanj's":http://github.com/nathanj "Illustrated Guide to Git on Windows":http://nathanj.github.com/gitguide/ is simply the best. It has a tutorial on how to get started using the system as well.
-
-There's other installation options as well for Windows, you could simply download and install "Git on MSys":http://code.google.com/p/msysgit/ or even "compile from source":http://techblogging.wordpress.com/2008/04/11/compiling-and-installing-git-on-windows-under-cygwin/
+Yes, it works!  There are plenty of awesome guides, but "nathanj's":http://github.com/nathanj "Illustrated Guide to Git on Windows":http://nathanj.github.com/gitguide/ is simply the best. It has a tutorial on how to get started using the system as well, and you can get started on it by downloading "Git on MSys":http://code.google.com/p/msysgit/. Another option available to Windows users is "compiling from source":http://techblogging.wordpress.com/2008/04/11/compiling-and-installing-git-on-windows-under-cygwin/ with "Cygwin":http://www.cygwin.com/.
 
 *OSX*
 
