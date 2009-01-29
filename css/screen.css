@@ -11,12 +11,12 @@ a {
   text-decoration: none;
 }
 
-#post p a {
+.content p a {
   color: #000;
 	background: #AED180;
 }
 
-#post p a:hover {
+.content p a:hover {
   color: #fff;
   background: #000;
 }
@@ -188,7 +188,12 @@ color: #aaa;
 /*
 /*****************************************************************************/
 
-#more { margin: 10px 0; padding: 3px; display:block; font-size: 13px; font-weight: bold; }
+#more { 
+  margin: 10px 0; 
+  padding: 3px; 
+  display:block; 
+  font-size: 13px; 
+  font-weight: bold; }
 
   /* standard */
   
