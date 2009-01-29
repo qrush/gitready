@@ -16,6 +16,6 @@ Once a change is made, a ! appears (@git status@ is run since the author can't b
 
 p=. !/images/zsh-workflow.png!
 
-If you're looking for a more DYI version, "Bart Trojanowski":http://www.jukie.net/~bart has a "great tutorial on adding branch status":http://www.jukie.net/~bart/blog/20071219221358 that can be easily extended. If you're looking for another nice and easy zsh setup, "zshkit":http://github.com/mattfoster/zshkit/tree/master and its various forks are fun to use and come packaged with plenty of helper commands. 
+If you're looking for a more DIY version, "Bart Trojanowski":http://www.jukie.net/~bart has a "great tutorial on adding branch status":http://www.jukie.net/~bart/blog/20071219221358 that can be easily extended. If you're looking for another nice and easy zsh setup, "zshkit":http://github.com/mattfoster/zshkit/tree/master and its various forks are fun to use and come packaged with plenty of helper commands. 
 
 Of course, if you have other zsh scripts or different shells that deserve their own tip, "submit one!":http://gitready.com/submit.html
