@@ -6,7 +6,7 @@ category: intermediate
 
 Just a short and interesting tip today about @git log --graph@. If you're confused about where branches are headed or how merges worked, and you're either too lazy to fire up @gitk@, @gitx@, or the "GitHub Network Graph":http://github.com/qrush/jekyll/network, you can get a really simple and fast graphical representation of your commits with this command.
 
-Doing a @git log --graph@ produces this for my clone of the "jekyll":http://github.com/qrush/jekyll repo, which has changes not pushed from yesterday's post on "merging and branching.":http://gitready.com/2009/01/25/branching-and-merging.html However, in this form it's not really helpful:
+Doing a @git log --graph@ produces this for my clone of the "jekyll":http://github.com/qrush/jekyll repo, which has changes not pushed from yesterday's post on "merging and branching.":http://gitready.com/beginner/2009/01/25/branching-and-merging.html However, in this form it's not really helpful:
 
 p=. !/images/graphfail.png!
 
@@ -15,5 +15,5 @@ Let's slim that down a bit to @git log --graph --pretty=oneline --abbrev-commit@
 
 p=. !/images/graph.png!
 
-Much better! Of course, "there's plenty of other ways to visualize your repository":http://gitready.com/2009/01/13/visualizing-your-repo.html as well.
+Much better! Of course, "there's plenty of other ways to visualize your repository":http://gitready.com/intermediate/2009/01/13/visualizing-your-repo.html as well.
 

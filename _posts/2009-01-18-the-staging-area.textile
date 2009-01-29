@@ -16,7 +16,7 @@ Using the index is quite simple with the @git add@ and @git commit@ commands. Ba
 
 p=. "!http://whygitisbetterthanx.com/images/index1.png!":http://whygitisbetterthanx.com/#the-staging-area
 
-Once they're in the repository you can @push@ them to remote locations, @merge@ them into other branches, and much more. There's also actions that can be performed on the staging area itself, such as "temporarily stashing your changes":http://gitready.com/2009/01/10/stashing-your-changes.html. 
+Once they're in the repository you can @push@ them to remote locations, @merge@ them into other branches, and much more. There's also actions that can be performed on the staging area itself, such as "temporarily stashing your changes":http://gitready.com/beginner/2009/01/10/stashing-your-changes.html. 
 
 Let's go through just a basic example of using the staging area. I just made some changes:
 
@@ -50,7 +50,7 @@ $ git status
       new file:   help.txt
 </pre>
 
-Just like the prompt says, you can use @git reset HEAD <file>@ to restore files back to their modified state. This way, you can commit exactly what you wanted. "You can also commit specific lines of files if you really wanted.":http://gitready.com/2009/01/15/piecemeal-staging.html If you're wondering about how to revert files, "there's a whole tip dedicated to that as well.":http://gitready.com/2009/01/11/reverting-files.html From here, doing a @git commit@ will move all of the files into Git's data storage, and you're set!
+Just like the prompt says, you can use @git reset HEAD <file>@ to restore files back to their modified state. This way, you can commit exactly what you wanted. "You can also commit specific lines of files if you really wanted.":http://gitready.com/advanced/2009/01/15/piecemeal-staging.html If you're wondering about how to revert files, "there's a whole tip dedicated to that as well.":http://gitready.com/beginner/2009/01/11/reverting-files.html From here, doing a @git commit@ will move all of the files into Git's data storage, and you're set!
 
 <pre>
 $ git commit -m "Adding stuff"
