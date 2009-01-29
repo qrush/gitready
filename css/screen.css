@@ -11,9 +11,14 @@ a {
   text-decoration: none;
 }
 
-.main a:hover {
+#post p a {
   color: #000;
 	background: #AED180;
+}
+
+#post p a:hover {
+  color: #fff;
+  background: #000;
 }
 
 a:visited {
@@ -22,7 +27,8 @@ a:visited {
 
 p {
   text-align: left;
-  padding: 10px 15px;
+  padding: 8px 15px;
+  line-height: 19px;
 }
 
 #disqus { padding: 10px; }
