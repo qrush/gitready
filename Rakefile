@@ -10,7 +10,10 @@ task :deploy do
 	commands = <<EOF
 cd gitready
 git pull origin master
-jekyll
+jekyll _new
+mv _site _old
+mv _new _site
+rm -rf _old
 EOF
 
 	Net::SSH.start('gitready.com', username, :port => 1337, :password => password) do |ssh|
