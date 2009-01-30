@@ -31,7 +31,7 @@ p {
   line-height: 19px;
 }
 
-#disqus { padding: 10px; }
+#disqus { background: #DEE6CF; padding: 10px; }
 #date { color: #333; font-size: 80%;}
 #post img { padding: 10px; border: 2px solid #aaa; background: #eee; }
 #feedburner { padding: 0; position: absolute; }
