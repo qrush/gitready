@@ -1,0 +1,30 @@
+---
+layout: post
+title: exporting your repository
+category: intermediate
+---
+
+Previously there was a tip that covered "sharing changes":http://gitready.com/intermediate/2009/01/24/sharing-your-changes.html but that included all of your repository's history. What if you just want to export a certain commit's changes? Or just one folder? What if you wanted to make an archive of the repository for backup? Fear not, for Git can do all that and more. Thanks to "Stack Overflow":http://stackoverflow.com/questions/160608/how-to-do-a-git-export-like-svn-export for providing with some helpful hints to add into this post.
+
+If your need is to just make a quick backup of your repository, doing a @git archive@ will help. So if you wanted to get zip file packed with your repository's files:
+
+@git archive HEAD --format=zip > archive.zip@
+
+The archive command normally packages repos in tarballs, so you can easily pipe it to your favorite data compression program:
+
+@git archive HEAD | gzip > archive.tar.gz@
+
+You can also archive a remote using the @--remote=<repo>@ option. Just be aware that this does not work with GitHub remotes, as "they encourage you to use the download button instead.":http://groups.google.com/group/github/browse_thread/thread/cfcbcb1dc5f41f16 With any other remote it should work fine though, and check the "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-archive.html if you're having issues.
+
+What if you don't want a compressed version of the files? That's possible too thanks to the @checkout-index@ command. Basically, it copies everything on your index into a different folder. Exporting your repo would then be:
+
+@git checkout-index -f -a --prefix=/path/to/folder/@
+
+The @-f@ option overwrites files, and the @-a@ option means all files and folders. Just don't forget the trailing slash on the @--prefix@ option, as it's very important! Omitting it will make the command think you want to prefix every file name with that argument instead.
+
+If you wanted to just export a specific file or folder (in this case everything in the bin/ folder and the readme):
+
+@git checkout-index -f --prefix=/path/to/folder/ bin/* README.textile@ 
+
+Nice! You can also chain this command with @find@ if you wanted to export all header files for example. Check out all you can do with "checkout-index at its manpage.":http://www.kernel.org/pub/software/scm/git/docs/git-checkout-index.html "Daniel Schierbeck":http://github.com/dasch has wrapped this process up into a little script called "git-export":http://github.com/dasch/git-export/tree that is worth a look if you need to do this often.
+
