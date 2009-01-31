@@ -1,0 +1,34 @@
+---
+layout: post
+title: finding what has been changed
+category: intermediate
+---
+
+Frequently you may want to easily see what has been changed as you're working. Perhaps you just went out for a bite to eat and temporarily forgot, or maybe you need to check to see just what will be added into your newest commit. There's a few Git commands that can help with this and make it very easy to figure out what has been modified.
+
+Probably the easiest option is doing a @git diff@. It will print out the lines that have changed in all files compared to @HEAD@, or the last commit. So changing just one line in a README file would give me this output:
+
+p=. !/images/diff.png!
+
+Provided your color options are turned on, it should be really easy to see what lines have been added, changed, or removed. There's tons of other options for this command, but we'll cover them and the other diff related helpers in future tips.
+
+Using @git diff@ will compare what is in the "staging area":http://gitready.com/beginner/2009/01/18/the-staging-area.html and what's last been committed. However, you may want to see what files were modified in the last commit. You could play around with the various "logging options":http://gitready.com/advanced/2009/01/20/bend-logs-to-your-will.html, or use @git whatchanged@. This shortcut brings in the commit message, author information, and prints out exactly what files were touched for that changeset. So, if you wanted to see what the last commit changed:
+
+<pre>
+$ git whatchanged -n 1
+  commit 698192122d725da2bc79f273571d91dba8b645a8
+  Author: Nick Quaranto <nick@quaran.to>
+  Date:   Wed Jan 28 09:22:46 2009 -0500
+
+      Adding support for setting post categories through YAML 
+      if not specified by directory structure
+
+      :100644 100644 92e4ce1... de43f33... M  .gitignore
+      :100644 100644 0706818... 81213b3... M  lib/jekyll/post.rb
+      :100644 100644 9aabcdd... 611d6d6... M  test/helper.rb
+      :100644 100644 56e5e42... 373545d... M  test/test_generated_site.rb
+      :100644 100644 713eec0... 202ea55... M  test/test_post.rb
+      :100644 100644 03bf166... 7bcf6de... M  test/test_site.rb
+</pre>
+
+Of course, plenty of other options exist for this command at its "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-whatchanged.html. If you have good ideas or ways to figure out what has changed in your repository from commit to commit, let us know!
