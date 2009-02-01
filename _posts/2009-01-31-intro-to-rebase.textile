@@ -1,0 +1,47 @@
+---
+layout: post
+title: intro to rebase
+category: intermediate
+---
+
+Git's "rebase":http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html command is hard to for newcomers, and the "manpage's":http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html description doesn't help at all:
+
+<blockquote>
+git-rebase - Forward-port local commits to the updated upstream head
+</blockquote>
+
+Um, what? This is helpful if you understand how Git works, but not at all if you're just starting out. Thanks to "Travis Swicegood":http://www.travisswicegood.com/, we have a better metaphor:
+
+p=. "!http://farm4.static.flickr.com/3120/3174148419_51d09db6e5.jpg?v=0!":http://flickr.com/photos/hatrick/3174148419/
+
+A cleaver. Rebase helps to cut up commits and slice them into any way that you want them served up, and placed exactly where you want them. You can actually rewrite history with this command, be it reordering commits, squashing them into bigger ones, or completely ignoring them if you so desire. 
+
+Why is this helpful? One of the most common use cases is that you've been working on your own features/fixes/etc in separate branches. Instead of creating ugly merge commits for every change that is brought back into the master branch, you could create one big commit and let rebase handle attaching it. Another frequent use of rebase is to pull in changes from a project and keep your own modifications in line. Usually by doing merges, you'll end up with a history in which commits are interleaved between upstream and your own. Doing a rebase prevents this and keeps the order in a more sane state. For some examples of how this looks graphically, visit the end of "Git for Computer Scientists":http://eagain.net/articles/git-for-computer-scientists/ or "James Bowes' post on the subject":http://jbowes.dangerouslyinc.com/2007/01/26/git-rebase-keeping-your-branches-current/.
+
+So let's go through a simple example of using rebase. I'm going to check out a new branch for my feature, and hack on it for a bit, and commit my changes.
+
+<pre>
+$ git checkout -b newfeature 
+Switched to a new branch "newfeature"
+
+[.. changed some files, made a few commits ..]
+
+$ git checkout master
+Switched to branch "master"
+
+[.. changed one file, committed ..]
+</pre>
+
+So right now, our history looks like this (screenshots taken from "gitx":http://gitx.frim.nl/):
+
+p=. !/images/rebase1.png!
+
+Now I want to bring the changes back into the master branch. Now, from here I could merge my changes in with @git merge newfeature@. If I did that, here's how the commit history would look:
+
+p=. !/images/rebase2.png!
+
+If we did a @git rebase newfeature@ instead, our commit history would look like:
+
+p=. !/images/rebase3.png!
+
+So you can see how it ends up a lot cleaner and compact. Since these changes were relatively simple, merging was really simple and didn't require any work to do. Future tips will cover resolving merge problems, the different merging algorithms available, and of course rebase's interactive mode. This post was meant mostly for getting the basics down of what the command does. If you have any neat tricks that you usually do with rebase, "submit a tip!":http://gitready.com/submit.html
