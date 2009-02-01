@@ -4,13 +4,13 @@ title: intro to rebase
 category: intermediate
 ---
 
-Git's "rebase":http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html command is hard to for newcomers, and the "manpage's":http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html description doesn't help at all:
+Git's "rebase":http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html command is hard to understand for newcomers, and the "manpage's":http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html description doesn't help at all:
 
 <blockquote>
 git-rebase - Forward-port local commits to the updated upstream head
 </blockquote>
 
-Um, what? This is helpful if you understand how Git works, but not at all if you're just starting out. Thanks to "Travis Swicegood":http://www.travisswicegood.com/, we have a better metaphor:
+Um, what? This is helpful if you know how Git works, but not at all if you're just starting out. Thanks to "Travis Swicegood":http://www.travisswicegood.com/, we have a better metaphor:
 
 p=. "!http://farm4.static.flickr.com/3120/3174148419_51d09db6e5.jpg?v=0!":http://flickr.com/photos/hatrick/3174148419/
 
