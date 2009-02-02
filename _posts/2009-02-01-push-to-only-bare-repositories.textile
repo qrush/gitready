@@ -1,0 +1,22 @@
+---
+layout: post
+title: push to only bare repositories
+category: advanced
+---
+
+Typically Git allows you to build whatever kind of workflow you'd like. Instead of saying "you must use it this way", Git lets you figure out what best works for you and your organization. Like every system though, there are caveats and gotchas, and this tip goes over one of them. Let's go over some definitions about the subject first:
+
+*bare repository*: a repository cloned using the @--bare@ option, only includes the files/folders inside of the @.git@ directory
+*non-bare repository*: a normal clone, has a working directory with checked out files
+
+There's easy ways to "share your changes":http://gitready.com/intermediate/2009/01/24/sharing-your-changes.html with Git, but sometimes you want to "push and pull":http://gitready.com/beginner/2009/01/21/pushing-and-pulling.html from a repository instead. The best practice here is when you want to push changes, don't push to a non-bare repository. In other words, from the "GitFaq":http://git.or.cz/gitwiki/GitFaq#head-b96f48bc9c925074be9f95c0fce69bcece5f6e73:
+
+<blockquote>
+A quick rule of thumb is to never push into a repository that has a work tree attached to it, until you know what you are doing. 
+</blockquote>
+
+The lesson here is that if you're going to push changes, make a bare repository clone with @git clone --bare@. From this point, you could host the changes from with "git daemon":http://www.kernel.org/pub/software/scm/git/docs/git-daemon.html so others can access them. (Tips on this command will be coming!) The reason why Git was built to be unhappy with pushing to non-bare repositories is because one of its main goals is to *not* lose your data. 
+
+If you do want to for some reason, measures are in place so you don't accidentally lose your changes. Once you have pushed to a non-bare repository, you'd have to @git reset --hard HEAD@ to throw your changes out, and then do a @git checkout -f@ to bring the pushed changes in. Even if you did lose some work that was committed, you could use @git reflog@ to pull the objects back out of Git's datastore. 
+
+Now that you know what it takes to push to a non-bare repository, hopefully you'll take the easier route and just use the @--bare@ option. If for some reason you don't want to, now you know what can be done to work around it.
