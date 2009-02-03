@@ -6,7 +6,7 @@ category: beginner
 
 This is an action that many Git users need to do frequently, but many (including the author) have forgotten how to do so or simply don't know how. Here's the definitive guide if you've forgotten.
 
-So let's say you have "checked out a new branch":http://0.0.0.0:4000/beginner/2009/01/25/branching-and-merging.html, committed some awesome changes, but now you need to share this branch though with another developer. You can push the branch up to a remote very simply:
+So let's say you have "checked out a new branch":http://gitready.com/beginner/2009/01/25/branching-and-merging.html, committed some awesome changes, but now you need to share this branch though with another developer. You can push the branch up to a remote very simply:
 
 @git push origin newfeature@
 
