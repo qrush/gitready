@@ -2,7 +2,7 @@ body {
   background-color: white;
   font: 13.34px Verdana, helvetica, arial, clean, sans-serif;
   *font-size: small;
-  text-align: center;
+  text-a3ign: center;
   background: #222;
 }
 
@@ -11,12 +11,12 @@ a {
   text-decoration: none;
 }
 
-.content p a {
+.content p a, .content ul a {
   color: #000;
 	background: #AED180;
 }
 
-.content p a:hover {
+.content p a:hover, .content ul a:hover {
   color: #fff;
   background: #000;
 }
@@ -32,7 +32,7 @@ p {
 }
 
 #disqus { background: #DEE6CF; padding: 10px; }
-#date { color: #333; font-size: 80%;}
+#date { text-align: center; color: #333; font-size: 80%;}
 #post img { padding: 10px; border: 2px solid #aaa; background: #eee; }
 #feedburner { padding: 0; position: absolute; }
 #counter {
@@ -124,11 +124,14 @@ p {
 
 .links a, .links a:hover {
   color: #000;
+	text-align: center;
   font-size: 80%;
 	display: block;
 	padding: 3px;
 	background: #FFE3A3;
 }
+
+.links h3 { text-align: center; }
 
 .links a:hover
 {
@@ -177,6 +180,7 @@ color: #aaa;
   margin-top: 1em;
   overflow: hidden;
   clear: both;
+	text-align: center;
 }
 
 .footer a {
@@ -254,6 +258,15 @@ color: #aaa;
   #post pre.terminal code {
     background-color: #333;
   }
+
+#post ul, #post ol {
+	list-style-type: disc;
+	text-align: left;
+	margin-left: 40px;
+}
+
+#post li { margin-bottom: 3px; }
+
 
 #related {
   margin-top: 2em;

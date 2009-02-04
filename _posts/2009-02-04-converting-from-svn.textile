@@ -1,0 +1,37 @@
+---
+layout: post
+title: converting from svn
+category: beginner
+---
+
+You're probably reading this for one of a few reasons:
+
+* You're a longtime SVN user and want to see what Git is all about
+* You want to know how much of a pain switching to Git is
+* You hate SVN and want to see what's better
+
+Instead of contributing to the mass of tutorials already written about the subject, I figured I would take the <s>easy</s> useful way out and compose a list of great tutorials on how to accomplish a migration to Git for those who are familiar with SVN. If you have more links, please comment away and I'll add them in.
+
+*Transition Tutorials*
+_These tutorials describe just how different the two version control systems are and go over how they work on a (mostly) high level._
+
+* "Git SVN Workflow":http://andy.delcambre.com/2008/03/04/git-svn-workflow.html
+* "GitSvnComparsion":http://git.or.cz/gitwiki/GitSvnComparsion
+* "An introduction to git-svn for Subversion/SVK users and deserters":http://utsl.gen.nz/talks/git-svn/intro.html
+
+*Command Tutorials*
+_These tutorials focus on learning commands that perform common actions between the two systems._
+
+* "Git - SVN Crash Course":http://git.or.cz/course/svn.html
+* "Howto use Git and svn together":http://flavio.castelli.name/howto_use_git_with_svn
+* "git[-svn] in 30 minutes":http://michael-prokop.at/blog/2007/12/03/git-svn-in-30-minutes/
+
+*Migration Tutorials*
+_These tutorials elaborate on how you can import your history from SVN and how to work with others who may not be converted yet._
+
+* "Converting Subversion repositories to Git":http://weblog.redlinesoftware.com/2008/2/24/converting-subversion-repositories-to-git
+* "Converting a Shared Subversion Repository to Git":http://notahat.com/posts/25
+* "How to convert from Subversion to Git":http://pauldowman.com/2008/07/26/how-to-convert-from-subversion-to-git/
+* "git-svn is a gateway drug":http://www.robbyonrails.com/articles/2008/04/10/git-svn-is-a-gateway-drug
+
+Tips related to git-svn are still more than welcome, be it configuration options, bugs/issues you ran into, etc. "Submit away":/submit.html if you have great ideas!
