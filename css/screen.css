@@ -24,7 +24,6 @@ a {
 a:visited {
 }
 
-
 p {
   text-align: left;
   padding: 8px 15px;
@@ -98,7 +97,6 @@ p {
 
 .info div {
 	text-align: right;
-	margin-right: 23px;
 }
 
 .info .extra {
