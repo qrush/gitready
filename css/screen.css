@@ -192,6 +192,10 @@ color: #aaa;
 	text-decoration: underline;
 }
 
+.footer .languages span, .footer .languages a {
+	padding: 0;
+	font-size: 12px;
+}
 
 /*****************************************************************************/
 /*
