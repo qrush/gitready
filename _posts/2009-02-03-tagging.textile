@@ -10,9 +10,9 @@ Probably the best way to describe a tag is a post-it note that refers to one com
 
 p=. !http://eagain.net/articles/git-for-computer-scientists/git-storage.6.png!
 
-So, how does one create a tag? Just @git tag v1.0.0@ right? WRONG. You don't want to do that. In fact, some suggest that this command "does the wrong thing by default":http://www.rockstarprogrammer.org/post/2008/oct/16/git-tag-does-wrong-thing-default/. Without arguments, @git tag@ creates a "lightweight" tag that is "basically a branch that never moves":http://book.git-scm.com/3_git_tag.html.
+So, how does one create a tag? Just @git tag v1.0.0@ right? WRONG. You *usually* don't want to do that. In fact, some suggest that this command "does the wrong thing by default":http://www.rockstarprogrammer.org/post/2008/oct/16/git-tag-does-wrong-thing-default/. Without arguments, @git tag@ creates a "lightweight" tag that is "basically a branch that never moves":http://book.git-scm.com/3_git_tag.html. Lightweight tags are still useful though, perhaps for marking a known good (or bad) version, or a bunch of commits you may need to use in the future. Nevertheless, you probably don't want to push these kinds of tags.
 
-Usually, you want to at least pass the @-a@ option to create an unsigned tag, or sign the tag with your GPG key via the @-s@ or @-u <key-id>@ options. Once this has been done you can then use @git describe@ to figure out how many commits you've created since the last tag or the given tag. "Git-fu":http://gitfu.wordpress.com/ has a "great tutorial":http://gitfu.wordpress.com/2008/05/25/git-describe-great-another-way-to-refer-to-commits/ on how to use this command (and it deserves a tip of its own for the future too!).
+Normally, you want to at least pass the @-a@ option to create an unsigned tag, or sign the tag with your GPG key via the @-s@ or @-u <key-id>@ options. Once this has been done you can then use @git describe@ to figure out how many commits you've created since the last tag or the given tag. "Git-fu":http://gitfu.wordpress.com/ has a "great tutorial":http://gitfu.wordpress.com/2008/05/25/git-describe-great-another-way-to-refer-to-commits/ on how to use this command (and it deserves a tip of its own for the future too!).
 
 So let's make a new tag and see how we can refer to it even after commits have been made, then we'll push it to a remote. It's a lot easier than you think.
 
@@ -54,7 +54,7 @@ $ git push --tags
    * [new tag]         v1.0.0 -> v1.0.0
 </pre>
 
-The second describe command shows us that we're one commit ahead of where the last tag was done. This is an easy way to figure out how much work has been done since the last commit. On GitHub (or on your remote) you'll see the tag pushed up:
+The second describe command shows us that we're one commit ahead of where the last tag was done. This is an easy way to figure out how much work has been done since the last commit. Also, the @--tags@ option was used to push here, but just the one tag could have been pushed with @git push origin : v1.0.0@. On GitHub (or on your remote) you should see the tag pushed up:
 
 p=. !/images/tag.png!
 
