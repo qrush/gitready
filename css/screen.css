@@ -81,7 +81,7 @@ p {
 
 
 .title {
-  margin: 2em 0;
+  margin: 20px 0;
 }
 
 .title h1 {
@@ -91,16 +91,27 @@ p {
 .title h1 a {
   color: #92BF6F;
   font-weight: bold;
-  margin-bottom: 2em;
+  margin-bottom: 20px;
   font-size: 50px;
   font-family: "Consolas", "Monaco", "Courier New", "Courier", monospace;
 }
 
-.title .extra {
+.info div {
+	text-align: right;
+	margin-right: 23px;
+}
+
+.info .extra {
   color: #aaa;
   text-decoration: none;
-  margin-left: 1em;
+	margin-top: 35px;
   font-size: 16px;
+}
+
+.info .author {
+	color: #fff;
+	font-size: 11px;
+	margin-top: 5px;
 }
 
 .content {
