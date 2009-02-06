@@ -1,0 +1,24 @@
+---
+layout: post
+title: bash auto completion
+category: advanced
+---
+
+This tip comes from the ever resourceful "Brian Cardarella":http://cardarella.blogspot.com/, who has a gist on "how to install and set up	auto completion":http://gist.github.com/58383 with Git. It's based off of "Shawn O. Pierce's":http://spearce.org bash completion script. Just what will it do for you? 
+
+<blockquote>
+The contained completion routines provide support for completing:
+* local and remote branch names
+* local and remote tag names
+* .git/remotes file names
+* git 'subcommands'
+* tree paths within 'ref:path/to/file' expressions
+* common --long-options
+</blockquote>
+
+
+Installation is really easy: just download/wget/curl the files and put them in your home directory, edit your @.bash_profile@ and you're set. "Eric Goodwin":http://blog.ericgoodwin.com/ also has a great writeup of "how to pull the script down and install it":http://blog.ericgoodwin.com/2008/4/10/auto-completion-with-git if you haven't compiled git from source. He also has found a "fantastic article":http://blog.infinitered.com/entries/show/4 on bash's various startup files if this is all new to you.
+
+For OSX users, you can also use MacPorts to install the script. "Pratik Naik":http://m.onkey.org/2008/4/12/if-you-see-this has a really easy way of installing it if you used the @+bash_completion@ option. If not, it's probably easier to just deactivate your current version and reinstall it with that option added. 
+
+If you know how to accompish this in other shells, comment away or "submit a tip!":/submit.html
