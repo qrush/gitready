@@ -21,9 +21,3 @@ EOF
 	end
 
 end
-
-desc "Start up jekyll."
-task :serve do
-	Kernel.fork { `jekyll --auto` }
-	exec('jekyll --server')
-end
