@@ -1,0 +1,47 @@
+---
+layout: post
+title: helpful command aliases
+category: intermediate
+---
+
+A great way to make your life using Git easier is to add aliases for commands that you use all the time into your @.gitconfig@ file. It might not be as elegant as adding shortcuts to your shell, but at least this will work consistently across all shells and is a breeze to set up. The "Git Cheat Sheet":http://cheat.errtheblog.com/s/git suggests adding this block to your config file:
+
+<pre>
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
+</pre>
+
+Once you've got this block added to your config file, it should work immediately:
+
+<pre>
+$ git st
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#  _posts/2009-02-06-helpful-command-aliases.textile
+nothing added to commit but untracked files present (use "git add" to track)
+</pre>
+
+You can also add aliases like so, and they will get added to your @.gitconfig@ file automatically.
+
+<pre>
+$ git config –-global alias.rb rebase
+</pre>
+
+
+For the SVN converts, Alex Soto has suggested a few alias helpers that will help with interacting with Subversion repositories:
+
+<pre>
+[alias]
+  spull = !git-svn fetch && git-svn rebase
+  spush = !git-svn dcommit
+</pre>
+
+There's also plenty of other advanced commands at the "GitWiki":http://git.or.cz/gitwiki/Aliases. If you've got an alias that others could find useful, comment or "submit":/submit.html away and it will be added!
+
