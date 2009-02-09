@@ -1,0 +1,48 @@
+---
+layout: post
+title: reflog, your safety net
+category: intermediate
+---
+
+We've covered the "reflog":http://www.kernel.org/pub/software/scm/git/docs/git-reflog.html command briefly in a previous article on how to "restore lost commits":http://gitready.com/advanced/2009/01/17/restoring-lost-commits.html but it was never fully explained. Today we'll look into what it does and how you can use it as a safety net to recover your work.
+
+p=. "!http://farm4.static.flickr.com/3462/3222479388_abcb084c1a.jpg?v=0!":http://flickr.com/photos/paradisecircus/3222479388/
+
+Once again the man pages are pretty terse about what this command actually does:
+
+<blockquote>
+git-reflog - Manage reflog information
+</blockquote>
+
+This definition is a little better, from later in the document:
+
+<blockquote>
+Reflog is a mechanism to record when the tip of branches are updated. This command is to manage the information recorded in it.
+</blockquote>
+
+Basically every action you perform inside of Git where data is stored, you can find it inside of the reflog. Git tries really hard not to lose your data, so if for some reason you think it has, chances are you can dig it out using @git reflog@. What this means is that you can use it as a safety net: you shouldn't be worried that a merge, rebase, or some other action will destroy your work since you can find it again using this command.
+
+The most common usage of this command is that you've just done a @git reset@ and moved your @HEAD@ back a few commits. But oops, you need that bit of code you left in the second commit. Crap. Now what? Running @git reflog@ will probably result in something like this:
+
+p=. !/images/reflog.png!
+
+What this shows is a list of commits that Git still has in its storage. The first 6 characters are the beginning of the commit's SHA1 hash, followed by the commit's pointer, action, and message. You can see that not just commits are listed: switching branches, merges, rebases, and more are shown. The important part is the commit pointer and the SHA1: once you have that, you can do a @git show@ to see the diff, or perhaps a @checkout@, @cherry-pick@, or @merge@ depending on how you want to get the change back into your history.
+
+You can also use the @--all@ option to get more detailed information about different branches and even the stash:
+
+p=. !/images/reflog-all.png!
+
+This command is also used for another purpose: deleting old entries that you won't need anymore. This may be done to conserve space in your repository, or perhaps since you want to take out the garbage every once in a while. You could knock off individual reflogs using the @delete@ subcommand, but the @expire@ subcommand is much more useful since it can be given a date to remove entries from. 
+
+An example of using this command to quickly pack up your repository can be found on "John Wiegley's":http://www.newartisans.com/blog/ post on "Diving into Git":http://www.newartisans.com/blog/2008/04/diving-into-git.html, where he compresses his repository with the following commands:
+
+<pre>
+$ git reflog expire --expire=1.minute refs/heads/master
+$ git fsck --unreachable      
+$ git prune                   
+$ git gc                      
+</pre>
+
+Basically this removes all reflogs that are older than a minute for the master branch, finds and deletes any commits that aren't being used, then does some general cleanup on the whole repository to further compress it. This could have had its own tip, but it's probably better to illustrate a great use of the subject's subcommands in your workflow.
+
+As always, check out the "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-reflog.html for the other options, and if you have other uses for this command let us know!

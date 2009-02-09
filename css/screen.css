@@ -160,6 +160,7 @@ h3{
 #yellow { color: #B3B300; }
 #blue { color: #809FFF; }
 #purple { 
+	text-align: center;
   padding: 0 0 5px; 
   color: #FF80FF;
 }
