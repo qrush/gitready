@@ -1,0 +1,60 @@
+---
+layout: post
+title: pull with rebase
+category: advanced
+---
+
+Users of Git are hopefully aware that a @git pull@ does a @git fetch@ to pull down data from the specified remote, and then calls @git merge@ to join the changes received with your current branch's work. However, that may not always be the best case. You can also "rebase":http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html the changes in, and that may end up being a lot cleaner. This can be done simply by tacking on the @--rebase@ option when you pull, like so:
+
+@git pull --rebase <remote name> <branch name>@
+
+So, why is this useful? Sometimes it's easier not to merge in the upstream content and it's better just to reapply your work on top of the incoming changes. For long term changes, it is probably best to merge, but for smaller changesets history will stay cleaner with rebase. So let's say I wanted to use rebase instead of merging to bring in upstream changes from the main "jekyll":http://github.com/mojombo/jekyll repository into my "fork":http://github.com/qrush/jekyll. So the repository looks like this right now:
+
+p=. !/images/pull1.png!
+
+Just for demonstration purposes, I've got mojombo's master checked out so you can see that there's a few new commits that my master branch doesn't have: (The three commits starting at 'mojombo' and going down to 'mojombo/master' aren't in the above graph)
+
+p=. !/images/pull2.png!
+
+So, let's bring in the changes using rebase from the remote for mojombo's repository at his master branch: (warnings removed)
+
+<pre>
+$ git pull --rebase mojombo master
+From git://github.com/mojombo/jekyll
+ * branch            master     -> FETCH_HEAD
+ First, rewinding head to replay your work on top of it...
+
+Applying: Making rake test happy on 1.8.7
+Applying: Starting on yaml categories
+Applying: Adding support for setting post categories...
+Applying: Added publish flag to posts, not preventing... 
+Applying: Making sure that posts flagged as published...
+Applying: Adding explanations for new YAML front matter...
+Applying: Removing some bad formatting in the README
+</pre>
+
+Now if we look at the master branch's history again:
+
+p=. !/images/pull3.png!
+
+You can see that my work (everything from the 'mojombo' label up) has been rebased on top of the work already in mojombo's repository. Great! So what's the difference between this and a normal pull? Let's find out. 
+
+<pre>
+$ git reset --hard origin/master
+HEAD is now at 60709da Removing some bad formatting in the README
+
+$ git pull mojombo master
+From git://github.com/mojombo/jekyll
+ * branch            master     -> FETCH_HEAD
+Merge made by recursive.
+ VERSION.yml    |    2 +-
+ jekyll.gemspec |    7 ++++---
+ 2 files changed, 5 insertions(+), 4 deletions(-)
+</pre>
+
+So first I brought the repository back to where my original state was, then just did a normal pull. Since it's a merge, it appears as such:
+
+p=. !/images/pull4.png!
+
+Now you can see the upstream changes were brought in, and a new commit was made to denote that the merge happened. Sometimes you may want to delineate history like that, but not always. It's really up to you and how you want to build your history. A related note: if you'd like to always use rebase instead of merging when doing @git pull@, check out this "awesome tip":http://tumbl.strelau.net/post/47338904/git-pull-rebase-by-default on how to set your configuration options to do so.
+
