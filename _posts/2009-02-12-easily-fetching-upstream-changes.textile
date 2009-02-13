@@ -8,7 +8,7 @@ This tip comes from "Dav Glass":http://blog.davglass.com/, whose work on "YUI":h
 
 First off, he's got a consistent naming scheme for his upstream remote: 
 
-@git add remote upstream git://github.com/user/repo.git@
+@git remote add upstream git://github.com/user/repo.git@
 
 Just throw this in your @.gitconfig@ and you're all set:
 
