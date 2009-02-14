@@ -1,6 +1,6 @@
 ---
 layout: post
-title: finding remote branches
+title: list remote branches
 category: intermediate
 ---
 
