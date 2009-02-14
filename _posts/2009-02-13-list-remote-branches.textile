@@ -1,0 +1,51 @@
+---
+layout: post
+title: finding remote branches
+category: intermediate
+---
+
+Sometimes you may need to figure out what "branches":http://gitready.com/beginner/2009/01/25/branching-and-merging.html exist on a remote repository so you can pull them down and check them out, merge them into your local branches, etc. If you're using "GitHub":http://github.com or "gitweb":http://git.or.cz/gitwiki/Gitweb to host your repository it's usually easy to determine the branch names, but if you need to get them in general or for scripts it's not exactly clear. 
+
+p=. "!http://farm4.static.flickr.com/3163/3100342708_b12c4a36d6.jpg!":http://flickr.com/photos/joiseyshowaa/3100342708/
+
+The easiest way to do this is to with @git remote show@: 
+
+<pre>
+$ git branch
+* master
+
+$ git remote show origin
+* remote origin
+  URL: git@github.com:qrush/gitready.git
+  Remote branch merged with 'git pull' while on branch master
+    master
+  Tracked remote branches
+    master pt-br
+</pre>
+
+The first command is just to prove that no branches are pulled down, and then the second command actually lists the remote branches. Once you know the name of the branch it's quite simple to "check them out.":http://gitready.com/intermediate/2009/01/09/checkout-remote-tracked-branch.html
+
+It so happens that @git remote show@ actually calls @git ls-remote@ under the hood. This command usually will list all references on the server, so that means all branches and tags that the remote has stored. The @--heads@ option comes in handy for narrowing this list down to just the branches. Here's the two ways to figure out find remote branches used on a fresh clone of the "Ruby on Rails":http://github.com/rails/rails repository:
+
+<pre>
+$ git remote show origin
+* remote origin
+  URL: git://github.com/rails/rails.git
+  Remote branch merged with 'git pull' while on branch master
+    master
+  Tracked remote branches
+    1-2-stable 2-0-stable 2-1-stable 2-2-stable 3-0-unstable master
+
+$ git ls-remote --heads origin
+5b3f7563ae1b4a7160fda7fe34240d40c5777dcd  refs/heads/1-2-stable
+71926912a127da29530520d435c83c48778ac2b2  refs/heads/2-0-stable
+2b158543247a150e8ec568becf360e7376f8ab84  refs/heads/2-1-stable
+b0792a3e7be88e3060af19bab01cd3d26d347e4c  refs/heads/2-2-stable
+d6b9f8410c990b3d68d1970f1461a1d385d098d7  refs/heads/3-0-unstable
+f04346d8b999476113d5e5a30661e07899e3ff80  refs/heads/master
+</pre>
+
+The @ls-remote@ command returns the SHA1 hash of the latest commit for that reference, so it is quite easy to parse out and get to the exact commit you need if you're doing some scripting.
+
+If you have any other uses for these commands or an easier way to figure out branches that live on a remote, comment away!
+
