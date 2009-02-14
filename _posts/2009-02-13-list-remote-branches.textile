@@ -8,24 +8,35 @@ Sometimes you may need to figure out what "branches":http://gitready.com/beginne
 
 p=. "!http://farm4.static.flickr.com/3163/3100342708_b12c4a36d6.jpg!":http://flickr.com/photos/joiseyshowaa/3100342708/
 
-The easiest way to do this is to with @git remote show@: 
+*UPDATE:* The comments have enlightened me quite a bit...there seems to always be more than one way to skin a cat using Git. The easiest way is just to use the @git branch@ commands' various options. @-a@ shows all local and remote branches, while @-r@ shows only remote branches.
 
 <pre>
 $ git branch
 * master
 
-$ git remote show origin
-* remote origin
-  URL: git@github.com:qrush/gitready.git
-  Remote branch merged with 'git pull' while on branch master
-    master
-  Tracked remote branches
-    master pt-br
+$ git branch -a
+* master
+  origin/1-2-stable
+  origin/2-0-stable
+  origin/2-1-stable
+  origin/2-2-stable
+  origin/3-0-unstable
+  origin/HEAD
+  origin/master
+
+$ git branch -r
+  origin/1-2-stable
+  origin/2-0-stable
+  origin/2-1-stable
+  origin/2-2-stable
+  origin/3-0-unstable
+  origin/HEAD
+  origin/master
 </pre>
 
-The first command is just to prove that no branches are pulled down, and then the second command actually lists the remote branches. Once you know the name of the branch it's quite simple to "check them out.":http://gitready.com/intermediate/2009/01/09/checkout-remote-tracked-branch.html
+So, once you know the name of the branch it's quite simple to "check them out.":http://gitready.com/intermediate/2009/01/09/checkout-remote-tracked-branch.html If you have color options on it's also quite easy to tell which branches aren't pulled down since they're listed in red.
 
-It so happens that @git remote show@ actually calls @git ls-remote@ under the hood. This command usually will list all references on the server, so that means all branches and tags that the remote has stored. The @--heads@ option comes in handy for narrowing this list down to just the branches. Here's the two ways to figure out find remote branches used on a fresh clone of the "Ruby on Rails":http://github.com/rails/rails repository:
+There's also another way to do figure out what branches are on your remote by actually using the remote related commands, @git remote@ and @git ls-remote@. The former displays plenty of information about the remote in general and how it relates to your own repository, while the latter simply lists all references to branches and tags that it knows about. 
 
 <pre>
 $ git remote show origin
@@ -45,7 +56,7 @@ d6b9f8410c990b3d68d1970f1461a1d385d098d7  refs/heads/3-0-unstable
 f04346d8b999476113d5e5a30661e07899e3ff80  refs/heads/master
 </pre>
 
-The @ls-remote@ command returns the SHA1 hash of the latest commit for that reference, so it is quite easy to parse out and get to the exact commit you need if you're doing some scripting.
+The @ls-remote@ command returns the SHA1 hash of the latest commit for that reference, so it is quite easy to parse out and get to the exact commit you need if you're doing some scripting. The @--heads@ option lists only branch names since the command can list tags too.
 
 If you have any other uses for these commands or an easier way to figure out branches that live on a remote, comment away!
 
