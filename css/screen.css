@@ -2,8 +2,11 @@ body {
   background-color: white;
   font: 13.34px Verdana, helvetica, arial, clean, sans-serif;
   *font-size: small;
-  text-a3ign: center;
   background: #222;
+}
+
+iframe { 
+	margin: 0 15px;
 }
 
 a {

@@ -1,0 +1,33 @@
+---
+layout: post
+title: convert git-svn tag branches to real tags
+category: advanced
+---
+
+This tip has been generously donated from "Alexis Midon":http://beardedmagnum.com. Thanks! His original post is "here":http://beardedmagnum.com/2009/02/15/converting-git-svn-tag-branches-to-real-tags/.
+
+Alexis found out that in the process of converting from Subversion to Git, tags get a bit confused and show up as branches instead once converted over. This can be pretty inconvenient, especially when using @git branch@ since a ton of branches would show up such as @tag/1.2@, and so on. A little bit of scripting and Git magic can clear this up easily.
+
+He followed the standard process for converting a svn repo:
+
+<pre>
+$ mkdir rails
+$ cd rails 
+$ git svn init -t tags -b branches -T trunk <path to svn repo>
+Initialized empty Git repository in .git/
+$ git svn fetch
+</pre>
+
+Next he whipped up a little script to convert all of the tag branches into "actual tags":http://gitready.com/beginner/2009/02/03/tagging.html, and then make sure they're deleted properly.
+
+<pre>
+$ git-for-each-ref refs/remotes/origin/tags | cut -d / -f 5- |
+while read ref
+do
+git tag -a "$ref" -m"say farewell to SVN" "refs/remotes/origin/tags/$ref"
+git push origin ":refs/heads/tags/$ref"
+git push origin tag "$ref"
+done
+</pre>
+
+If you've created scripts that help with converting over to Git from any other SCM, let us know in the comments or "submit your own tip!":http://gitready.com/submit.html
