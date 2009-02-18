@@ -1,0 +1,31 @@
+---
+layout: post
+title: how git stores your data
+category: beginner
+---
+
+This is an extremely broad overview on how the Git object model works, based mostly on the "Git Community Book":http://book.git-scm.com/1_the_git_object_model.html. Future posts will definitely look into the object model in more depth, but this information is definitely essential to those who are learning Git. The images from this post were taken from my presentation on "Open Source Collaboration with Git and GitHub.":http://litanyagainstfear.com/blog/2008/12/05/open-source-collaboration-with-git-and-github/
+
+The most basic data storage is the blob. Git stores *just* the contents of the file, and not the name. The contents are then referenced by a 40 character "SHA1 hash":http://en.wikipedia.org/wiki/SHA1 of the contents, which means it's pretty much guaranteed to be unique. Pretty much every object, be it a commit, tree, or blob has a SHA, so learn to love them. Luckily, they're easily referenced by the first 6 characters which are usually enough to identify the whole string.
+
+One awesome advantage to storing only the content means that if you have two or more copies of the same file in your repository, Git will only store one copy internally. A blob can be represented like so:
+
+p=. !/images/object1.png!
+
+The next object is a tree. These can be thought of as folders or directories: they contain other blobs and trees. 
+
+p=. !/images/object2.png!
+
+Finally, this brings us to the most important object: the commit. Commits can be thought of as snapshots: they know what the trees looked like at one point in time. They also have some other information associated with them, such as the author, date, and a message. 
+
+p=. !/images/object3.png!
+
+Commits are organized in a "Directed Acyclic Graph":http://en.wikipedia.org/wiki/Directed_acyclic_graph. For those who missed that lecture in Data Structures about it, basically it means that the commits "flow" in one direction. Usually this direction is simply the path of history for your repository, which could be very simple or quite complex if you have branches. From a broad standpoint it will look something like this:
+
+p=. !/images/object4.png!
+
+This all becomes much more apparent when using a tool like "GitX":http://gitready.com/intermediate/2009/01/13/visualizing-your-repo.html. You can clearly see the commit objects and their associated data, and then drill down from there to see the commit's tree.
+
+p=. !/images/object5.png!
+
+So now hopefully when you see some of the strange terminology in your commits, you'll understand a little more of how it works. Check out the awesome guide at "Git for Computer Scientists":http://eagain.net/articles/git-for-computer-scientists/ and "Scott Chacon's":http://jointheconversation.org talk on "Getting Git":http://gitcasts.com/git-talk.
