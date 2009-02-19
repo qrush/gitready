@@ -1,0 +1,70 @@
+---
+layout: post
+title: temporarily ignoring files
+category: intermediate
+---
+
+Usually "ignoring files":http://gitready.com/beginner/2009/01/19/ignoring-files.html is quite simple with Git. However, you may need to quickly hide changes in a file, perhaps for an entire development session or other reasons. Luckily there's a simple way around this, thanks to some clever manual diving from "Eelco Wiersma":http://www.pagebakers.nl/2009/01/29/git-ignoring-changes-in-tracked-files/.
+
+His main problem was using @git commit -a@, which automatically adds files that are modified into the commit object. This is a neat shortcut, but make sure you "understand the staging area":http://gitready.com/beginner/2009/01/18/the-staging-area.html if you find yourself running this command all the time.
+
+So, to temporarily ignore changes in a certain file, run:
+
+@git update-index --assume-changed <file>@
+
+Then when you want to track changes again:
+
+@git update-index --no-assume-changed <file>@
+
+Obviously there's quite a few caveats that come into play with this. If you @git add@ the file directly, it will be added to the index. Merging a commit with this flag on will cause the merge to fail gracefully so you can handle it manually. 
+
+Let's go over a quick example of using the command. Changes have been made to a few files in my working directory:
+
+<pre>
+$ git status
+# On branch master
+#
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#
+#	modified:   README.textile
+#	modified:   Rakefile
+#	modified:   TODO
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+</pre>
+
+If I ran @git commit -a@ from here, all of the files would be added into the new commit. However, I want to temporarily ignore the changes in one of the files:
+
+<pre>
+$ git update-index --assume-unchanged README.textile   
+$ git status
+# On branch master
+#
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#
+#	modified:   Rakefile
+#	modified:   TODO
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+</pre>
+
+So if we commit the work now then turn the flag off, we can see that Git didn't lose the original changes to the README. From there, you could now add them into a new commit, or "revert back to the latest copy":http://gitready.com/beginner/2009/01/11/reverting-files.html.
+
+<pre>
+$ git update-index --no-assume-unchanged README.textile
+$ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 4 commits.
+#
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#
+#	modified:   README.textile
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+</pre>
+
+Check out the man page for @git update-index@ "here":http://www.kernel.org/pub/software/scm/git/docs/git-update-index.html. If you know of other clever tricks with the index, leave a comment or "submit a tip!":/submit.html
+
