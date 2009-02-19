@@ -10,11 +10,11 @@ His main problem was using @git commit -a@, which automatically adds files that 
 
 So, to temporarily ignore changes in a certain file, run:
 
-@git update-index --assume-changed <file>@
+@git update-index --assume-unchanged <file>@
 
 Then when you want to track changes again:
 
-@git update-index --no-assume-changed <file>@
+@git update-index --no-assume-unchanged <file>@
 
 Obviously there's quite a few caveats that come into play with this. If you @git add@ the file directly, it will be added to the index. Merging a commit with this flag on will cause the merge to fail gracefully so you can handle it manually. 
 
