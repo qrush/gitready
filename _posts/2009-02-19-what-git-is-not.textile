@@ -1,0 +1,34 @@
+---
+layout: post
+title: what git is not
+category: beginner
+---
+
+There are obviously many reasons why Git is awesome (and why it sucks too), and there comes a point where it helps to dispel some of the rumors and issues surrounding Git. The following list contains reasons of what Git *is not*. If you have your own reasons, feel free to contribute them to the comments and they may be added in. 
+
+h3. 1. Git is not Subversion with some added sugar sprinkled in.
+
+Git works a lot differently than SVN and CVS. Probably the biggest difference is that Git stores content and not the deltas, or differences between files. Another awesome advantage is that there's *one* place where git stores its files for your repository (usually the @.git@ directory) and it doesn't litter your working copy with hidden directories.
+
+Also, if you're used to having all of your projects in one huge repository, Git doesn't really work like that either. Repositories are meant mostly for single projects, and then you could use submodules to have a "super-project" that links to others if needed. A tip covering how to deal with this situation will definitely be coming in the future.
+
+The differences between Git and SVN could be in their own series of tips, but the "Git-SVN Crash Course":http://git.or.cz/course/svn.html does a great job for those considering making the switch with drawing parallels.
+
+h3. 2. Git is not just for Linux kernel hackers or those who fly on airplanes all day to conferences.
+
+Git can be "installed":http://gitready.com/beginner/2009/01/27/installing-git.html on virtually every modern operating system, and it definitely works on Windows. GUI support isn't there 100% on Windows, but plenty of work is being done on integrating into Explorer and to the various IDEs available. There's plenty of slick tools available on other operating systems such as "GitX":http://gitx.frim.nl/ on OSX. 
+
+Local commits are a huge advantage to using Git, and it means that your workflow can be made a lot smoother. If you don't know how the staging area in Git works, check out "this post":http://gitready.com/beginner/2009/01/18/the-staging-area.html on it.
+
+h3. 3. Git is not hard to set up.
+
+Setting up a Git repository is as simple as doing @git init@ in any directory. It can't get much simpler for that. Sharing your changes with others is when things get a bit more interesting. Usually "sharing your changes":http://gitready.com/intermediate/2009/01/24/sharing-your-changes.html is one or two commands away. Hosting your changes somewhere the right way can be a little tricky though: usually for self setup the best way to go is using "gitosis":http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way, which is an tool that helps with getting SSH keys for users set up for commit access.
+
+h3. 4. Git is not documented well.
+
+Git's "manpages":http://www.kernel.org/pub/software/scm/git/docs/user-manual.html are quite extensive (and verbose), but there are plenty of other guides available for learning online. Some of the best are listed in the resources section in this site's footer! For those new to Git, I usually recommend the "Git Community Book":http://book.git-scm.com/ and running through some of the "GitCasts":http://gitcasts.com videos. (Reading this site counts too!)
+
+h3. 5. Git is not complex.
+
+Yes, there's a lot of alien terminology and some concepts that aren't instantly familiar to every newcomer, but the underlying concepts that the system is based on are fundamentally and purposefully simple. One great example is the "blob-tree-commit structure":http://gitready.com/beginner/2009/02/17/how-git-stores-your-data.html. Once the basic concepts behind Git are grasped, it's really easy to make the tool work the way you want it instead of letting it force you into a specific workflow. Sure, too much flexibility could be a bad thing, but when it offers so much power and ease of use, why not?
+
