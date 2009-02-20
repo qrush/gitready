@@ -2,6 +2,7 @@
 layout: post
 title: temporarily ignoring files
 category: intermediate
+published: false
 ---
 
 Usually "ignoring files":http://gitready.com/beginner/2009/01/19/ignoring-files.html is quite simple with Git. However, you may need to quickly hide changes in a file, perhaps for an entire development session or other reasons. Luckily there's a simple way around this, thanks to some clever manual diving from "Eelco Wiersma":http://www.pagebakers.nl/2009/01/29/git-ignoring-changes-in-tracked-files/.

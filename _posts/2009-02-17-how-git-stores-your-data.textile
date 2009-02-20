@@ -2,6 +2,7 @@
 layout: post
 title: how git stores your data
 category: beginner
+published: false
 ---
 
 This is an extremely broad overview on how the Git object model works, based mostly on the "Git Community Book":http://book.git-scm.com/1_the_git_object_model.html. Future posts will definitely look into the object model in more depth, but this information is definitely essential to those who are learning Git. The images from this post were taken from my presentation on "Open Source Collaboration with Git and GitHub.":http://litanyagainstfear.com/blog/2008/12/05/open-source-collaboration-with-git-and-github/

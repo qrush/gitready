@@ -2,6 +2,7 @@
 layout: post
 title: push and delete remote branches
 category: beginner
+published: false
 ---
 
 This is an action that many Git users need to do frequently, but many (including the author) have forgotten how to do so or simply don't know how. Here's the definitive guide if you've forgotten.

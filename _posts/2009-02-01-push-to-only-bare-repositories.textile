@@ -2,6 +2,8 @@
 layout: post
 title: push to only bare repositories
 category: advanced
+published: false
+published: false
 ---
 
 Typically Git allows you to build whatever kind of workflow you'd like. Instead of saying "you must use it this way", Git lets you figure out what best works for you and your organization. Like every system though, there are caveats and gotchas, and this tip goes over one of them. Let's go over some definitions about the subject first:

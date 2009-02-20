@@ -2,6 +2,7 @@
 layout: post
 title: count your commits
 category: intermediate
+published: false
 ---
 
 Ever wondered how many commits you've contributed to a project? Or perhaps, which coworker has really done nothing (or maybe they have huge changes and fewer commits!) Well, wonder no more, for @git shortlog@ is a nice way to find out. 

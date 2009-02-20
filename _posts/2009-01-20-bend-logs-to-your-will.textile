@@ -2,6 +2,7 @@
 layout: post
 title: bend logs to your will
 category: advanced
+published: false
 ---
 
 @git log@ is an extremely powerful command with plenty of options that are helpful for figuring out what work has been done on your repositories and just who's done it. This post enumerates a few of the more useful options. Most of these tips were farmed from Scott Chacon's "gitcast on git log":http://gitcasts.com/posts/git-log and R. Tyler Ballance's "git protip series":http://unethicalblogger.com/posts/2008/12/git_protip_learning_your_history_git_log.

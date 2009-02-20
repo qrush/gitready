@@ -2,6 +2,7 @@
 layout: post
 title: bash auto completion
 category: advanced
+published: false
 ---
 
 This tip comes from the ever resourceful "Brian Cardarella":http://cardarella.blogspot.com/, who has a gist on "how to install and set up	auto completion":http://gist.github.com/58383 with Git. It's based off of "Shawn O. Pierce's":http://spearce.org bash completion script. Just what will it do for you? 

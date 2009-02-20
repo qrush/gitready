@@ -2,6 +2,7 @@
 layout: post
 title: branching and merging
 category: beginner
+published: false
 ---
 
 Branching in git is easier than you'd think. It's fast (40 characters written to a file), simple (one command to create a branch), and efficient (it doesn't create a whole copy of your current working state). The branches you create don't have to exist in the remote repository, so you can use them to test out new features or bug fixes without breaking what's already working. Perhaps "Why Git is Better Than X":http://whygitisbetterthanx.com/#cheap-local-branching puts it best: 

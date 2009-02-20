@@ -2,6 +2,7 @@
 layout: post
 title: visualizing your repo
 category: intermediate
+published: false
 ---
 
 So, you want to see your repository in a brand new way. You're sick of the command line, you need to see some graphs! Pixels! Buttons! Graphics! Dialog boxes! Ok, we get the point. 

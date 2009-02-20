@@ -2,6 +2,7 @@
 layout: post
 title: helpful command aliases
 category: intermediate
+published: false
 ---
 
 A great way to make your life using Git easier is to add aliases for commands that you use all the time into your @.gitconfig@ file. It might not be as elegant as adding shortcuts to your shell, but at least this will work consistently across all shells and is a breeze to set up. The "Git Cheat Sheet":http://cheat.errtheblog.com/s/git suggests adding this block to your config file:

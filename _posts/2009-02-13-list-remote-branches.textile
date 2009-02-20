@@ -2,6 +2,7 @@
 layout: post
 title: list remote branches
 category: intermediate
+published: false
 ---
 
 Sometimes you may need to figure out what "branches":http://gitready.com/beginner/2009/01/25/branching-and-merging.html exist on a remote repository so you can pull them down and check them out, merge them into your local branches, etc. If you're using "GitHub":http://github.com or "gitweb":http://git.or.cz/gitwiki/Gitweb to host your repository it's usually easy to determine the branch names, but if you need to get them in general or for scripts it's not exactly clear. 

@@ -2,6 +2,7 @@
 layout: post
 title: bash git status
 category: advanced
+published: false
 ---
 
 Yeah, we all know about the @git status@ command but that's just way too many characters to type again and again. Why bother with those 10 keyboard strokes when you could have your shell simply output git's working state? Sounds awesome, right? Luckily a few hackers have thrown together some scripts to do just this in your bash prompt. If you have these or similiar scripts working in other shells, "submit a tip about it!":http://gitready.com/submit.html

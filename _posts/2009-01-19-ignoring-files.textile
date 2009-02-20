@@ -2,6 +2,7 @@
 layout: post
 title: ignoring files
 category: beginner
+published: false
 ---
 
 We don't need Git to version everything in our projects, be it compiled source, files with passwords, or temporary files that editors love to create. Usually keeping stuff out of your VCS' hands is a task that is hard to manage and annoying to set up. Not with Git! Using the @.gitignore@ file along with some other options, we're going to learn how to set up per-project and per-user ignores. 

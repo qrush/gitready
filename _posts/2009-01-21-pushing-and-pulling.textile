@@ -2,6 +2,7 @@
 layout: post
 title: pushing and pulling
 category: beginner
+published: false
 ---
 
 Today we're going to review another basic yet powerful concept that Git among other version control systems of its type has: distribution! As you may know, your commits are all local, and repositories are simply clones of each other. That means the real work in distributing your projects is in synchronizing the changes via @git push@ and @git pull@. 

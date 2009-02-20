@@ -2,6 +2,7 @@
 layout: post
 title: piecemeal staging
 category: advanced
+published: false
 ---
 
 This is a follow up to the comments from yesterday's article about "interactive adding":http://gitready.com/intermediate/2009/01/14/interactive-adding.html. Readers were begging coverage of powerful @git add -p@, a shortcut to the patch mode of interactive adding. This command is capable of breaking up changes in files into smaller hunks so you can commit *exactly* what you want, and not just the whole file. 

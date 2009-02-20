@@ -2,6 +2,7 @@
 layout: post
 title: finding what has been changed
 category: intermediate
+published: false
 ---
 
 Frequently you may want to easily see what has been changed as you're working. Perhaps you just went out for a bite to eat and temporarily forgot, or maybe you need to check to see just what will be added into your newest commit. There's a few Git commands that can help with this and make it very easy to figure out what has been modified.

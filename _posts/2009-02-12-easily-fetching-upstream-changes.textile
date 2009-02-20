@@ -2,6 +2,7 @@
 layout: post
 title: easily fetching upstream changes
 category: intermediate
+published: false
 ---
 
 This tip comes from "Dav Glass":http://blog.davglass.com/, whose work on "YUI":http://developer.yahoo.com/yui/ at "GitHub":http://github.com/yui requires him to bring in commits frequently. So, he's created a "helpful alias":http://gitready.com/intermediate/2009/02/06/helpful-command-aliases.html so he can merge in changes easily. 

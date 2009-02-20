@@ -2,6 +2,7 @@
 layout: post
 title: fixing broken commit messages
 category: advanced
+published: false
 ---
 
 You just committed that awesome feature/test/bug, but something just isn't right. Either some information isn't filled out, the commit message is wrong, or something else is just messed up. Let's go over what can be done to fix the associated data after the fact.

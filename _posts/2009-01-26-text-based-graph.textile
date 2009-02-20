@@ -2,6 +2,7 @@
 layout: post
 title: text-based graph
 category: intermediate
+published: false
 ---
 
 Just a short and interesting tip today about @git log --graph@. If you're confused about where branches are headed or how merges worked, and you're either too lazy to fire up @gitk@, @gitx@, or the "GitHub Network Graph":http://github.com/qrush/jekyll/network, you can get a really simple and fast graphical representation of your commits with this command.

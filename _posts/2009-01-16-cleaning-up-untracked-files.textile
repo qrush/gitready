@@ -2,6 +2,7 @@
 layout: post
 title: cleaning up untracked files
 category: beginner
+published: false
 ---
 
 Our first reader submitted tip comes from "Dav Glass":http://blog.davglass.com/, and it elaborates on a command used to keep your repository nice and tidy. Have a tip you'd like to share? "Submit it!":http://gitready.com/submit.html

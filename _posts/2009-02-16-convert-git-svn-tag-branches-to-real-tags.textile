@@ -2,6 +2,7 @@
 layout: post
 title: convert git-svn tag branches to real tags
 category: advanced
+published: false
 ---
 
 This tip has been generously donated from "Alexis Midon":http://beardedmagnum.com. Thanks! His original post is "here":http://beardedmagnum.com/2009/02/15/converting-git-svn-tag-branches-to-real-tags/.

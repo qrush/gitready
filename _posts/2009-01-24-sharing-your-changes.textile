@@ -2,6 +2,7 @@
 layout: post
 title: sharing your changes
 category: intermediate
+published: false
 ---
 
 Git's distributed nature does not rely on central servers to host and broadcast your code. There's more options available to you if for some reason your main server goes down, or perhaps when "GitHub goes down":http://ozmm.org/posts/when_github_goes_down.html. 

@@ -2,6 +2,7 @@
 layout: post
 title: zsh git status
 category: advanced
+published: false
 ---
 
 Sure, you could have status shown in your "bash prompt":http://gitready.com/advanced/2009/01/23/status-in-your-prompt.html but that's not your only option for shells! "zsh":http://www.zsh.org/, or "Z Shell":http://en.wikipedia.org/wiki/Zsh is another popular command line interface that is in use by plenty of programmers, and there's quite a few scripts that will get your repo's status shown easily and quickly.

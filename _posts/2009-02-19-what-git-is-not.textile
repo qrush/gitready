@@ -2,6 +2,7 @@
 layout: post
 title: what git is not
 category: beginner
+published: false
 ---
 
 There are obviously many reasons why Git is awesome (and why it sucks too), and there comes a point where it helps to dispel some of the rumors and issues surrounding Git. The following list attempts to show what Git *is not*. If you have your own reasons, feel free to contribute them to the comments and they may be added in. 

@@ -2,6 +2,7 @@
 layout: post
 title: restoring lost commits
 category: advanced
+published: false
 ---
 
 So, you just did a @git reset --hard HEAD^@ and threw out your last commit. Well, it turns out you really did need those changes. You'll never be able to implement that algorithm that perfectly twice, so you need it back. Don't fear, git should still have your commit. When you do a reset, the commit you threw out goes to a "dangling" state. It's still in git's datastore, waiting for the next garbage collection to clean it up. So unless you've ran a @git gc@ since you tossed it, you should be in the clear to restore it.

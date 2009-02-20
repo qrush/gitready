@@ -2,6 +2,7 @@
 layout: post
 title: stashing your changes
 category: beginner
+published: false
 ---
 
 Stashing is a great way to pause what you're currently working on and come back to it later. For example, if you working on that awesome, brand new feature but someone just found a bug that you need to fix. Add your changes to the index using

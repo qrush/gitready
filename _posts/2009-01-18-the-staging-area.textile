@@ -2,6 +2,7 @@
 layout: post
 title: the staging area
 category: beginner
+published: false
 ---
 
 One of the most essential concepts to Git is that of the staging area. Its use can fundamentally change how you work, for the better! Let's go over how exactly it works and what you'll need to know to use it.

@@ -2,6 +2,7 @@
 layout: post
 title: exporting your repository
 category: intermediate
+published: false
 ---
 
 Previously there was a tip that covered "sharing changes":http://gitready.com/intermediate/2009/01/24/sharing-your-changes.html but that included all of your repository's history. What if you just want to export a certain commit's changes? Or just one folder? What if you wanted to make an archive of the repository for backup? Fear not, for Git can do all that and more. Thanks to "Stack Overflow":http://stackoverflow.com/questions/160608/how-to-do-a-git-export-like-svn-export for providing with some helpful hints to add into this post.

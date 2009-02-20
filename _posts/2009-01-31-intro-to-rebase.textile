@@ -2,6 +2,7 @@
 layout: post
 title: intro to rebase
 category: intermediate
+published: false
 ---
 
 Git's "rebase":http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html command is hard to understand for newcomers, and the "manpage's":http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html description doesn't help at all:

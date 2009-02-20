@@ -2,6 +2,7 @@
 layout: post
 title: interactive adding
 category: intermediate
+published: false
 ---
 
 Sometimes simple adding with @git add .@ or @git commit -am@ just isn't enough. You may want to split changes up over several commits, or you're just not ready to add everything yet. And who wants to add individual files one at a time? That's just boring. Enter the interactive adder:

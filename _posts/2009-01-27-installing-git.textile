@@ -2,6 +2,7 @@
 layout: post
 title: installing git
 category: beginner
+published: false
 ---
 
 This is probably the most basic tip: installing the system itself! Turns out that it's easier than you think to start using Git on your system. This tip will continue to be updated with the latest and easiest ways to install Git on your favorite operating system.  

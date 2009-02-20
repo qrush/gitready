@@ -2,6 +2,7 @@
 layout: post
 title: pull with rebase
 category: advanced
+published: false
 ---
 
 Users of Git are hopefully aware that a @git pull@ does a @git fetch@ to pull down data from the specified remote, and then calls @git merge@ to join the changes received with your current branch's work. However, that may not always be the best case. You can also "rebase":http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html the changes in, and that may end up being a lot cleaner. This can be done simply by tacking on the @--rebase@ option when you pull, like so:

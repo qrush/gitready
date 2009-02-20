@@ -2,6 +2,7 @@
 layout: post
 title: reverting files
 category: beginner
+published: false
 ---
 
 This is a topic that is a constant source of confusion for many git users, basically because there's more than one way to skin the proverbial cat. Let's go over some of the basic commands that you'll need to undo your work. 
