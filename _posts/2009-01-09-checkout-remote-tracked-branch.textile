@@ -1,15 +1,20 @@
 ---
 layout: post
-title: checkout tracked remote branch
+title: Einen entfernten, verfolgen Zweig auschecken
 category: intermediate
 published: false
 ---
 
-I frequently need to do this when setting up or syncing my various machines, and I seem to forget the command all the time. So let's say you've got more than one branch on your remote, and you want to bring it down into your local repository as well:
+Die folgenden Schritte führe ich regelmäßig durch, wenn ich meine zahlreichen
+Computer aufsetze oder synchronisiere und jedesmal scheine ich die Kommandos
+dafür zu vergessen. So laß uns annehmen, dass du mehr als einen Zweig in deinem
+entfernten Repository hast und du möchtest ihn auch in dein lokales Repository
+einbringen:
 
 p=. !http://gitready.com/images/branches.png!
 
-Viewing information on the remote should look something like this:
+Das Anzeigen von Informationen in einem entfernten Repository sieht in etwa wie
+folgt aus:
 
 <pre>
 $ git remote show origin
@@ -22,17 +27,17 @@ $ git remote show origin
         haml master
 </pre>
 
-Luckily, the command syntax for this is quite simple:
+Glücklicherweise ist die Kommandosyntax hierfür recht einfach:
 
 <pre>
 git checkout --track -b 
   <local branch> <remote>/<tracked branch>
 </pre>
 
-So in my case, I used this command:
+In meinem Fall benutze ich das Kommando:
 
 @git checkout --track -b haml origin/haml@
 
-You can also use a simpler version:
+Du kannst auch eine einfacherer Variante verwenden:
 
 @git checkout -t origin/haml@
