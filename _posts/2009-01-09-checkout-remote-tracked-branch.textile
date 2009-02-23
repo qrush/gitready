@@ -2,7 +2,6 @@
 layout: post
 title: Einen entfernten, verfolgen Zweig auschecken
 category: intermediate
-published: false
 ---
 
 Die folgenden Schritte führe ich regelmäßig durch, wenn ich meine zahlreichen
