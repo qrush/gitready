@@ -1,0 +1,24 @@
+---
+layout: post
+title: finding who committed what
+category: beginner
+---
+
+Sometimes you may find it necessary to figure out just who committed that bug, or perhaps compliment a coworker on how efficiently an algorithm was implemented. Or maybe not, you just want to know who broke the build. Luckily, the @git blame@ command can help with figuring out exactly who's responsible for which line and what commit it came from.
+
+The basic usage is simply @git blame <file>@. The console output usually looks like so (check out the full image!):
+
+p=. "!http://farm4.static.flickr.com/3606/3304779985_6c93865703.jpg!":http://farm4.static.flickr.com/3606/3304779985_2d1842b5f9_o.png
+
+For those confused at what this wall of text consists of, it shows the abbreviated commit SHA, the file name it originated from, the commit author and date, line number, and then the actual line of code.
+
+That's great and all, but there's plenty of other ways to get your blame on. If your code is up on GitHub, you get blame information included:
+
+p=. "!http://farm4.static.flickr.com/3463/3305616220_05a91c8e70.jpg!":http://farm4.static.flickr.com/3463/3305616220_a7b2850e62_o.jpg
+
+Another great way to see this information is with "git-age":http://wiki.github.com/krig/git-age, which is a viewer written in PyGtk. It's actually quite neat, it shows the Gravatar associated with the commit's email, and shows older commits with a darker gray background.
+
+p=. "!http://farm4.static.flickr.com/3454/3305608128_7000ca6fa2.jpg!":http://farm4.static.flickr.com/3454/3305608128_94edf84e1b_o.png
+
+If you know of any other tricks that this command can do or other useful viewers, let us know in the comments!
+
