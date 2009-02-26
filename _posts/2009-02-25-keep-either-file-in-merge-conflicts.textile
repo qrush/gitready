@@ -1,0 +1,45 @@
+---
+layout: post
+title: keep either file in merge conflicts
+category: advanced
+---
+
+Sometimes when trying to resolve a merge, you may want to keep one file instead of the other. You don't need to open up the files and fix the potentially hundreds of conflicts, you just want to choose the one you want and be done with it. Sadly, this isn't exactly clear in older versions of Git, but more recent ones have made it easier. Big thanks to "Kevin Old":http://kevinold.com for "his post on the subject":http://www.kevinold.com/2009/02/24/better-git-conflict-resolution-between-binaries-with-theirs.htmluu which reminded me about this issue.
+
+So, the scenario is: you're in the middle of a merge, and you want to keep one file or the other.
+
+<pre>
+$ git merge master     
+  Auto-merged _layouts/default.html
+  CONFLICT (content): Merge conflict in _layouts/default.html
+  Auto-merged index.html
+  CONFLICT (content): Merge conflict in index.html
+  Automatic merge failed; fix conflicts and then commit the result.
+</pre>
+
+There's two unmerged files here. According to the "git checkout":http://www.kernel.org/pub/software/scm/git/docs/git-checkout.html manpage, there's a @--theirs@ and @--ours@ options on the command. The former will keep the version of the file that you merged in, and the other will keep the original one we had.
+
+The following commands will keep the original file for index.html, and then use the merged in file only for _layouts/default.html.
+
+<pre>
+git checkout --ours index.html
+git checkout --theirs _layouts/default.html
+</pre>
+
+Sadly, these options are only in Git versions 1.6.1 and up. If you have an older version and don't feel like upgrading, there's ways to get around this. To emulate @--theirs@, we'd do:
+
+<pre>
+git reset -- _layouts/default.html
+git checkout MERGE_HEAD -- _layouts/default.html
+</pre>
+
+And for @--ours@:
+
+<pre>
+git reset -- index.html
+git checkout ORIG_HEAD -- index.html
+</pre>
+
+Of course, once you've got the conflicts worked out, @git add@ whatever changes need to be added in, and @git commit@ away. If you've run into other problems with merging that could possibly help out others, comment away!
+
+
