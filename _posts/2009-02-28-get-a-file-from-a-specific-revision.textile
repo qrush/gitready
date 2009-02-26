@@ -1,0 +1,17 @@
+---
+layout: post
+title: get a file from a specific revision
+category: intermediate
+---
+
+If you know how Git stores data through "blobs, trees, and commits":http://gitready.com/beginner/2009/02/17/how-git-stores-your-data.html hopefully it should make sense why it's a bit annoying to get a file from a specific revision out of your repository. What you want is inside of a blob from whichever commit, so simply saying I want to see this commit won't cut it. Now, you could reset the working directory back to the commit you want to see then look at the file, but that's lame. 
+
+Enter @git show@, which is an awesome tool for this job. This command is quite versatile and deserves several tips on what it can do, but let's stick to the task at hand: we want to pull a file's contents out from a specific revision. Usually the command would be done like so:
+
+@git show <treeish>:<file>@
+
+So let's say four commits from our current HEAD, and we want the index.html file.
+
+@git show HEAD~4:index.html@
+
+You could of course pass any valid "treeish":http://book.git-scm.com/4_git_treeishes.html into the command. The command will accept the actual SHA1 of the blob as well, but that's pretty unlikely for most use cases. Probably the best use of this command is to see what the file looked like and perhaps write its contents out to a new file (or replace the old one!) if so desired.
