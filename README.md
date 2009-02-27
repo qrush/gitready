@@ -17,7 +17,7 @@ Simple and easy formatting that sticks to the basics. All static HTML too, so wo
 ## Contributing
 
 If you have ideas about new pages, layouts, or what have you, fork away!<br />
-If you want to submit tips, [please do so here](http://gitready.com/qrush/gitready).
+If you want to submit tips, [please do so here](http://gitready.com/submit.html).
 
 ## Translating
 
