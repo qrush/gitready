@@ -1,0 +1,21 @@
+---
+layout: post
+title: where to find the git community
+category: beginner
+---
+
+For those just learning about Git, it migt be helpful to figure out where the community of users that use the tool daily hang out. Of course, there's plenty of resources available online for those who want to learn about how to use it, but sometimes communicating with and participating in discussions is much more beneficial. 
+
+This post goes over some of the places where you can find others who are passionate about Git, and hopefully get questions you have answered. If you have a place that's been left out, let us know in the comments!
+
+1) The #git channel on "FreeNode":http://freenode.net/.
+
+If you prefer real-time communication, IRC is the best way to get it. Just please be aware: those who help out in the channel are volunteers! Demanding information or simply trolling for help won't get you very far. If you can, just hang out in the channel and watch the conversation fly by. You might learn something!
+
+2) "Github":http://github.com
+
+This site is the hottest place to host open source projects along with your own private code. The benefit here is that you can see plenty of others who are using Git daily, and how they're using it. There's plenty of different models of using git that you can observe: everything from single developers working on hobby projects to actively developed projects with tens to hundreds of forks. If you don't have an account yet, get signed up and check out what projects are active in the "languages":http://github.com/languages you like.
+
+3) The "Git Mailing List":http://vger.kernel.org/vger-lists.html#git
+
+The official mailing list for Git developers is a ridiculously active and overall best way to get in touch with those who not only use Git daily, but have played major roles in creating it. If you've got a question, it most likely will get answered here. Just make sure to do your "homework":http://letmegooglethatforyou.com before you ask! Also, if you're looking to contribute back to the Git project, this is where to start.
