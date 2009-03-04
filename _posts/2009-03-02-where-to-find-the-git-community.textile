@@ -1,21 +1,46 @@
 ---
 layout: post
-title: where to find the git community
+title: Wo die Git Community zu finden ist
 category: beginner
 ---
 
-For those just learning about Git, it migt be helpful to figure out where the community of users that use the tool daily hang out. Of course, there's plenty of resources available online for those who want to learn about how to use it, but sometimes communicating with and participating in discussions is much more beneficial. 
+Für jene, die sich mit Git beschäftigen, könnte das Wissen, wo die Git
+Community täglich herumhängt, hilfreich sein. Natürlich sind online eine
+Menge Quelle für jene verfügbar, die lernen möchten, wie man Git
+benutzt. Aber manchmal ist die Kommunikation und Teilnahme an
+Diskussionen sehr viel vorteilhafter und wünschenswert.
 
-This post goes over some of the places where you can find others who are passionate about Git, and hopefully get questions you have answered. If you have a place that's been left out, let us know in the comments!
+Dieser Beitrag nennt ein paar Orte, wo du genau die Leute finden kannst,
+die eine Leidenschaft für Git haben und hoffentlich auch deine Fragen
+beantworten. Solltest du einen Ort kennen, der hier vergessen wurde,
+lass es uns in einem Kommentar wissen!
 
-1) The #git channel on "FreeNode":http://freenode.net/.
+1) Der #git channel auf "FreeNode":http://freenode.net/.
 
-If you prefer real-time communication, IRC is the best way to get it. Just please be aware: those who help out in the channel are volunteers! Demanding information or simply trolling for help won't get you very far. If you can, just hang out in the channel and watch the conversation fly by. You might learn something!
+Für die Freunde der Echtzeitkommunikation ist IRC der beste Weg. Bitte
+beachte aber: Die Teilnehmer im Channel sind Freiwillige! Informationen
+einfordern oder einfach nur um Hilfe trollen, bringt dich nicht sehr
+weit. Hänge einfach im Channel herum und beobachte die vorbei fliegenden
+Gespräche. Du könntest dabei etwas lernen!
 
 2) "Github":http://github.com
 
-This site is the hottest place to host open source projects along with your own private code. The benefit here is that you can see plenty of others who are using Git daily, and how they're using it. There's plenty of different models of using git that you can observe: everything from single developers working on hobby projects to actively developed projects with tens to hundreds of forks. If you don't have an account yet, get signed up and check out what projects are active in the "languages":http://github.com/languages you like.
+Diese Seite ist der heißeste Platz, um Open Source Projekte zusammen mit
+deinem eigenen privaten Code unterzubringen. Der Vorteil besteht darin,
+dass du eine Menge anderer Benutzer finden kannst, die Git täglich
+benutzen und wie sie es nutzen. Es gibt eine Menge verschiedener
+Modelle, die du beobachten kannst: Alles vom einzelnen Entwickler, der
+an Hobby-Projekten arbeitet, bis hin zu sehr aktiven
+Entwicklungsprojekten mit Zehn bis Hunderten von Forks (Abspaltungen).
+Solltest du noch kein Konto haben, melde dich an und finde ein Projekte
+deiner "Lieblingssprache":http://github.com./languages.
 
-3) The "Git Mailing List":http://vger.kernel.org/vger-lists.html#git
+3) Die "Git Mailing List":http://vger.kernel.org/vger-lists.html#git
 
-The official mailing list for Git developers is a ridiculously active and overall best way to get in touch with those who not only use Git daily, but have played major roles in creating it. If you've got a question, it most likely will get answered here. Just make sure to do your "homework":http://letmegooglethatforyou.com before you ask! Also, if you're looking to contribute back to the Git project, this is where to start.
+Die offizielle Mailingliste der Git Entwickler ist überaus aktiv und
+wohl der beste Weg mit jenen in Kontakt zu treten, die Git nicht nur
+täglich benutzen, sondern eine maßgebliche Rolle in seiner Entwicklung
+spielten. Deine Frage wird höchstwahrscheinlich dort beantwortet. Stelle
+aber sicher, dass du deine
+"Hausaufgaben":http://letmegooglethatforyou.com machst, bevor du fragst!
+Hier fängst du auch an, wenn du selbst zu Git beitragen möchtest.
