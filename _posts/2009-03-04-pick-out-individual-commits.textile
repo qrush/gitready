@@ -37,7 +37,11 @@ bcb0d1b... First pass at rake task.
 2135a53... Using block syntax of popen4 to ensure that subprocesses...
 </pre>
 
-As you can see, it created a new commit, and the work has been brought in successfully. Here's how to wrap up the commit with "format-patch":http://www.kernel.org/pub/software/scm/git/docs/git-format-patch.html and apply it using "git am":http://www.kernel.org/pub/software/scm/git/docs/git-am.html.
+As you can see, it created a new commit, and the work has been brought in successfully. Both this method and the third method will produce a history like so, with the new commit on top:
+
+p=. !/images/pick-cherry.png!
+
+Here's how to wrap up the commit with "format-patch":http://www.kernel.org/pub/software/scm/git/docs/git-format-patch.html and apply it using "git am":http://www.kernel.org/pub/software/scm/git/docs/git-am.html.
 
 <pre>
 $ git format-patch -1 b50788b
@@ -101,5 +105,9 @@ b50788b... First pass at rake task.
 2569e9f... update history
 2135a53... Using block syntax of popen4 to ensure that subprocesses...
 </pre>
+
+Graphically, we can see that the commit has been brought into the mainline on the far left:
+
+p=. !/images/pick-merge.png!
 
 As always, if you mess up you can go back one commit after you've applied a patch by using @git reset --hard HEAD^@ or possibly even by "reverting files":http://gitready.com/beginner/2009/01/11/reverting-files.html. If things go really haywire you can always "check the reflog":http://gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html. If you have other ways of dealing with this situation, let us know in the comments!
