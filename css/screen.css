@@ -36,15 +36,14 @@ p {
 #disqus { background: #DEE6CF; padding: 10px; }
 #date { text-align: center; color: #333; font-size: 80%;}
 #post img { padding: 10px; border: 2px solid #aaa; background: #eee; }
-#feedburner { padding: 0; position: absolute; }
-#counter {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	margin: 0;
+#feedburner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 0;
 }
 
-#counter > div { position: relative; margin-left: 100px;}
+#counter { margin-left: 425px; }
 
 
 /*****************************************************************************/

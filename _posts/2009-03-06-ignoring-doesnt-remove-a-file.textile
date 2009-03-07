@@ -1,0 +1,19 @@
+---
+layout: post
+title: ignoring doesn't remove a file
+category: beginner
+---
+
+One problem I see quite often in the #git channel on Freenode is that beginners get confused as to why a file doesn't disappear from history when they place it into their ".gitignore":http://gitready.com/beginner/2009/01/19/ignoring-files.html file. The answer to this is quite simple! When you tell Git to ignore files, it's going to *only* stop watching changes for that file, and nothing else. This means that the history will still remember the file and have it.
+
+If you want to remove a file from the repository, but keep it in your working directory, simply use:
+
+@git rm --cached <file>@
+
+However, this will still keep the file in history. If you actually want to remove it from history, you really have two options: rewrite your repository's commits, or start over. Both options really suck, and that's for a good reason: Git tries hard not to lose your data. Just like with "rebasing":http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html, Git forces you to think about these kinds of options since they are destructive operations.
+
+If you did actually want to remove a file from history, @git filter-branch@ is the hacksaw you're looking for. Definitely read up on its "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-filter-branch.html before using it, since it will literally rewrite your project's commits. This actually is a great tool for some actions, and can do all sorts of stuff like totally removing an author's commits to moving the project root folder around. The command to remove a file from all revisions is:
+
+@git filter-branch --index-filter 'git rm --cached <file>' HEAD@
+
+This action can definitely be useful when you need to blow out sensitive or confidential information that may have been placed in your repository. More tips in the future will cover some of the other neat things @filter-branch@ can do. If you know of any useful tips regarding it, let us know in the comments or "submit a tip!":http://gitready.com/submit.html
