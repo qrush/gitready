@@ -18,10 +18,10 @@ Unterschiede zwischen den einzelnen Dateien jeder Änderung. Die Inhalte werden
 mit einem 40 Zeichen "SHA1
 hash":http://de.wikipedia.org/wiki/Secure_Hash_Algorithm des
 Inhaltes versehen, so dass deren Eindeutigkeit gewährleistet ist. So
-ziemlich jedes Objekt, sei es ein Commit, Baum oder ein Binärobjekt hat einen SHA,
-lerne also sie zu lieben. Glücklicherweise sind sie durch eine einfache
-Zeichenfolge aus sechs Zeichen referenziert, die in der Regel ausreichen die
-gesamte Zeichenkette zu identifizieren.
+ziemlich jedes Objekt, sei es eine Übergabe (Commit), Baum oder ein Binärobjekt
+hat einen SHA, lerne also sie zu lieben. Glücklicherweise sind sie durch eine
+einfache Zeichenfolge aus sechs Zeichen referenziert, die in der Regel
+ausreichen die gesamte Zeichenkette zu identifizieren.
 
 Ein grandioser Vorteil im Speichern der Inhalte besteht darin, dass Git bei
 zwei oder mehr Kopien der selben Datei intern nur eine Kopie vorhält. Ein
@@ -34,33 +34,33 @@ Verzeichniss vorstellen: Bäume beinhalten andere Binärobjekte oder Bäume.
 
 p=. !/images/object2.png!
 
-Das bringt uns schließlich zum wichtigsten Objekt: Der Commit. Man kann sich
-Commits als Schnappschüsse vorstellen: Sie wissen wie der Baum zu einem
-bestimmten Zeitpunkt aussah. Darüber hinaus halten sie weitere Informationen
-wie Autor, Datum und Nachricht vor.
+Das bringt uns schließlich zum wichtigsten Objekt: Die Übergabe (Commit). Man
+kann sich Übergaben (Commits) als Schnappschüsse vorstellen: Sie wissen wie der
+Baum zu einem bestimmten Zeitpunkt aussah. Darüber hinaus halten sie weitere
+Informationen wie Autor, Datum und Nachricht vor.
 
 p=. !/images/object3.png!
 
-Commits werden in "gerichteten azyklischen
+Übergaben (Commits) werden in "gerichteten azyklischen
 Graphen":http://de.wikipedia.org/wiki/Gerichteter_azyklischer_Graph
 organisiert. Für jene, die diese Vorlesung in Datenstrukturen verpaßt haben,
-es bedeuted, dass Commits in eine Richtung "fließen". Gewöhnlich ist diese
-Richtung einfach der Weg der Geschichte in deinem Repository, die recht
-einfach oder recht kompliziert sein kann, wenn du viele Zweige hast. Von einem
-umfassenden Standpunkt aus betrachtet, kann es wie folgt aussehen:
+es bedeuted, dass Übergaben (Commits) in eine Richtung "fließen". Gewöhnlich
+ist diese Richtung einfach der Weg der Geschichte in deinem Repository, die
+recht einfach oder recht kompliziert sein kann, wenn du viele Zweige hast. Von
+einem umfassenden Standpunkt aus betrachtet, kann es wie folgt aussehen:
 
 p=. !/images/object4.png!
 
 Das alles wird mit dem Werkzeug
 "GitX":http://gitready.com/intermediate/2009/01/13/visualizing-your-repo.html
-offensichtlich. Ganz klar können hier die Commit-Objekte und ihre assoziierten
+offensichtlich. Ganz klar können hier die Übergabe-Objekte und ihre assoziierten
 Daten betrachtet werden.
 
 p=. !/images/object5.png!
 
-Wenn du nun einige komische Terminologien in deinen Commits findest, wirst ein wenig
-besser verstehen, wo sie herkommen und wie es funktioniert. Schau einfach mal in der interessanten
-Anleitung "Git for Computer
-Scientists":http://eagain.net/articles/git-for-computer-scientists/ und in "Scott
-Chacon's":http://jointheconversation.org Referat zu "Getting
+Wenn du nun einige komische Terminologien in deinen Übergaben (Commits)
+findest, wirst ein wenig besser verstehen, wo sie herkommen und wie es
+funktioniert. Schau einfach mal in der interessanten Anleitung "Git for
+Computer Scientists":http://eagain.net/articles/git-for-computer-scientists/
+und in "Scott Chacon's":http://jointheconversation.org Referat zu "Getting
 Git":http://gitcasts.com/git-talk rein.

@@ -12,7 +12,7 @@ hierfür einen einfachen Weg, dank einer cleveren Anleitung von "Eelco
 Wiersma":http://www.pagebakers.nl/2009/01/29/git-ignoring-changes-in-tracked-files/.
 
 Sein Hauptproblem war @git commit -a@, das automatisch veränderte Dateien zum
-Commit-Objekt hinzufügt. Das ist eine nützliche Abkürzung, vergewissere dich
+Übergabe-Objekt (Commit) hinzufügt. Das ist eine nützliche Abkürzung, vergewissere dich
 aber, dass du die "Staging area
 verstehst":http://gitready.com/beginner/2009/01/18/the-staging-area.html, vor
 allem falls du feststellst, dass du dieses Kommando die ganze Zeit benutzt.
@@ -26,7 +26,7 @@ Sollen die Änderungen wieder verfolgt werden:
 @git update-index --no-assume-unchanged <file>@
 
 Es kommen offensichtlich ein paar Einsprüche ins Spiel. Mit @git add@ wird die
-Datei direkt zum Index hinzugefügt. Das Zusammenführen (Merge) einer Änderung
+Datei direkt zum Index hinzugefügt. Das Zusammenführen (Merge) einer Übergabe
 (Commit) mit diesem aktivierten Schalter führt zum sanften Abbruch des Merges,
 so dass er manuell behandelt werden kann.
 
@@ -46,8 +46,8 @@ $ git status
 no changes added to commit (use "git add" and/or "git commit -a")
 </pre>
 
-Wenn ich @git commit -a@ an dieser Stelle ausführe, würden alle Dateien zum
-neuen Commit hinzugefügt. Ich möchte jedoch die Änderungen in einer Datei
+Wenn ich @git commit -a@ an dieser Stelle ausführe, würden alle Dateien zur
+neuen Übergabe (Commit) hinzugefügt. Ich möchte jedoch die Änderungen in einer Datei
 temporär ignorieren:
 
 <pre>
@@ -66,8 +66,8 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 Wenn wir die Arbeit also jetzt committen und dann den Schalter deaktivieren,
 können wir sehen, dass Git die ursprünglichen Änderungen an README behalten
-hat. Von da an könntest du die Änderungen zu einem neuen Commit hinzufügen oder
-"auf die aktuelle Kopie
+hat. Von da an könntest du die Änderungen zu einer neuen Übergabe (Commit)
+hinzufügen oder "auf die aktuelle Kopie
 zurückgreifen":http://gitready.com/beginner/2009/01/11/reverting-files.html.
 
 <pre>
