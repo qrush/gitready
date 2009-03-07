@@ -34,6 +34,7 @@ p {
 }
 
 #disqus { background: #DEE6CF; padding: 10px; }
+#dsq-content { width: 575px; }
 #date { text-align: center; color: #333; font-size: 80%;}
 #post img { padding: 10px; border: 2px solid #aaa; background: #eee; }
 #feedburner {
