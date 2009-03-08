@@ -1,15 +1,26 @@
 ---
 layout: post
-title: piecemeal staging
+title: Stückweise Übergaben an den Index
 category: advanced
-published: false
+published: true
+translated: true
 ---
 
-This is a follow up to the comments from yesterday's article about "interactive adding":http://gitready.com/intermediate/2009/01/14/interactive-adding.html. Readers were begging coverage of powerful @git add -p@, a shortcut to the patch mode of interactive adding. This command is capable of breaking up changes in files into smaller hunks so you can commit *exactly* what you want, and not just the whole file. 
+Das ist eine Fortschreibung des gestrigen Artikels über das "interactive
+Hinzufügen":http://de.gitready.com/intermediate/2009/01/14/interactive-adding.html.
+Die Leser baten um einen Artikel zum mächtigen @git add -p@ Kommando, eine Abkürzung zum
+Patch-Modus beim interaktiven Hinzufügen. Dieses Kommando ist in der Lage,
+Änderungen in Dateien in kleinere Brocken (hunks) aufzuteilen, so dass du
+*exakt* das übergeben (commit) kannst, was du möchtest, und nicht nur die
+gesamte Datei.
 
-This behavior is very helpful since it allows you to version any "hunk" of text in the file that you'd like. Perhaps that one line of code will break the build on others' machines or the build server, but just not yours. You get the point.
+Das Verhalten ist sehr hilfreich. Es erlaubt jeden "Textbrocken" (hunk) in
+einer Datei zu versionieren. Die Codezeile bricht vielleicht den Build auf den
+Maschinen anderer oder auf dem Build-Server, aber nicht bei dir. Du verstehst,
+was ich meine.
 
-Let's go through an example of using it, making changes to our project's trusty README file again. Here's what @git diff@ gives us from the changes that were just made:
+Gehen wir durch ein Beispiel und nehmen wieder Änderungen an der README Datei
+vor. @git diff@ zeigt uns folgende vorgenommenen Änderungen an:
 
 <pre>
 diff --git a/README.md b/README.md
@@ -33,11 +44,14 @@ If you have ideas about...
 +This blog is just awesome.
 </pre>
 
-So as we can see, we've made changes in separate parts of the file. However, I want to only commit the lower half. Besides, who really needs documentation anyway? Enter:
+Es wurden Änderungen an verschiedenen Stellen in der Datei vorgenommen. Ich
+möchte jedoch nur die untere Hälfte übergeben. Außerdem, wer braucht schon
+wirklich Dokumentation? Gib folgendes ein:
 
 @git add -p@
 
-Run this and you'll be greeted with a prompt just like @git add -i@, but it has quite a few options:
+Und du wirst mit einer Eingabeaufforderung begrüßt, ähnlich wie
+sie @git add -i@ anbietet, aber sie hat ziemlich viele Optionen:
 
 <pre>
 Stage this hunk [y/n/a/d/s/e/?]? ?
@@ -49,7 +63,11 @@ e - manually edit the current hunk
 ? - print help
 </pre>
 
-Most are pretty self-explanatory, but let"s go over the really cool ones. What we really want is the @s@ option, which will split the file into two smaller hunks of code, one for the higher "Project Information" block and one for the "About" block. Once it"s split it will prompt you with just the changes for that hunk:
+Die meisten Optionen sind selbsterklärend, aber wir gehen einfach über die
+wirklich coolen Optionen. Wir fokusieren uns auf die @s@ Option, die die Datei
+in kleinere Code-Brocken (hunks) aufteilen wird, einen oberen "Project
+Information" Block und einen unteren About" Block. Sobald alles aufgeteilt ist,
+wird es dich nur zu den Änderungen zu diesem Brocken befragen:
 
 <pre>
 Split into 2 hunks.
@@ -67,7 +85,8 @@ If you have ideas about...
 Stage this hunk [y/n/a/d/j/J/e/?]? n
 </pre>
 
-From here we can ignore it with @n@, and move on to the next one and add it with @y@:
+Hier ignorieren wir den Brocken mit @n@ und gehen weiter zum nächsten Brocken
+und fügen ihn mit @y@ hinzu:
 
 <pre>
 @@ -4,3 +8,7 @@
@@ -81,8 +100,15 @@ If you have ideas about...
 Stage this hunk [y/n/a/d/K/e/?]? y
 </pre>
 
-Doing a @git status@ will show changes to be committed and changes to be staged on one file. Strange, but it makes sense: we staged half the changes, and the other half are not yet added to the index. 
+@git status@ zeigt uns die zu übergebenden Änderungen und die Änderungen, die
+für eine Datei auf die Arbeitsbühne (stage) kommen. Komisch, aber es macht
+Sinn: Wir haben die Hälfte der Änderungen auf die Arbeitsbühne gehoben und die
+andere Hälfte wurde noch nicht zum Index hinzugefügt.
 
-There's also the @e@ option, which will let you to manually flip the hunks on and off in your favorite editor. Instructions are included with that option, so go play around with it when you get the chance. (No pun intended.)
+Es gibt auch die @e@ Option, die das manuelle An- und Abschalten der Brocken in
+deinem Lieblingseditor erlaubt. Die Option beinhaltet Instruktionen, spiele
+also damit ein wenig herum, sobald du die Gelegenheit dazu hast (Das ist kein
+Wortspiel).
 
-If you've got any stories as to how @git add -p@ has helped you (or if a neat feature was missed), let us know in the comments! 
+Solltest du weitere Geschichten haben, wie dir @git add -p@ geholfen hat (oder
+falls ein Feature fehlt), teile es uns in einem Kommentar mit!
