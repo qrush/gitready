@@ -1,0 +1,66 @@
+---
+layout: post
+title: remote tracking branches
+category: beginner
+---
+
+Confused about what exactly a remote tracking branch is? Don't worry, it's "not just you":http://kerneltrap.org/mailarchive/git/2007/8/4/253944. Basically, there's two types of branches: local, and remote-tracking. Local branches are pretty run of the mill, they're just another path in the "DAG":http://gitready.com/beginner/2009/02/17/how-git-stores-your-data.html that you can commit to. Remote-tracking branches have a few different purposes:
+
+# They're used to link what you're working on locally compared to what's on the remote.
+# They will automatically know what remote branch to get changes from when you use @git pull@ or @git fetch@.
+# Even better, @git status@ will recognize him how many commits you are in front of the remote version of the branch.
+
+Luckily, the @git branch@ command gives us some insight to what branch is what. For most normal, freshly cloned repositories, you'll see this output:
+
+<pre>
+$ git branch
+* master
+</pre>
+
+This just shows the default local branch, the master branch. If you wanted to see remote branches:
+
+<pre>
+$ git branch -r
+  origin/HEAD
+  origin/master
+</pre>
+
+And finally, if you wanted to see them all:
+
+<pre>
+$ git branch -a
+* master
+  origin/HEAD
+  origin/master
+</pre>
+
+When branches are created using the @--track@ option, they will be set up to linked to the remote branch. For example, if you wanted to create a new branch from the master branch from the origin remote, using this would set it up so it would pull from the remote and branch automatically:
+
+<pre>
+$ git branch --track feature1 origin/master
+Branch feature1 set up to track remote branch refs/remotes/origin/master.
+</pre>
+
+From here you can @git checkout@ the branch and work with it, and since it's tracking the remote branch, it will know where to bring in changes from when you fetch or pull.
+
+Local branches can also be created from any start point, be it a remote tracking branch or any "treeish":http://book.git-scm.com/4_git_treeishes.html passed in. Here are some examples:
+
+<pre>
+$ git branch --no-track feature2 origin/master 
+$ git branch --no-track feature3 HEAD~4
+$ git branch --no-track feature4 f21e886
+</pre>
+
+Now, in these examples the @--no-track@ option was specified. This was done to ensure that the branches did not derive from a remote tracking branch. You can tweak how this works through your @~/.gitconfig@ file. As the "Git Cheat Sheet":http://cheat.errtheblog.com/s/git/ says:
+
+<blockquote>
+<tt>git config branch.autosetupmerge true</tt><br />
+tells git-branch and git-checkout to setup new branches so that git-pull(1)
+will appropriately merge from that remote branch.  Recommended.  Without this,
+you will have to add --track to your branch command or manually merge remote
+tracking branches with "fetch" and then "merge".
+</blockquote>
+
+Hopefully this post has cleared up some confusion you may have had regarding branches and what exactly remote-tracking does. If you have more ideas on how to explain this better or related resources let us know in the comments or "submit a tip!":http://gitready.com/submit.html
+
+
