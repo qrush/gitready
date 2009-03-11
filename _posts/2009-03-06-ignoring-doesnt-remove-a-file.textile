@@ -2,6 +2,7 @@
 layout: post
 title: ignoring doesn't remove a file
 category: beginner
+published: false
 ---
 
 One problem I see quite often in the #git channel on Freenode is that beginners get confused as to why a file doesn't disappear from history when they place it into their ".gitignore":http://gitready.com/beginner/2009/01/19/ignoring-files.html file. The answer to this is quite simple! When you tell Git to ignore files, it's going to *only* stop watching changes for that file, and nothing else. This means that the history will still remember the file and have it.

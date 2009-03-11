@@ -2,6 +2,7 @@
 layout: post
 title: remote tracking branches
 category: beginner
+published: false
 ---
 
 Confused about what exactly a remote tracking branch is? Don't worry, it's "not just you":http://kerneltrap.org/mailarchive/git/2007/8/4/253944. Basically, there's two types of branches: local, and remote-tracking. Local branches are pretty run of the mill, they're just another path in the "DAG":http://gitready.com/beginner/2009/02/17/how-git-stores-your-data.html that you can commit to. Remote-tracking branches have a few different purposes:

@@ -2,6 +2,7 @@
 layout: post
 title: pick out individual commits
 category: intermediate
+published: false
 ---
 
 Sometimes you might only want one commit out of a branch, or perhaps you'll need to pluck a file from only one changeset. This tip is going to go over some ways on how to pull out one individual commit and work with it.

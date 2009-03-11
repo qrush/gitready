@@ -2,6 +2,7 @@
 layout: post
 title: get a file from a specific revision
 category: intermediate
+published: false
 ---
 
 If you know how Git stores data through "blobs, trees, and commits":http://gitready.com/beginner/2009/02/17/how-git-stores-your-data.html hopefully it should make sense why it's a bit annoying to get a file from a specific revision out of your repository. What you want is inside of a blob from whichever commit, so simply saying I want to see this commit won't cut it. Now, you could reset the working directory back to the commit you want to see then look at the file, but that's lame. 

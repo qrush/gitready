@@ -2,6 +2,7 @@
 layout: post
 title: keep either file in merge conflicts
 category: advanced
+published: false
 ---
 
 Sometimes when trying to resolve a merge, you may want to keep one file instead of the other. You don't need to open up the files and fix the potentially hundreds of conflicts, you just want to choose the one you want and be done with it. Sadly, this isn't exactly clear in older versions of Git, but more recent ones have made it easier. Big thanks to "Kevin Old":http://kevinold.com for "his post on the subject":http://www.kevinold.com/2009/02/24/better-git-conflict-resolution-between-binaries-with-theirs.html which reminded me about this issue.
