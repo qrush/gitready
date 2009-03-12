@@ -1,0 +1,33 @@
+---
+layout: post
+title: easily manage git remote branches
+category: advanced
+---
+
+"Checking out remote branches":http://gitready.com/intermediate/2009/01/09/checkout-remote-tracked-branch.html, "deleting them":http://gitready.com/beginner/2009/02/02/push-and-delete-branches.html, and publishing new ones is part of most Git user's daily workflow. But seriously, who wants to type *that* much? I certainly don't, and you don't either.
+
+Enter "git_remote_branch":http://grb.rubyforge.org/, a helpful "RubyGem":http://rubygems.org for just this task. It installs a new executable to help take some of the chore of working with remotes away. Here are some of the commands it has:
+
+<pre>
+grb create branch_name [origin_server]
+
+grb publish branch_name [origin_server]
+
+grb rename branch_name [origin_server]
+
+grb delete branch_name [origin_server]
+
+grb track branch_name [origin_server]
+</pre>
+
+What's awesome about it is that it shows what Git commands are running underneath it, so it's quite easy to figure out exactly what's going on.
+
+p=. !/images/grb1.png!
+
+It also has an @explain@ command built in that dumps out the commands directly.
+
+p=. !/images/grb2.png!
+
+Provided you have "RubyGems installed":http://rubyforge.org/frs/?group_id=126, simply do @gem install git_remote_branch@ and you're set! Check out the code on "GitHub":http://github.com/webmat/git_remote_branch/tree if you have ideas on how to make it better (or want to write your own helpful commands based off of it!)
+
+If you know of other helpful shortcuts that can help out Git users, "submit a tip!":http://gitready.com/submit.html
