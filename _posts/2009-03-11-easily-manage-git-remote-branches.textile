@@ -4,7 +4,7 @@ title: easily manage git remote branches
 category: advanced
 ---
 
-"Checking out remote branches":http://gitready.com/intermediate/2009/01/09/checkout-remote-tracked-branch.html, "deleting them":http://gitready.com/beginner/2009/02/02/push-and-delete-branches.html, and publishing new ones is part of most Git user's daily workflow. But seriously, who wants to type *that* much? I certainly don't, and you don't either.
+"Checking out remote branches":http://gitready.com/intermediate/2009/01/09/checkout-remote-tracked-branch.html, "deleting them":http://gitready.com/beginner/2009/02/02/push-and-delete-branches.html, and publishing new ones is part of most Git users' daily workflow. But seriously, who wants to type *that* much? I certainly don't, and you shouldn't have to either.
 
 Enter "git_remote_branch":http://grb.rubyforge.org/, a helpful "RubyGem":http://rubygems.org for just this task. It installs a new executable to help take some of the chore of working with remotes away. Here are some of the commands it has:
 
