@@ -2,6 +2,7 @@
 layout: post
 title: easily manage git remote branches
 category: advanced
+published: false
 ---
 
 "Checking out remote branches":http://gitready.com/intermediate/2009/01/09/checkout-remote-tracked-branch.html, "deleting them":http://gitready.com/beginner/2009/02/02/push-and-delete-branches.html, and publishing new ones is part of most Git users' daily workflow. But seriously, who wants to type *that* much? I certainly don't, and you shouldn't have to either.
