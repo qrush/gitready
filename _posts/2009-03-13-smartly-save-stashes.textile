@@ -1,0 +1,48 @@
+---
+layout: post
+title: smartly save stashes
+category: beginner
+---
+
+I seem to be using "stashing":http://gitready.com/beginner/2009/01/10/stashing-your-changes.html more and more, and I've found that seeing the stash list output looking like this isn't very helpful:
+
+<pre>
+$ git stash list
+stash@{0}: WIP on feature1: b50788b... First pass...
+stash@{1}: WIP on master: b50788b... First pass...
+stash@{2}: WIP on shoulda: e783fb0... Upgrading the rest...
+</pre>
+
+Sure, it's got the commit SHA and message that your work was based off of, but if you're anything like me, you forgot what you worked on the moment you stashed the changes and opened up that dreaded bug ticket that took hours to finish.
+
+Instead, stashing like this is a lot better when you're trying to figure out what you actually threw in there:
+
+@git stash save "your message here"@
+
+Now, your stashes will look a lot cleaner and hopefully help you save some time when pulling information out of there.
+
+<pre>
+$ git stash list
+stash@{0}: On shoulda: Updating instructions
+stash@{1}: On master: started merge but need to fix #104 first
+stash@{2}: On feature1: Adding some stuff
+</pre>
+
+If you need to see what's been changed for a certain stash, you can simply pass in the treeish for the stash, given in the @git stash list@ output. The <code>stash@{<number>}</code> part shows you how to reference that changeset. Simply pass it into @git diff@ to figure out what was changed:
+
+<pre>
+$ git diff stash@{0}
+diff --git a/TODO b/TODO
+index b0ecaeb..4ca398c 100644
+--- a/TODO
++++ b/TODO
+@@ -1,4 +1,3 @@
+ [ ] Easier configuration of Maruka and blahtex directories [mdreid]
+ [ ] Accurate "related posts" calculator
+-[ ] Autobuild
+-[ ] Add more awesome.
++[ ] Autobuild
+\ No newline at end of file
+</pre>
+
+You could also use @git show@ to see the commit it was based off of as well. If you've got more stash related tips or others that you can think of, "let us know!":http://gitready.com/submit.html
