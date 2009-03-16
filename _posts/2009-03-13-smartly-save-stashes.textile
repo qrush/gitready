@@ -2,6 +2,7 @@
 layout: post
 title: smartly save stashes
 category: beginner
+published: false
 ---
 
 I seem to be using "stashing":http://gitready.com/beginner/2009/01/10/stashing-your-changes.html more and more, and I've found that seeing the stash list output looking like this isn't very helpful:
