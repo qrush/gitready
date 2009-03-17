@@ -1,0 +1,72 @@
+---
+layout: post
+title: rolling back changes with revert
+category: intermediate
+---
+
+We've all done it. Perhaps you didn't have enough coffee that morning, or it was just before lunch. Somehow though, that bug got into the repository, and now you need to get it out. Luckily, @git revert@ is just the scalpel you need to extract that bad commit.
+
+p=. "!http://farm2.static.flickr.com/1032/1449240840_a61f776d69_m.jpg!":http://www.flickr.com/photos/cheryl/1449240840/
+
+Let's say our history looks like this:
+
+p=. !/images/revert1.png!
+
+The "revert" command works like so: it basically reverses whatever changes made in the commit passed in by creating a new commit. So, you wanted to revert the last commit you just made on your current branch:
+
+<pre>
+$ git revert HEAD
+Finished one revert.
+[master]: created 1e689e2: 
+  "Revert "Updated to Rails 2.3.2 and edge hoptoad_notifier""
+</pre>
+
+Our repository would now look like so:
+
+p=. !/images/revert2.png!
+
+You can also pass in any SHA for any commit to revert those changes. Of course, if the commit that you want to revert doesn't apply cleanly you're going to have to manually resolve the merge. 
+
+By default using this command will bring up your @$EDITOR@ so you can modify the commit message of the revert. Use this to explain why the changes are being backed out! If for some reason you don't want to edit the commit message, tacking on @--no-edit@ will allow you do so.
+
+Another helpful option is the @-n@ or @--no-commit@ flag. This will simply leave the reverted changes in your working directory and not automatically commit them. If you need to edit files further to complete the revert or possibly revert more than one commit, try out this option.
+
+Finally, dealing with reverting merges is somewhat irksome. You may receive this message when trying to revert one:
+
+<pre>
+$ git revert HEAD~1
+fatal: Commit 137ea95 is a merge but no -m option was given.
+</pre>
+
+With merges, you need to pick one of the merged in commits to revert. By using the @-m@ or @--mainline@ option, you can pick out which commit should be part of the 'mainline'. This requires a number argument, which is a bit misleading. Let's look at the merge commit shown above:
+
+<pre>
+$ git log HEAD~1 -1
+commit 137ea95c911633d3e908f6906e3adf6372cfb0ad
+Merge: 5f576a9... 62db4af...
+Author: Nick Quaranto <nick@quaran.to>
+Date:   Mon Mar 16 16:22:37 2009 -0400
+
+    Merging in rails-2.3 branch
+</pre>
+
+Basically, if we do @git revert HEAD~1 -m 1@, you'll get the first commit in the merge reverted (@5f576a9@). Using @-m 2@ will revert the second commit (@62db4af@). It's just a matter of figuring out which commit you need to roll back. The default commit message shows the commit that was reverted as well.
+
+<pre>
+$ git revert HEAD~1 --no-edit --mainline 2
+Finished one revert.
+[master]: created 526b346: "Revert "Merging in rails-2.3 branch""
+
+$ git log -1
+commit d64d3983845dfa18a5d935c7ac5a4855c125e474
+Author: Nick Quaranto <nick@quaran.to>
+Date:   Mon Mar 16 19:24:45 2009 -0400
+
+    Revert "Merging in rails-2.3 branch"
+
+    This reverts commit 137ea95c911633d3e908f6906e3adf6372cfb0ad, reversing
+    changes made to 62db4af8c77852d2cc9c19efc6dfb97e0d0067f5.
+</pre>
+
+
+The Git documentation suggests that you look at "this message from Linus":http://www.kernel.org/pub/software/scm/git/docs/howto/revert-a-faulty-merge.txt if you need some help resolving merges. Hopefully soon I'll have some better posts up regarding these kinds of situations. If you know of other great uses of the revert commit (or perhaps horror stories, or how it saved you) let us know!
