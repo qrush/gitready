@@ -10,7 +10,7 @@ Doing a @git log --graph@ produces this for my clone of the "jekyll":http://gith
 
 p=. !/images/graphfail.png!
 
-Let's slim that down a bit to @git log --graph --pretty=oneline --abbrev-commit@ so we can get commits compressed and only show 6 characters from the SHA1:
+Let's slim that down a bit to @git log --graph --pretty=oneline --abbrev-commit@ so we can get commits compressed and only show 7 characters from the SHA1:
 
 p=. !/images/graph.png!
 
