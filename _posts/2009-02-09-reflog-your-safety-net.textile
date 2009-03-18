@@ -27,7 +27,7 @@ The most common usage of this command is that you've just done a @git reset@ and
 
 p=. !/images/reflog.png!
 
-What this shows is a list of commits that Git still has in its storage. The first 6 characters are the beginning of the commit's SHA1 hash, followed by the commit's pointer, action, and message. You can see that not just commits are listed: switching branches, merges, rebases, and more are shown. The important part is the commit pointer and the SHA1: once you have that, you can do a @git show@ to see the diff, or perhaps a @checkout@, @cherry-pick@, or @merge@ depending on how you want to get the change back into your history.
+What this shows is a list of commits that Git still has in its storage. The first 7 characters are the beginning of the commit's SHA1 hash, followed by the commit's pointer, action, and message. You can see that not just commits are listed: switching branches, merges, rebases, and more are shown. The important part is the commit pointer and the SHA1: once you have that, you can do a @git show@ to see the diff, or perhaps a @checkout@, @cherry-pick@, or @merge@ depending on how you want to get the change back into your history.
 
 You can also use the @--all@ option to get more detailed information about different branches and even the stash:
 
