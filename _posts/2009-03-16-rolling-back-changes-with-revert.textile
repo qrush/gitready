@@ -2,6 +2,7 @@
 layout: post
 title: rolling back changes with revert
 category: intermediate
+published: false
 ---
 
 We've all done it. Perhaps you didn't have enough coffee that morning, or it was just before lunch. Somehow though, that bug got into the repository, and now you need to get it out. Luckily, @git revert@ is just the scalpel you need to extract that bad commit.
