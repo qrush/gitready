@@ -20,7 +20,7 @@ hash":http://de.wikipedia.org/wiki/Secure_Hash_Algorithm des
 Inhaltes versehen, so dass deren Eindeutigkeit gewährleistet ist. So
 ziemlich jedes Objekt, sei es eine Übergabe (Commit), Baum oder ein Binärobjekt
 hat einen SHA, lerne also sie zu lieben. Glücklicherweise sind sie durch eine
-einfache Zeichenfolge aus sechs Zeichen referenziert, die in der Regel
+einfache Zeichenfolge aus sieben Zeichen referenziert, die in der Regel
 ausreichen die gesamte Zeichenkette zu identifizieren.
 
 Ein grandioser Vorteil im Speichern der Inhalte besteht darin, dass Git bei
