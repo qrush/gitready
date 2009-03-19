@@ -2,6 +2,7 @@
 layout: post
 title: restoring a directory from history
 category: intermediate
+published: false
 ---
 
 It's quite easy to "revert":http://gitready.com/intermediate/2009/03/16/rolling-back-changes-with-revert.html or "reset":http://gitready.com/beginner/2009/01/11/reverting-files.html a single file from history, but what about pulling an entire directory out of the history?
