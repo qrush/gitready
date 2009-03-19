@@ -131,7 +131,10 @@ p {
 	background: #FFE3A3;
 }
 
-.links h3 { text-align: center; }
+.links h3 {
+  text-align: center;
+  font-size: 11px
+}
 
 .links a:hover
 {
