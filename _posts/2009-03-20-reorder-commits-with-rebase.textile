@@ -6,11 +6,11 @@ category: advanced
 
 One of the vast uses of "git rebase -i":http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html is reordering commits. Just please, PLEASE don't rebase commits that have been pushed publicly. If you're working with other developers, that will make the merge non fast-forwardable and creates headaches for all involved. Yes, the command allows one to rewrite history, but only do so when the commits are still on your local machine.
 
-Now that the warnings are over, let's get to the point. The scenario here is that you want to change up the sequence of commits. Perhaps you wanted to push certain changes farther down in history, or for some reason putting that fifth commit as the first one just makes more sense. So, let's do just that. Let's say our history looks like so:
+Now that the warnings are over, let's get to the point. The scenario here is that you want to change up the sequence of commits. Perhaps you wanted to push certain changes farther down in history, or for some reason putting that third commit as the first one just makes more sense. So, let's do just that. Let's say our history looks like so:
 
 p=. !/images/reorder1.png!
 
-So, let's start by using @git rebase -i HEAD~5@. Your $EDITOR will pop open with some text similar to this:
+So, let's start by using @git rebase -i HEAD~3@. Your $EDITOR will pop open with some text similar to this:
 
 <pre>
 pick 4c39bca gemspec tweak
