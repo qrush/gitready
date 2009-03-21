@@ -10,7 +10,7 @@ Heute schauen wir ein weiteres mächtiges Grundkonzept an, das Git gegenüber
 anderen Versionskontrollsystemen besitzt: Verteilung! Wie du vielleicht weißt,
 sind deine Bereitstellungen (Commits) alle lokal und Repositories sind einfach
 nur Klone voneinandern. Die wirkliche Arbeit im Verteilen deines Projekts fällt
-beim Synchronisieren deiner Änderungen mit @git push@ und @git pull@ an. 
+beim Synchronisieren deiner Änderungen mit @git push@ und @git pull@ an.
 
 Das sind viel zu hohe Unkosten die zu einem Zusammenbruch der Kontrolle führen,
 mag der Gitneuling vielleicht denken. Betrachte es auf diese Weise: Wenn dein
@@ -73,9 +73,9 @@ Script macht genau das:
 
 <pre>
 $ git pull origin master
-  remote: Counting objects: 7, done.        
-  remote: Compressing objects: 100% (4/4), done.        
-  remote: Total 4 (delta 2), reused 0 (delta 0)        
+  remote: Counting objects: 7, done.
+  remote: Compressing objects: 100% (4/4), done.
+  remote: Total 4 (delta 2), reused 0 (delta 0)
   Updating 361303d..f2cd831
   Fast forward
    _layouts/default.html |    1 +

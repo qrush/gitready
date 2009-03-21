@@ -1,17 +1,27 @@
 ---
 layout: post
-title: sharing your changes
+title: Änderungen verteilen
 category: intermediate
-published: false
+published: true
 ---
 
-Git's distributed nature does not rely on central servers to host and broadcast your code. There's more options available to you if for some reason your main server goes down, or perhaps when "GitHub goes down":http://ozmm.org/posts/when_github_goes_down.html. 
+Die verteilte Natur von Git ist unabhängig von zentralen Servern zum Hosten und
+Verteilen des Quellcodes. Es gibt mehrere Optionen, falls aus
+irgend einem Grund dein Server oder sogar "GitHub
+ausfällt":http://ozmm.org/posts/when_github_goes_down.html.
 
-Probably the easiest way to quickly export and share your code in this case is by making a bare clone of your repository, which contains only the stuff in the @.git@ directory that's usually at your project's root folder. Since this one folder has all of the history stored in it, you can easily extract anything you need from it. Simply do:
+Der wahrscheinlich einfachste Weg deinen Quellcode schnell und einfach zu
+teilen, ist die Erstellung eines kahlen (bare) Repository-Klons, der nur das
+Zeug im @.git@-Verzeichnis im Hauptverzeichnis deines Projektordners enthält.
+Da dieser Ordner die gesamte Projekthistorie beinhaltet, kann alles recht
+einfach daraus extrahiert werden. Folgende Kommandos sind hierfür auszuführen:
 
 @git clone --bare ~/Dev/ruby/jekyll jekyll.git@
 
-and then upload the folder to a server somewhere, share it for others to find on your machine, etc. Copying it down onto your machine and doing these commands will restore the repository:
+Das Verzeichnis kann auf irgendeinen Server hochgeladen und somit
+einfach an Andere Entwickler verteilt werden. Das Repository wird
+wiederhergestellt, indem das Verzeichnis auf deine Maschine kopiert und
+folgende Kommandos ausgeführt werden:
 
 <pre>
 $ mkdir test
@@ -22,19 +32,29 @@ $ git init
 $ git checkout -f
 </pre>
 
-So we've created a new folder for the repo, changed the folder name back to @.git@, woke git back up and restored all the changes from the latest commit.
+Somit haben wir einen neuen Ordner für das Repository erstellt, ändern den
+Verzeichnisnamen wieder in @.git@, holen Git zurück und stellen alle Änderungen
+von der neuesten Bereitstellung (Commit) wieder her.
 
-You could also use the @git-daemon@ to quickly serve up files using the git:// protocol. It will automatically serve up projects in subfolders, so for my ruby directory doing:
+Du kannst auch @git-daemon@ verwenden, um deine Dateien schnell über das git://
+Protokoll bereit zu stellen. Es wird automatisch Projekte in
+Unterverzeichnissen zur Verfügung stellen. Für mein Ruby-Verzeichnis wird:
 
 @git daemon --base-path=~/Dev/ruby --export-all@
 
-will then allow you to clone the jekyll repository on another machine using: 
+dir erlauben, das jekyll Repository auf eine andere Maschine zu klonen:
 
 @git clone git://<ip-address>/jekyll@
 
-Make sure to check that port 4918 is open on your network for this transfer. If not, just configure a different one using the @--port@ option. Refer to the "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-daemon.html if it still doens't work for you.
+Stelle sicher, dass der Port 4918 in deinem Netzwerk für diese Übertragung
+geöffnet ist. Wenn nicht, konfiguriere einfach einen anderen Port mit der
+@--port@ Option. Schau in der
+"Manpage":http://www.kernel.org/pub/software/scm/git/docs/git-daemon.html nach,
+falls es für dich noch nicht funktioniert.
 
-Using TCP is boring! What if you want to be able to get my changes over HTTP? Well, you're in luck, Git can serve that up too. Doing these three commands should do the trick:
+Die Verwendung von TCP ist langweilig! Was ist, wenn du meine Änderungen lieber
+über HTTP bekommen möchtest? Du hast Glück. Git kann deine Änderungen auch über
+HTTP zur Verfügung stellen. Die folgenden drei Kommandos erledigen das:
 
 <pre>
 git --bare update-server-info
@@ -42,11 +62,20 @@ mv hooks/post-update.sample hooks/post-update
 chmod a+x hooks/post-update
 </pre>
 
-These basically prepare Git for access via a web browser. Provided Apache or your favorite server is set up to host that directory, you should be able to clone over http like so:
+Sie bereiten Git grundsätzlich für den Zugriff über den Webbrowser vor. Es
+setzt voraus, dass Apache oder dein Lieblingsserver für das Bereitstellen des
+Verzeichnisses konfiguriert ist. Du solltest damit in der Lage sein, das
+Repository folgendermaßen zu klonen:
 
 @git clone http://yoursite.com/yourrepo.git@
 
-There's plenty of other options as well. You could use "OSX's built in web sharing":http://toolmantim.com/articles/sharing_git_repositories_via_os_xs_built_in_web_sharing along with the previous technique to host it from your own machine. You could also use an ssh address if you have an ssh account set up on the server you want to share your code from. 
+Es gibt noch eine Reihe weiterer Optionen. Du solltest den Build von "OS X für
+die Verteilung über das
+Web":http://toolmantim.com/articles/sharing_git_repositories_via_os_xs_built_in_web_sharing
+zusammen mit der bisherigen Technik zum Bereitstellen von deiner Maschine aus
+benutzen. Du könntest auch noch eine SSH Adresse verwenden, wenn du ein SSH
+Konto auf dem Server konfiguriert hast, wo du deinen Quellcode verteilen möchtest.
 
-If you've got any other handy ideas on how to share your repository, let us know in the comments!
+Solltest du weitere nützliche Ideen zum Teilen deines Repositories haben,
+hinterlasse uns einen Kommentar!
 

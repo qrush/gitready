@@ -1,0 +1,41 @@
+---
+layout: post
+title: restoring a directory from history
+category: intermediate
+published: false
+---
+
+It's quite easy to "revert":http://gitready.com/intermediate/2009/03/16/rolling-back-changes-with-revert.html or "reset":http://gitready.com/beginner/2009/01/11/reverting-files.html a single file from history, but what about pulling an entire directory out of the history?
+
+p=. "!/images/stump.png!":http://www.flickr.com/photos/stevejaysbestshots/1402673467/
+
+The solution is simple: 
+
+@git checkout <treeish> -- /path/to/dir@
+
+That will bring back the directory from the given "treeish" for the @/path/to/dir@. Let's go through an example of this:
+
+First off, let's remove a directory and then merge in a ton of changes (for future reference, this is going off a refactoring branch of "Jekyll":http://github.com/qrush/jekyll, the static blog engine that generates this site).
+
+p=. !/images/checkout1.png!
+
+Here's how the history looks:
+
+p=. !/images/checkout2.png!
+
+Hopefully this isn't too confusing. Basically the commit we just made is pretty far down in history, which most likely will be the case you're in if you need to restory a directory. First off, we need to get the reference to the commit that has the directory you want to pull. In this case, we know the last commit was the merge and the commit before that we deleted the directory. So, the commit we want to reference is the third commit in history, or @HEAD~2@. You could also reference this by the branch name (@test~2@) or even go one back from the SHA of the deletion (@f46666d^@). 
+
+In any case, if you try to checkout a directory from a revision where it doesn't exist, you'll get this nice message:
+
+<pre>
+$ git checkout test~1 -- bin/
+error: pathspec 'bin' did not match any file(s) known to git.
+</pre>
+
+So, let's check out the correct revision and finally get our directory back where it belongs:
+
+p=. !/images/checkout3.png!
+
+Great, now we're back in business. From here you can add or commit the file as needed.
+
+If you're in this situation you might want to consider reverting the commit, which could restore the files that were deleted as well. However, this isn't always possible and may not be the best way to pull the directory you're missing back out of history.
