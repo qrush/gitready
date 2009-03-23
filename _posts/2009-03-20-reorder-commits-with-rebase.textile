@@ -2,6 +2,7 @@
 layout: post
 title: reorder commits with rebase
 category: advanced
+published: false
 ---
 
 One of the vast uses of "git rebase -i":http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html is reordering commits. Just please, PLEASE don't rebase commits that have been pushed publicly. If you're working with other developers, that will make the merge non fast-forwardable and creates headaches for all involved. Yes, the command allows one to rewrite history, but only do so when the commits are still on your local machine.
