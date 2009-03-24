@@ -2,6 +2,7 @@
 layout: post
 title: what's inside your .git directory
 category: advanced
+published: false
 ---
 
 One of the things I like best about Git is that it keeps all of its information in one place: your @.git@ directory in your project's root. If you haven't been digging around it yet, don't fret! There's plenty of goodies to be had within it. Let's take a look into the important files and folders and try to get a better sense of what's going on under the hood.
