@@ -7,11 +7,12 @@
 ## About
 
 This repository hosts the HTML, CSS, images, and posts for [gitready.com](http://gitready.com)<br />
-Git Ready publishes daily tips for those who want to learn more about the VCS or just get started.
+Git Ready publishes (was daily, then tri-weekly, and now) weekly tips for those who want to learn more about the VCS or just get started.<br />
+The blog as a whole started as a journey to learn more about Git and show others how useful it is. If you find issues with the content, just send [qrush a message on GitHub](http://github.com/qrush) or email him at [nick@quaran.to](mailto://nick@quaran.to).
 
 ## Publishing
 
-This blog is generated with the [Jekyll](http://github.com/mojombo/jekyll) engine, [forked here](http://github.com/qrush/jekyll) with some special modifications.<br />
+This blog is generated with the [Jekyll](http://github.com/mojombo/jekyll) engine.<br />
 Simple and easy formatting that sticks to the basics. All static HTML too, so worrying about scalability is non-existent.
 
 ## Contributing
@@ -25,6 +26,7 @@ If you are interested in translating posts into another language, great! Here's 
 
 * Fork the project.
 * Create a branch with the ISO code for your language 
+* Translate the front page headers, footers. Check out the other translated sites for an example, such as the [german one](http://de.gitready.com).
 * Translate as little or as many posts as you so desire.
 * The posts that aren't translated, add this to the YAML front matter (this way, untranslated posts don't show up):
 
@@ -34,3 +36,8 @@ If you are interested in translating posts into another language, great! Here's 
 
 Once that's done, I'll add your language's subdomain and get it published.
 
+## Licensing
+
+The actual content of the articles is licensed under Creative Commons. The code that this project consists of is licensed under MIT.
+
+Basically, if you're going to redistribute a blog post, just make sure to link back. If you'd like to publish the content, that's fine too, just please keep the licensing information in.
