@@ -2,6 +2,7 @@
 layout: post
 title: find ancestor commits
 category: intermediate
+published: false
 ---
 
 Ever seen this message when trying to delete a branch?

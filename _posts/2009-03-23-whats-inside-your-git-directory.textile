@@ -2,6 +2,7 @@
 layout: post
 title: what's inside your .git directory
 category: advanced
+published: false
 ---
 
 *UPDATE*: I've recieved some very helpful comments regarding corrections to the various files and what they do. Thanks for letting me know and keeping me on my toes.
