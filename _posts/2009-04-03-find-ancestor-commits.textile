@@ -4,7 +4,7 @@ title: find ancestor commits
 category: intermediate
 ---
 
-Ever gotten this message when trying to delete a branch?
+Ever seen this message when trying to delete a branch?
 
 <pre>
 $ git branch -d docs
