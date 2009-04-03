@@ -31,7 +31,7 @@ $ git branch --contains d590f2
 
 From these results we can see that commit @d590f2@ has been merged into the @tests@ and @master@ branch.
 
-Back to the original conundrum: how to figure out if a branch has been merged in! The @--merged@ and @--no-merged@ flags can do just this for you. The former will tell you what branches have that treeish merged in, while the latter will do the opposite.
+Back to the original conundrum: how to figure out if a branch has been merged in! The @--merged@ and @--no-merged@ flags can do just this for you. The former will tell you what branches have that "treeish":http://book.git-scm.com/4_git_treeishes.html merged in, while the latter will do the opposite.
 
 In this case, our @docs@ branch is not fully merged into our @master@ branch:
 
@@ -52,7 +52,7 @@ $ git branch -D docs
 Deleted branch docs (884583c).
 </pre>
 
-If you're brave, you could use a combination of the @git rev-parse@ and @git rev-list@ to find if a commit is in the history of a given branch or not. I originally hacked this together until someone on the #git IRC channel let me know about the obvious solution in @git branch@. @rev-parse@ takes a "treeish" and converts it into the SHA it belongs to. @rev-list@ can print out commits in a myriad of different ways and deserves a tip all on its own.
+If you're brave, you could use a combination of the @git rev-parse@ and @git rev-list@ to find if a commit is in the history of a given branch or not. I originally hacked this together until someone on the "#git IRC channel":http://gitready.com/beginner/2009/03/02/where-to-find-the-git-community.html let me know about the obvious solution in @git branch@. @rev-parse@ takes a treeish and converts it into the SHA it belongs to. @rev-list@ can print out commits in a myriad of different ways and deserves a tip all on its own.
 
 <pre>
 $ git rev-list master | grep $(git rev-parse docs)
