@@ -241,6 +241,7 @@ color: #aaa;
     text-align: left; 
     font-size: 90%;
     margin: 0 15px;
+    overflow: hidden;
   }
   
   code {
