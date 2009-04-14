@@ -1,29 +1,50 @@
 ---
 layout: post
-title: fixing broken commit messages
+title: Beschädigte Übergabenachrichten beheben
 category: advanced
-published: false
+published: true
+translated: true
 ---
 
-You just committed that awesome feature/test/bug, but something just isn't right. Either some information isn't filled out, the commit message is wrong, or something else is just messed up. Let's go over what can be done to fix the associated data after the fact.
+Du hast soeben diese großartige Feature, den Test, die Fehlerbehebung
+übergeben, aber etwas ist einfach nicht korrekt. Entweder ist eine Information
+nicht ausgefüllt, die Übergabenachricht (Commit message) ist falsch oder etwas
+anderes lief einfach total schief. Wir betrachten nun, was du tun kannst, um
+die betroffenen Daten nachträglich zu korrigieren.
 
-Fixing the previous commit is very simple. Just use
+Die vorangegangene Übergabe kann sehr einfach korrigiert werden. Verwende einfach
 
 @git commit --amend@
 
-And that will fire up the commit patch in $EDITOR for you to mess with. Simply edit the message right on the top line of the file, save, quit and you're done. 
+Das wird dir den Übergabe-Patch im $EDITOR öffnen, um damit zu arbeiten.
+Bearbeite einfach die Nachricht in der obersten Zeile der Datei, speichere sie
+ab, beende den Editor und schon bist du fertig.
 
-Now let's say you've got a few commits to fix, or the commit that is broken is a few commits back. This process is a little more complex, but isn't too bad. (Thanks to "Evan Phoenix":http://blog.fallingsnow.net/ for this one.)
+Laß uns annehmen, du hast ein paar Übergaben (Commits) zu korrigieren, oder die
+kaputte Übergabe liegt ein paar Übergaben (Commits) zurück. Der Ablauf hierfür
+ist etwas komplexer, aber es ist nicht so schlimm. (Danke an "Evan
+Phoenix":http://blog.fallingsnow.net/.)
 
-Here's the scenario: the last 3 commits don't have the right username, email, or perhaps commit message. Let's start by generating patch files for the commits:
+Hier ist das Szenario: Die letzten 3 Übergaben haben den falschen Benutzername
+und die falsche E-Mailadresse, oder vielleicht auch die falsche
+Übergabenachricht. Zunächst erstellen wir für die Übergaben die entsprechenden
+Patch-Dateien:
 
 @git format-patch HEAD^^^@
 
-That will generate files in the form of 0001-commit-message that contains the commit diff and metadata. One note with the 3 caret symbols: just add one for each commit you need to go back, and be consistent! *EDIT:* You can also refer to past commits with the syntax HEAD~n, so for this example we'd use HEAD~3. Go ahead and edit these files so they have the proper information. Once that's done, we'll need to reset our repository back a few commits:
+Es werden Dateien in der Form 0001-commit-message erzeugt, die die
+Übergabeänderungen und Metadaten enthalten. Ein Hinweis zu den drei Caret
+Symbolen: Füge einfach eins pro Übergabe hinzu, die du zurück gehen möchtest,
+und sei konsistent! *Update:* Auf die letzten Übergaben kannst du auch mit der
+Syntax HEAD~n verweisen, in diesem Beispiel würden wir HEAD~3 verwenden. Fahre
+fort und bearbeite diese Dateien, so dass sie die passenden Informationen erhalten.
+Sobald du fertig bist, setzt du dein Repository um ein paar Übergaben zurück:
 
 @git reset --hard HEAD^^^@
 
-Now we can apply each commit to fix the information. Make sure you do it in the right order! (Usually it's ascending)
+Jetzt kann jede Übergabe angewendet werden und die Informationen werden
+behoben. Stelle die richtige Reihenfolge sicher! (gewöhnlich in aufsteigender
+Reihenfolge)
 
 <pre>
 git am < 0001...
@@ -31,14 +52,24 @@ git am < 0002...
 git am < 0003...
 </pre>
 
-Now if you check @git log@ you should see the right information. If for some reason stuff got messed up, doing a 
+Wenn du jetzt @git log@ überprüfst, solltest du die richtigen Informationen
+sehen. Ist etwas schief gegangen, holt dich ein
 
 @git reset --hard origin/master@
 
-will bring you back to your original changes. Once you've got the information fixed, you'll need to do a force push on the repo:
+zurück zu deinen ursprünglichen Änderungen. Sobald deine Informationen
+korrigiert sind, wirst du das Hochladen (Push) zum Repository erzwingen müssen:
 
 @git push -f@
 
-If you don't add the @-f@, git will complain. *WARNING!* Just be aware that modifying commit messages may muck up other's repositories and should be used with caution. In fact, other developers may flat out hate you for doing this. If it's far back enough it's probably a "bad idea to rewrite history anyway.":http://www.youtube.com/watch?v=BytKSy8M4bk
+Wenn du @-f@ nicht hinzufügst, wird sich Git beschweren. *WARNUNG!* Bitte
+beachte, dass die Änderung von Übergabenachrichten das Repository von anderen
+Entwicklern verhunzen könnte und sollte deshalb mit Vorsicht benutzt werden.
+Andere Entwickler könnten dich dafür hassen. Sollte es weit genug zurück
+liegen, ist es wahrscheinlich eine schlechte Idee, die "Historie neu zu
+schreiben.":http://www.youtube.com/watch?v=BytKSy8M4bk
 
-If you know of any unexpected or uncovered consequences please let us know in the comments. Another tip in the future will cover fixing the actual committed files and making sure that all repos are up to date.
+Solltest du unerwartete oder unentdeckte Konsequenzen kennen, lass sie uns bitte
+in den Kommentaren wissen. Ein weiterer zukünftiger Tipp wird sich mit dem
+Korrigieren von tatsächlich übergebenen Dateien befassen und sicherstellen,
+dass alle Repositories aktuell sind.
