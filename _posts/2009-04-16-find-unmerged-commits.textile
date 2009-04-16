@@ -1,18 +1,27 @@
 ---
 layout: post
 title: find unmerged commits
-category: advanced
+category: intermediate
 ---
 
-So you're chugging along developing in a topic branch when you decide it's about time that your work needs to brought back into your main development line. With graphical views like "gitk": or "GitX":, it's really easy to figure out what hasn't been merged in yet. Let's say we have the following scenario:
+So you're chugging along developing in a topic branch when you decide it's about time that your work needs to brought back into your main development line. With graphical views like "gitk or GitX":http://gitready.com/intermediate/2009/01/13/visualizing-your-repo.html, it's really easy to figure out what hasn't been merged in yet. Let's say we have the following scenario:
 
 p=. !/images/cherry-gitx.png!
 
-If you want to do this from the command line, you've got a few options. One decent way of visualizing this is by using @git log@, which has plenty of "awesome options available" besides this one:
+If you want to do this from the command line, you've got a few options. One decent way of visualizing this is by using @git log@, which has plenty of "awesome options available":http://gitready.com/advanced/2009/01/20/bend-logs-to-your-will.html besides this one:
 
 @git log --pretty=oneline --graph --all@
 
 p=. !/images/cherry-log.png!
+
+You could also use the range syntax in @git log@ to get the commits that aren't merged.
+
+<pre>
+$ git checkout master
+$ git log ..42-adding-replies
+</pre>
+
+@git log master..42-adding-replies@
 
 There is another option though, the @git cherry@ command. This does exactly what we want: tells us which commits aren't in the branch specified. So if I was on the master branch and I ran:
 
@@ -49,4 +58,4 @@ $ git cherry master
 + c3481fd0d6279f5bd45c455b915e0b4b1c0d8909
 </pre>
 
-One really neat aspect about this command is that it actually compares the changesets instead of the commit SHA, since you may have modified the commit by adding a signoff or changed its parents in some manner. In any case, you can depend on this command to tell you what hasn't been merged into your upstream branch. Also, don't confuse this with "cherry-pick", which does something totally different.
+One really neat aspect about this command is that it actually compares the changesets instead of the commit SHA, since you may have modified the commit by adding a signoff or changed its parents in some manner. In any case, you can depend on this command to tell you what hasn't been merged into your upstream branch. Also, don't confuse this with "cherry-pick":http://gitready.com/intermediate/2009/03/04/pick-out-individual-commits.html, which does something totally different.
