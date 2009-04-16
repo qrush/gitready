@@ -23,7 +23,7 @@ $ git log ..42-adding-replies
 
 @git log master..42-adding-replies@
 
-There is another option though, the @git cherry@ command. This does exactly what we want: tells us which commits aren't in the branch specified. So if I was on the master branch and I ran:
+There is another option though: @git cherry@. This does exactly what we want: tells us which commits aren't in the branch specified. So if I was on the master branch and I ran:
 
 <pre>
 $ git cherry -v master 42-adding-replies
@@ -49,6 +49,7 @@ $ git cherry -v master 42-adding-replies 7e71af
 As you can see, that skipped the first two commits in our topic branch. If you wanted to check what hasn't been merged into an upstream branch when not actually on the upstream branch, it's a little simpler:
 
 <pre>
+$ git checkout 42-adding-replies
 $ git cherry master
 + a4d0f79fccbbc12a53e8f0e5c2a4ef960ad69ba2
 + 7e71afd1faf36f17a0ff506e63cd2ca51496dad3
