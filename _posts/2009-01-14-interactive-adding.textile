@@ -6,18 +6,11 @@ published: true
 translated: true
 ---
 
-Manchmal ist das einfache Hinzufügen mit @git add .@ oder @git commit -am@
-nicht genug. Du möchtest deine Änderungen vielleicht in verschiedene kleine
-Übergaben (Commits) aufteilen, oder du bist einfach noch nicht bereit alles
-hinzuzufügen. Und wer möchte schon einzelne Dateien auf einmal hinzufügen? Das
-ist langweilig. Öffne den interaktiven Modus mit:
+Manchmal ist das einfache Hinzufügen mit @git add .@ oder @git commit -am@ nicht genug. Du möchtest deine Änderungen vielleicht in verschiedene kleine Übergaben (Commits) aufteilen, oder du bist einfach noch nicht bereit alles hinzuzufügen. Und wer möchte schon einzelne Dateien auf einmal hinzufügen? Das ist langweilig. Öffne den interaktiven Modus mit:
 
 @git add -i@
 
-und wir gehen durch ein Beispiel. Ich habe ein paar Änderungen zur Readme im
-"gitready":http://github.com/qrush/gitready Projekt zusammen mit ein paar
-anderen Dateien vorgenommen. Das o.g. Kommando bringt uns folgende Ausgabe, der
-Status des Index:
+und wir gehen durch ein Beispiel. Ich habe ein paar Änderungen zur Readme im "gitready":http://github.com/qrush/gitready Projekt zusammen mit ein paar anderen Dateien vorgenommen. Das o.g. Kommando bringt uns folgende Ausgabe, der Status des Index:
 
 <pre>
          staged     unstaged path
@@ -30,13 +23,9 @@ Status des Index:
 What now> 
 </pre>
 
-Wie du sehen kannst, stehen uns eine Reihe von Befehlen zur Verfügung. Das
-@status@ Kommando zeigt uns diese Ausgabe erneut. +3/-1 sind Nummern von
-Zeilen, die hinzugefügt/entfernt worden sind, die gewöhnliche Plus- und
-Minussymbole, die du beim Ziehen (pull) siehst.
+Wie du sehen kannst, stehen uns eine Reihe von Befehlen zur Verfügung. Das @status@ Kommando zeigt uns diese Ausgabe erneut. +3/-1 sind Nummern von Zeilen, die hinzugefügt/entfernt worden sind, die gewöhnliche Plus- und Minussymbole, die du beim Ziehen (pull) siehst.
 
-Wir fügen die Änderungen an der Readme hinzu. Das @update@ Kommando erlaubt uns
-diesen Schritt. Danach sehen wir folgende Ausgabe:
+Wir fügen die Änderungen an der Readme hinzu. Das @update@ Kommando erlaubt uns diesen Schritt. Danach sehen wir folgende Ausgabe:
 
 <pre>
            staged   unstaged path
@@ -45,9 +34,7 @@ diesen Schritt. Danach sehen wir folgende Ausgabe:
 Update>>
 </pre>
 
-Sobald wir Update 1 auswählen, wird uns mitgeteilt, dass die Datei für die
-Übergabe bereitgestellt ist. Wenn wir in den Status schauen, sehen wir, dass
-unsere Readme korrekt bereitgestellt ist.
+Sobald wir Update 1 auswählen, wird uns mitgeteilt, dass die Datei für die Übergabe bereitgestellt ist. Wenn wir in den Status schauen, sehen wir, dass unsere Readme korrekt bereitgestellt ist.
 
 <pre>
           staged  unstaged  path
@@ -55,10 +42,7 @@ unsere Readme korrekt bereitgestellt ist.
 2:    unchanged      +1/-1  _layouts/default.html
 </pre>
 
-Sobald du fertig bist, kannst du mit dem @quit@ Kommando abschließen und deine
-Arbeit wird übergeben (Commit). Solltest du dem interaktiven Modus nicht
-trauen, zeigt dir @git status@, dass nur die Readme für die Übergabe
-bereitgestellt wurde:
+Sobald du fertig bist, kannst du mit dem @quit@ Kommando abschließen und deine Arbeit wird übergeben (Commit). Solltest du dem interaktiven Modus nicht trauen, zeigt dir @git status@, dass nur die Readme für die Übergabe bereitgestellt wurde:
 
 <pre>
 # On branch master
@@ -71,8 +55,4 @@ bereitgestellt wurde:
 # modified:   _layouts/default.html
 </pre>
 
-Es gibt noch eine Reihe von hilfreichen Kommandos zum interaktiven Hinzufügen.
-Das ist erst der Anfang. Schau dir das @help@ Kommando an, der Rest ist dir
-überlassen. Für weiteren verfügbaren Kommandos im interaktiven Modus, gibt es
-bald weitere Tips.
-
+Es gibt noch eine Reihe von hilfreichen Kommandos zum interaktiven Hinzufügen. Das ist erst der Anfang. Schau dir das @help@ Kommando an, der Rest ist dir überlassen. Für weiteren verfügbaren Kommandos im interaktiven Modus, gibt es bald weitere Tips.

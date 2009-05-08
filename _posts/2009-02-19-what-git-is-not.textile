@@ -5,99 +5,35 @@ category: beginner
 published: true
 ---
 
-Es gibt offensichtliche viele Gründe, warum Git großartig ist (und warum es
-manchmal auch beschissen ist). Und es kommt der Zeitpunkt, wo es hilft einige
-Unruhen rund um Git auszuräumen. Die folgende Liste versucht aufzuzeigen, was
-Git *nicht ist*. Falls du deine eigenen Gründe hast, hinterlasse einen
-Kommentar und er möge hinzugefügt werden.
+Es gibt offensichtliche viele Gründe, warum Git großartig ist (und warum es manchmal auch beschissen ist). Und es kommt der Zeitpunkt, wo es hilft einige Unruhen rund um Git auszuräumen. Die folgende Liste versucht aufzuzeigen, was Git *nicht ist*. Falls du deine eigenen Gründe hast, hinterlasse einen Kommentar und er möge hinzugefügt werden.
 
 h3. 1. Git ist nicht Subversion mit etwas eingestreutem Zucker.
 
-Git arbeitet sehr viel anders als SVN und CVS. Der wahrscheinlich größte
-Unterschied besteht darin, dass Git primär Inhalt speichert. Es arbeitet
-hauptsächlich mit Schnappschüssen (Snapshots) der verfügbaren
-Informationen. (Aus diesem Grund wird Git gewöhnlich als 'dummer
-Information Tracker' bezeichnet). Sein Algorithmus zum Speichern von
-Änderungen unterscheidet sich fundamental von Subversion. Git ist auf
-diese Weise sehr viel effizienter.
+Git arbeitet sehr viel anders als SVN und CVS. Der wahrscheinlich größte Unterschied besteht darin, dass Git primär Inhalt speichert. Es arbeitet hauptsächlich mit Schnappschüssen (Snapshots) der verfügbaren Informationen. (Aus diesem Grund wird Git gewöhnlich als 'dummer Information Tracker' bezeichnet). Sein Algorithmus zum Speichern von Änderungen unterscheidet sich fundamental von Subversion. Git ist auf diese Weise sehr viel effizienter.
 
-Des Weiteren, solltest du es gewohnt sein alle deine Projekte in einem
-großen Repository zu haben, Git arbeitet auch so nicht. Repositories
-sind für einzelne Projekte gemeint und dann kannst
-"Submodule":http://book.git-scm.com/5_submodules.html benutzen, die
-andere Repositories einbinden, falls nötig. Ein Tip, der diese Situation
-behandelt, wird auf jeden Fall bald kommen.
+Des Weiteren, solltest du es gewohnt sein alle deine Projekte in einem großen Repository zu haben, Git arbeitet auch so nicht. Repositories sind für einzelne Projekte gemeint und dann kannst "Submodule":http://book.git-scm.com/5_submodules.html benutzen, die andere Repositories einbinden, falls nötig. Ein Tip, der diese Situation behandelt, wird auf jeden Fall bald kommen.
 
-Die Unterschiede zwischen Git und SVN könnten in einer eigenen Serie von
-Tips behandelt werden, aber der "Git-SVN Crash
-Course":http://git.or.cz/course/svn.html leistet großartige Arbeit für
-alle Jene, die den Umstieg durch die Betrachtung von Parallelen in
-Erwägung ziehen.
+Die Unterschiede zwischen Git und SVN könnten in einer eigenen Serie von Tips behandelt werden, aber der "Git-SVN Crash
+Course":http://git.or.cz/course/svn.html leistet großartige Arbeit für alle Jene, die den Umstieg durch die Betrachtung von Parallelen in Erwägung ziehen.
 
 h3. 2. Git ist nicht aufwändig bei Netzwerk oder Platzverbrauch
 
-Lokale Übergaben (Commits) sind ein riesiger Vorteil bei der Verwendung von Git
-und es kann deinen Arbeitsablauf sehr viel angenehmer gestalten, weil Git für
-die meisten Aktionen nicht über das Netzwerk mit einem zentralen Server
-sprechen muss. Wenn du mehr darüber wissen möchtest, wie das funktioninert,
-lies den "Beitrag zur
-Arbeitsbühne":http://de.gitready.com/beginner/2009/01/18/the-staging-area.html
-oder diesen zu "Hochladen (Push) und Ziehen
-(Pull)":http://de.gitready.com/beginner/2009/01/21/pushing-and-pulling.html Ein
-weitere großartiger Vorteil ist *ein* Ort, wo Git seine Dateien für dein
-Repository speichert (gewöhnlich das @.git@ Verzeichnis) und es müllt dein
-Verzeichnis nicht mit tausenden von versteckten Verzeichnissen und Dateien zu,
-wie es SVN macht.
+Lokale Übergaben (Commits) sind ein riesiger Vorteil bei der Verwendung von Git und es kann deinen Arbeitsablauf sehr viel angenehmer gestalten, weil Git für die meisten Aktionen nicht über das Netzwerk mit einem zentralen Server sprechen muss. Wenn du mehr darüber wissen möchtest, wie das funktioninert, lies den "Beitrag zur Arbeitsbühne":http://de.gitready.com/beginner/2009/01/18/the-staging-area.html oder diesen zu "Hochladen (Push) und Ziehen (Pull)":http://de.gitready.com/beginner/2009/01/21/pushing-and-pulling.html Ein weitere großartiger Vorteil ist *ein* Ort, wo Git seine Dateien für dein Repository speichert (gewöhnlich das @.git@ Verzeichnis) und es müllt dein Verzeichnis nicht mit tausenden von versteckten Verzeichnissen und Dateien zu, wie es SVN macht.
 
-h3. 3. Git ist nicht nur für Linux Kernel Hacker oder jene, die die ganze Zeit
-in Flugzeugen zu Konferenzen fliegen.
+h3. 3. Git ist nicht nur für Linux Kernel Hacker oder jene, die die ganze Zeit in Flugzeugen zu Konferenzen fliegen.
 
-Git kann so ziemlich auf jedem modernen Betriebssystem
-"installiert":http://gitready.com/beginner/2009/01/27/installing-git.html
-werden und es funktioniert definitiv auf Windows. Es gibt zwar keine
-100%-ige graphische Unterstützung auf Windows, aber es wird eine Menge
-Integrationsarbeit für den Explorer und zahlreiche verfügbare
-Entwicklungsumgebungen geleistet. Es gibt eine Reihe von verfügbaren und
-gekonnten Werkzeugen auf anderen Betriebssystemen, wie zum Beispiel
-"GitX":http://gitx.frim.nl/ auf OSX.
+Git kann so ziemlich auf jedem modernen Betriebssystem "installiert":http://gitready.com/beginner/2009/01/27/installing-git.html werden und es funktioniert definitiv auf Windows. Es gibt zwar keine 100%-ige graphische Unterstützung auf Windows, aber es wird eine Menge Integrationsarbeit für den Explorer und zahlreiche verfügbare Entwicklungsumgebungen geleistet. Es gibt eine Reihe von verfügbaren und gekonnten Werkzeugen auf anderen Betriebssystemen, wie zum Beispiel "GitX":http://gitx.frim.nl/ auf OSX.
 
 h3. 4. Git ist nicht schwer aufzusetzen
 
-Das Aufsetzen eines Git Repository ist so einfach wie das Ausführen
-von @git init@ in irgend einem Verzeichnis. Das kann fast kaum einfacher
-gehen. Beim Verteilen deiner Änderungen für andere Entwickler werden die Dinge
-ein bißchen interessanter. Gewöhnlich ist das "Verteilen von
-Änderungen":http://de.gitready.com/intermediate/2009/01/24/sharing-your-changes.html
-nur ein oder zwei Befehle entfernt. Die korrekte Bereitstellung deiner
-Änderungen kann jedoch ein wenig trickreich sein: Gewöhnlich ist für das eigene
-Setup die Verwendung von
-"gitosis":http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way
-zu empfehlen. Gitosis ist ein Werkzeug, das bei den SSH Benutzerschlüsseln für
+Das Aufsetzen eines Git Repository ist so einfach wie das Ausführen von @git init@ in irgend einem Verzeichnis. Das kann fast kaum einfacher gehen. Beim Verteilen deiner Änderungen für andere Entwickler werden die Dinge ein bißchen interessanter. Gewöhnlich ist das "Verteilen von Änderungen":http://de.gitready.com/intermediate/2009/01/24/sharing-your-changes.html nur ein oder zwei Befehle entfernt. Die korrekte Bereitstellung deiner Änderungen kann jedoch ein wenig trickreich sein: Gewöhnlich ist für das eigene Setup die Verwendung von "gitosis":http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way zu empfehlen. Gitosis ist ein Werkzeug, das bei den SSH Benutzerschlüsseln für
 den Übergabe-Zugriff (Commit) hilft.
 
 h3. 5. Git ist nicht schwer zu lernen.
 
-Gits
-"Manpages":http://www.kernel.org/pub/software/scm/git/docs/user-manual.html
-sind recht umfangreich (und ausufernd). Online sind noch weitere
-Anleitungen zum Lernen verfügbar. Einige der besten sind im Bereich
-Quellen in der Fußzeile dieser Seite gelistet! Den Git-Neulingen
-empfehle ich gewöhnlich das "Git Community
-Book":http://book.git-scm.com/ und das Ansehen der
-"Gitcasts":http://gitcasts.com. (Das Lesen dieser Website zählt
-auch!)
+Gits "Manpages":http://www.kernel.org/pub/software/scm/git/docs/user-manual.html sind recht umfangreich (und ausufernd). Online sind noch weitere Anleitungen zum Lernen verfügbar. Einige der besten sind im Bereich Quellen in der Fußzeile dieser Seite gelistet! Den Git-Neulingen empfehle ich gewöhnlich das "Git Community Book":http://book.git-scm.com/ und das Ansehen der "Gitcasts":http://gitcasts.com. (Das Lesen dieser Website zählt auch!)
 
 h3. 6. Git ist nicht komplex.
 
-Ja, es gibt eine Menge ungewohnter Terminologien und einige Konzepte
-sind nicht jedem Neuling sofort vertraut. Aber die darunterliegenden
-Konzepte, auf denen das System aufbaut, sind fundamental und absichtlich
-einfach gehalten. Ein großartiges Beispiel ist die "blob-tree-commit
-Struktur":http://de.gitready.com/beginner/2009/02/17/how-git-stores-your-data.html.
-Sobald die Grundkonzepte hinter Git verstanden sind, ist es wirklich
-sehr einfach, das Werkzeug auf deine Weise arbeiten zu lassen, anstatt
-in einen bestimmten Ablauf gezwungen zu werden. Sicher, zu viel
-Flexibilität könnte schlecht sein, aber wenn Git so viel Macht und
-Einfachheit in der Benutzung anbietet, warum sollte es dann ungenutzt
+Ja, es gibt eine Menge ungewohnter Terminologien und einige Konzepte sind nicht jedem Neuling sofort vertraut. Aber die darunterliegenden Konzepte, auf denen das System aufbaut, sind fundamental und absichtlich einfach gehalten. Ein großartiges Beispiel ist die "blob-tree-commit Struktur":http://de.gitready.com/beginner/2009/02/17/how-git-stores-your-data.html. Sobald die Grundkonzepte hinter Git verstanden sind, ist es wirklich sehr einfach, das Werkzeug auf deine Weise arbeiten zu lassen, anstatt in einen bestimmten Ablauf gezwungen zu werden. Sicher, zu viel Flexibilität könnte schlecht sein, aber wenn Git so viel Macht und Einfachheit in der Benutzung anbietet, warum sollte es dann ungenutzt
 bleiben?
-
