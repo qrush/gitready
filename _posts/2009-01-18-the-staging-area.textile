@@ -6,42 +6,21 @@ published: true
 translated: true
 ---
 
-Eines der essentiellsten Konzepte von Git ist jenes der Arbeitsbühne
-(staging area). Seine Verwendung kann deine Arbeitsweise fundamental
-zum Besseren ändern! Lass uns darüber schauen, wie er tatsächlich
-funktioniert und was du für die Verwendung brauchst.
+Eines der essentiellsten Konzepte von Git ist jenes der Arbeitsbühne (staging area). Seine Verwendung kann deine Arbeitsweise fundamental zum Besseren ändern! Lass uns darüber schauen, wie er tatsächlich funktioniert und was du für die Verwendung brauchst.
 
-Bei den meisten anderen Versionskontrollsystemen gibt es zwei Orte für
-das Speichern der Daten: Deine Arbeitskopie (die Verzeichnisse/Dateien,
-die du gegenwärtige benutzt) und der Datenspeicher (wo die
-Versionskontrolle entscheidet wie deine Änderung verpackt und
-gespeichert werden). In Git gibt es eine dritte Option: Die Arbeitsbühne
-(staging area oder Index). Es ist grundsätzlich ein Ladedock, wo du
-entscheidest welche Änderungen verschifft werden.
+Bei den meisten anderen Versionskontrollsystemen gibt es zwei Orte für das Speichern der Daten: Deine Arbeitskopie (die Verzeichnisse/Dateien, die du gegenwärtige benutzt) und der Datenspeicher (wo die Versionskontrolle entscheidet wie deine Änderung verpackt und gespeichert werden). In Git gibt es eine dritte Option: Die Arbeitsbühne (staging area oder Index). Es ist grundsätzlich ein Ladedock, wo du entscheidest welche Änderungen verschifft werden.
 
 p=. "!http://farm4.static.flickr.com/3259/2441544705_4c6f7e9b78.jpg!":http://flickr.com/photos/mundane_joy/2441544705/
 
-Die essentielle Entkopplung von Arbeitsverzeichnis und was Git
-speichert, erlaubt den Entwicklern ihre Übergaben (Commits) so zusammenzubauen,
-wie sie es wünschen und nicht auf eine Art und Weise, wie es das VCS von ihnen
-erwartet. Du erlangst viel mehr Flexibilität und Kontrolle dadurch, dass Git
-eine Ebene zwischen den tatsächlich gespeicherten Daten verwendet.
+Die essentielle Entkopplung von Arbeitsverzeichnis und was Git speichert, erlaubt den Entwicklern ihre Übergaben (Commits) so zusammenzubauen, wie sie es wünschen und nicht auf eine Art und Weise, wie es das VCS von ihnen erwartet. Du erlangst viel mehr Flexibilität und Kontrolle dadurch, dass Git eine Ebene zwischen den tatsächlich gespeicherten Daten verwendet.
 
-Die Verwendung des Index geht recht einfach mit den Kommandos @git add@
-und @git commit@ vonstatten. Du fügst Dateien zum Index hinzu (@add@)
-und sobald du zufrieden mit deinen Änderen bist, stellst du sie bereit
-(@commit@):
+Die Verwendung des Index geht recht einfach mit den Kommandos @git add@ und @git commit@ vonstatten. Du fügst Dateien zum Index hinzu (@add@) und sobald du zufrieden mit deinen Änderen bist, stellst du sie bereit (@commit@):
 
 p=. "!http://whygitisbetterthanx.com/images/index1.png!":http://whygitisbetterthanx.com/#the-staging-area
 
-Sobald sie im Repository sind, kannst du sie an einen entfernten Ort
-pushen (@push@), mit anderen Zweigen (branches) zusammenfügen (@merge@)
-und vieles mehr. Es gibt auch Aktionen, die auf der Arbeitsbühne (staging
-area) selbst ausgeführt werden können, zum Beispiel "Änderungen temporär
-lagern":http://de.gitready.com/beginner/2009/01/10/stashing-your-changes.html.
+Sobald sie im Repository sind, kannst du sie an einen entfernten Ort pushen (@push@), mit anderen Zweigen (branches) zusammenfügen (@merge@) und vieles mehr. Es gibt auch Aktionen, die auf der Arbeitsbühne (staging area) selbst ausgeführt werden können, zum Beispiel "Änderungen temporär lagern":http://de.gitready.com/beginner/2009/01/10/stashing-your-changes.html.
 
-Lass uns durch ein einfaches Beispiel für die Verwendung der staging
-area gehen. Ich habe gerade ein paar Änderungen vorgenommen:
+Lass uns durch ein einfaches Beispiel für die Verwendung der staging area gehen. Ich habe gerade ein paar Änderungen vorgenommen:
 
 <pre>
 $ git status
@@ -59,12 +38,7 @@ $ git status
   no changes added to commit (use "git add" and/or "git commit -a")
 </pre>
 
-In dem Beispiel haben wir 2 Dateien, über die Git Bescheid weiß, und
-eine Datei, die es nicht kennt: help.txt. Wenn wir ein @git add .@
-ausführen, werden alle Änderungen oder jede neue Datei, die nicht
-beobachted wird, hinzugefügt. Das @add@ Kommando speichert die Daten
-noch nicht, es platziert sie lediglich auf das Ladedock, bereit für den
-nächsten @git commit@ Laster, der sie mitnimmt.
+In dem Beispiel haben wir 2 Dateien, über die Git Bescheid weiß, und eine Datei, die es nicht kennt: help.txt. Wenn wir ein @git add .@ ausführen, werden alle Änderungen oder jede neue Datei, die nicht beobachted wird, hinzugefügt. Das @add@ Kommando speichert die Daten noch nicht, es platziert sie lediglich auf das Ladedock, bereit für den nächsten @git commit@ Laster, der sie mitnimmt.
 
 <pre>
 $ git add .
@@ -78,16 +52,7 @@ $ git status
       new file:   help.txt
 </pre>
 
-Wie der Prompt sagt, kannst du @git reset HEAD <file>@ benutzen, um
-Dateien zurück in ihren modifizierten Zustand zu versetzen. Auf diese
-Weise kannst du genau das bereitstellen, was du möchtest. "Du kannst
-sogar spezifische Zeilen in Dateien committen, wenn du wirklich
-willst.":http://de.gitready.com/advanced/2009/01/15/piecemeal-staging.html
-Solltest du dich darüber wundern, wie Daten zurück gesetzt werden
-können, "dazu gibt es auch einen eigenen
-Tip.":http://de.gitready.com/beginner/2009/01/11/reverting-files.html
-Von hier aus befördert ein @git commit@ alle Dateien in Gits
-Datenspeicher und du bist fertig.
+Wie der Prompt sagt, kannst du @git reset HEAD <file>@ benutzen, um Dateien zurück in ihren modifizierten Zustand zu versetzen. Auf diese Weise kannst du genau das bereitstellen, was du möchtest. "Du kannst sogar spezifische Zeilen in Dateien committen, wenn du wirklich willst":http://de.gitready.com/advanced/2009/01/15/piecemeal-staging.html. Solltest du dich darüber wundern, wie Daten zurück gesetzt werden können, "dazu gibt es auch einen eigenen Tip":http://de.gitready.com/beginner/2009/01/11/reverting-files.html. Von hier aus befördert ein @git commit@ alle Dateien in Gits Datenspeicher und du bist fertig.
 
 <pre>
 $ git commit -m "Adding stuff"
@@ -96,11 +61,9 @@ $ git commit -m "Adding stuff"
    create mode 100644 help.txt
 </pre>
 
-Solltest du nach mehr Informationen zum Index suchen, schaue dir diese
-fantastischen Beiträge an:
+Solltest du nach mehr Informationen zum Index suchen, schaue dir diese fantastischen Beiträge an:
 
 # "The Thing About Git":http://tomayko.com/writings/the-thing-about-git
 # "Git Book - The Git Index":http://book.git-scm.com/1_the_git_index.html
 
-Solltest du weitere Quellen kennen, die den Index erklären, lass sie uns
-in den Kommentaren wissen.
+Solltest du weitere Quellen kennen, die den Index erklären, lass sie uns in den Kommentaren wissen.

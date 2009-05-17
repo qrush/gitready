@@ -1,0 +1,74 @@
+---
+layout: post
+title: find ancestor commits
+category: intermediate
+published: false
+---
+
+Ever seen this message when trying to delete a branch?
+
+<pre>
+$ git branch -d docs
+error: The branch 'docs' is not an ancestor of your current HEAD.
+If you are sure you want to delete it, run 'git branch -D docs'
+</pre>
+
+Since the branch you're currently on doesn't have the branch you want to delete merged in. This is one of the many ways that Git tries really hard not to lose your data for you. So, how would you find out if a given branch (or commit) is merged into your current branch without having to try and delete it?
+
+The @git branch@ command has a few flags that will help out with this problem. The @--contains@ tag will figure out if a certain commit has been brought in yet into your branch. Perhaps you've got a commit SHA from a patch you thought you had applied, or you just want to check if commit for your favorite open source project that reduces memory usage by 75% is in yet.
+
+<pre>
+$ git log -1 tests
+commit d590f2ac0635ec0053c4a7377bd929943d475297
+Author: Nick Quaranto <nick@quaran.to>
+Date:   Wed Apr 1 20:38:59 2009 -0400
+
+    Green all around, finally.
+
+$ git branch --contains d590f2
+  tests
+* master
+</pre>
+
+From these results we can see that commit @d590f2@ has been merged into the @tests@ and @master@ branch.
+
+Back to the original conundrum: how to figure out if a branch has been merged in! The @--merged@ and @--no-merged@ flags can do just this for you. The former will tell you what branches have that "treeish":http://book.git-scm.com/4_git_treeishes.html merged in, while the latter will do the opposite.
+
+In this case, our @docs@ branch is not fully merged into our @master@ branch:
+
+<pre>
+$ git branch --merged docs
+  docs
+
+$ git branch --no-merged docs
+  config
+* master
+  tests
+
+$ git branch -d docs
+error: The branch 'docs' is not an ancestor of your current HEAD.
+If you are sure you want to delete it, run 'git branch -D docs'.
+
+$ git branch -D docs
+Deleted branch docs (884583c).
+</pre>
+
+If you're brave, you could use a combination of the @git rev-parse@ and @git rev-list@ to find if a commit is in the history of a given branch or not. I originally hacked this together until someone on the "#git IRC channel":http://gitready.com/beginner/2009/03/02/where-to-find-the-git-community.html let me know about the obvious solution in @git branch@. @rev-parse@ takes a treeish and converts it into the SHA it belongs to. @rev-list@ can print out commits in a myriad of different ways and deserves a tip all on its own.
+
+<pre>
+$ git rev-list master | grep $(git rev-parse docs)
+$ git rev-list master | grep $(git rev-parse tests)
+d590f2ac0635ec0053c4a7377bd929943d475297
+</pre>
+
+The first command returns nothing at all, since the @HEAD@ commit in @docs@ doesn't exist in the timeline for the @master@ branch yet. On the other had, grep finds the @HEAD@ commit for tests in @master@ as expected.
+
+Hopefully this saves you some time when dealing with multiple branches and wondering if they've been merged in yet. If you have other suggestions for dealing with this situation, leave a comment!
+
+
+
+
+
+
+
+

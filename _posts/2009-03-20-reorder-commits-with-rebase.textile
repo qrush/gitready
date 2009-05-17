@@ -1,0 +1,49 @@
+---
+layout: post
+title: reorder commits with rebase
+category: advanced
+published: false
+---
+
+One of the vast uses of "git rebase -i":http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html is reordering commits. Just please, PLEASE don't rebase commits that have been pushed publicly. If you're working with other developers, that will make the merge non fast-forwardable and creates headaches for all involved. Yes, the command allows one to rewrite history, but only do so when the commits are still on your local machine.
+
+Now that the warnings are over, let's get to the point. The scenario here is that you want to change up the sequence of commits. Perhaps you wanted to push certain changes farther down in history, or for some reason putting that third commit as the first one just makes more sense. So, let's do just that. Let's say our history looks like so:
+
+p=. !/images/reorder1.png!
+
+So, let's start by using @git rebase -i HEAD~3@. Your $EDITOR will pop open with some text similar to this:
+
+<pre>
+pick 4c39bca gemspec tweak
+pick 85409cf Version bump to 0.4.1
+pick eb32194 Regenerated gemspec for version 0.4.1
+
+# Rebase 60709da..eb32194 onto 60709da
+#
+# Commands:
+#  p, pick = use commit
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+# However, if you remove everything, the rebase will be aborted.
+#
+</pre>
+
+Reordering is as simple as moving the various 'pick' commands around. So if we wanted to swap the first commit with the last:
+
+<pre>
+pick eb32194 Regenerated gemspec for version 0.4.1
+pick 85409cf Version bump to 0.4.1
+pick 4c39bca gemspec tweak
+...
+
+$ git rebase -i HEAD~3
+Successfully rebased and updated refs/heads/test.
+</pre>
+
+Save the file, and hopefully everything will go alright. If not, you'll probably have a decent merge to take care of. If this gets too messy to take care of, just do a @git rebase --abort@ and you'll be back where you started. Don't worry about losing data either, since you can always use the "reflog":http://gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html to pluck out anything you might need. As expected, the history now shows the commits reversed:
+
+p=. !/images/reorder2.png!
+
+Do note that the commit dates are still reversed, so it may seem a bit strange especially to others working with your repository. Reordering is probably more useful when combined with the other options available inside of interactive rebase, such as "squashing":http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html or editing commit messages. If reordering commits has helped you out (or possibly hurted!) do let us know in the comments.

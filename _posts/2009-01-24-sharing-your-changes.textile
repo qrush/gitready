@@ -5,23 +5,13 @@ category: intermediate
 published: true
 ---
 
-Die verteilte Natur von Git ist unabhängig von zentralen Servern zum Hosten und
-Verteilen des Quellcodes. Es gibt mehrere Optionen, falls aus
-irgend einem Grund dein Server oder sogar "GitHub
-ausfällt":http://ozmm.org/posts/when_github_goes_down.html.
+Die verteilte Natur von Git ist unabhängig von zentralen Servern zum Hosten und Verteilen des Quellcodes. Es gibt mehrere Optionen, falls aus irgend einem Grund dein Server oder sogar "GitHub ausfällt":http://ozmm.org/posts/when_github_goes_down.html.
 
-Der wahrscheinlich einfachste Weg deinen Quellcode schnell und einfach zu
-teilen, ist die Erstellung eines kahlen (bare) Repository-Klons, der nur das
-Zeug im @.git@-Verzeichnis im Hauptverzeichnis deines Projektordners enthält.
-Da dieser Ordner die gesamte Projekthistorie beinhaltet, kann alles recht
-einfach daraus extrahiert werden. Folgende Kommandos sind hierfür auszuführen:
+Der wahrscheinlich einfachste Weg deinen Quellcode schnell und einfach zu teilen, ist die Erstellung eines kahlen (bare) Repository-Klons, der nur das Zeug im @.git@-Verzeichnis im Hauptverzeichnis deines Projektordners enthält. Da dieser Ordner die gesamte Projekthistorie beinhaltet, kann alles recht einfach daraus extrahiert werden. Folgende Kommandos sind hierfür auszuführen:
 
 @git clone --bare ~/Dev/ruby/jekyll jekyll.git@
 
-Das Verzeichnis kann auf irgendeinen Server hochgeladen und somit
-einfach an Andere Entwickler verteilt werden. Das Repository wird
-wiederhergestellt, indem das Verzeichnis auf deine Maschine kopiert und
-folgende Kommandos ausgeführt werden:
+Das Verzeichnis kann auf irgendeinen Server hochgeladen und somit einfach an Andere Entwickler verteilt werden. Das Repository wird wiederhergestellt, indem das Verzeichnis auf deine Maschine kopiert und folgende Kommandos ausgeführt werden:
 
 <pre>
 $ mkdir test
@@ -32,13 +22,9 @@ $ git init
 $ git checkout -f
 </pre>
 
-Somit haben wir einen neuen Ordner für das Repository erstellt, ändern den
-Verzeichnisnamen wieder in @.git@, holen Git zurück und stellen alle Änderungen
-von der neuesten Bereitstellung (Commit) wieder her.
+Somit haben wir einen neuen Ordner für das Repository erstellt, ändern den Verzeichnisnamen wieder in @.git@, holen Git zurück und stellen alle Änderungen von der neuesten Bereitstellung (Commit) wieder her.
 
-Du kannst auch @git-daemon@ verwenden, um deine Dateien schnell über das git://
-Protokoll bereit zu stellen. Es wird automatisch Projekte in
-Unterverzeichnissen zur Verfügung stellen. Für mein Ruby-Verzeichnis wird:
+Du kannst auch @git-daemon@ verwenden, um deine Dateien schnell über das git:// Protokoll bereit zu stellen. Es wird automatisch Projekte in Unterverzeichnissen zur Verfügung stellen. Für mein Ruby-Verzeichnis wird:
 
 @git daemon --base-path=~/Dev/ruby --export-all@
 
@@ -46,15 +32,9 @@ dir erlauben, das jekyll Repository auf eine andere Maschine zu klonen:
 
 @git clone git://<ip-address>/jekyll@
 
-Stelle sicher, dass der Port 4918 in deinem Netzwerk für diese Übertragung
-geöffnet ist. Wenn nicht, konfiguriere einfach einen anderen Port mit der
-@--port@ Option. Schau in der
-"Manpage":http://www.kernel.org/pub/software/scm/git/docs/git-daemon.html nach,
-falls es für dich noch nicht funktioniert.
+Stelle sicher, dass der Port 4918 in deinem Netzwerk für diese Übertragung geöffnet ist. Wenn nicht, konfiguriere einfach einen anderen Port mit der @--port@ Option. Schau in der "Manpage":http://www.kernel.org/pub/software/scm/git/docs/git-daemon.html nach, falls es für dich noch nicht funktioniert.
 
-Die Verwendung von TCP ist langweilig! Was ist, wenn du meine Änderungen lieber
-über HTTP bekommen möchtest? Du hast Glück. Git kann deine Änderungen auch über
-HTTP zur Verfügung stellen. Die folgenden drei Kommandos erledigen das:
+Die Verwendung von TCP ist langweilig! Was ist, wenn du meine Änderungen lieber über HTTP bekommen möchtest? Du hast Glück. Git kann deine Änderungen auch über HTTP zur Verfügung stellen. Die folgenden drei Kommandos erledigen das:
 
 <pre>
 git --bare update-server-info
@@ -62,20 +42,11 @@ mv hooks/post-update.sample hooks/post-update
 chmod a+x hooks/post-update
 </pre>
 
-Sie bereiten Git grundsätzlich für den Zugriff über den Webbrowser vor. Es
-setzt voraus, dass Apache oder dein Lieblingsserver für das Bereitstellen des
-Verzeichnisses konfiguriert ist. Du solltest damit in der Lage sein, das
-Repository folgendermaßen zu klonen:
+Sie bereiten Git grundsätzlich für den Zugriff über den Webbrowser vor. Es setzt voraus, dass Apache oder dein Lieblingsserver für das Bereitstellen des Verzeichnisses konfiguriert ist. Du solltest damit in der Lage sein, das Repository folgendermaßen zu klonen:
 
 @git clone http://yoursite.com/yourrepo.git@
 
-Es gibt noch eine Reihe weiterer Optionen. Du solltest den Build von "OS X für
-die Verteilung über das
-Web":http://toolmantim.com/articles/sharing_git_repositories_via_os_xs_built_in_web_sharing
-zusammen mit der bisherigen Technik zum Bereitstellen von deiner Maschine aus
-benutzen. Du könntest auch noch eine SSH Adresse verwenden, wenn du ein SSH
-Konto auf dem Server konfiguriert hast, wo du deinen Quellcode verteilen möchtest.
+Es gibt noch eine Reihe weiterer Optionen. Du solltest den Build von "OS X für die Verteilung über das
+Web":http://toolmantim.com/articles/sharing_git_repositories_via_os_xs_built_in_web_sharing zusammen mit der bisherigen Technik zum Bereitstellen von deiner Maschine aus benutzen. Du könntest auch noch eine SSH Adresse verwenden, wenn du ein SSH Konto auf dem Server konfiguriert hast, wo du deinen Quellcode verteilen möchtest.
 
-Solltest du weitere nützliche Ideen zum Teilen deines Repositories haben,
-hinterlasse uns einen Kommentar!
-
+Solltest du weitere nützliche Ideen zum Teilen deines Repositories haben, hinterlasse uns einen Kommentar!

@@ -1,36 +1,36 @@
 ---
 layout: post
-title: visualizing your repo
+title: Das Repository visualisieren
 category: intermediate
-published: false
+published: true
 ---
 
-So, you want to see your repository in a brand new way. You're sick of the command line, you need to see some graphs! Pixels! Buttons! Graphics! Dialog boxes! Ok, we get the point. 
+Du möchtest dein Repository in einer brandneuen Art sehen. Du hast die Nase voll von der Kommandozeile und möchtest ein paar Diagramme sehen. Pixel! Schaltflächen! Graphiken! Dialogboxen! Ok, wir haben verstanden.
 
-Our first option is viewing your repo in a browser. This functionality is packaged with most git installs:
+Die erste Option besteht darin, das Repository im Browser anzusehen. Diese Funktionalität ist mit den meisten Git-Installationen packetiert:
 
 @git instaweb@
 
-This will fire up a server, usually "lighttpd":http://lighttpd.net, to serve a simple web interface for your repository. You can browse commits, trees, view files, what have you. 
+Das startet einen Server, gewöhnlich "lighttpd":http://lighttpd.net, um eine einfache Webdarstellung deines Repositories anzubieten. Du kannst durch Übergaben (Commits) und Bäume (Trees) blättern, sowie Dateien anzeigen, alles was du hast.
 
 p=. !/images/instaweb.png!
 
-This is really useful if you need to dive down and see history but you don't know the commands yet. (And it's easier too.) If you don't have lighttpd installed and don't want to bother with it, running
+Das ist wirklich nützlich, wenn du in die Historie eintauchen möchtest, aber die Kommandos dafür noch nicht kennst. (Und es ist auch viel einfacher). Wenn du lighttpd nicht installiert hast und dich nicht damit plagen möchtest,
 
 @git instaweb --httpd webrick@
 
-will force WEBrick to serve the page, which will work just as well if Ruby is installed on your system. It also works with Apache, just check "instaweb's manpage":http://www.kernel.org/pub/software/scm/git/docs/git-instaweb.html to see the supported server and other goodies.
+zwingt WEBrick die Seite zu bedienen, dass so gut funktioniert, als wenn Ruby auf deinem System installiert ist. Es funktioniert auch mit Apache, schaue einfach in der "instaweb Man Page":http://www.kernel.org/pub/software/scm/git/docs/git-instaweb.html nach den unterstützten Servern und anderen Perlen.
 
-Webpages are great and all, but what if you want to see your commits in a more...graphical manner? Look no further than gitk or gitx then. These programs give you a more dynamic view of your repository and let you actually see branches and merges take place:
+Webseiten sind großartig und alles, aber was wenn du deine Übergaben (Commits) in einer eher ... graphischen Art sehen möchtest? Schaue nicht weiter als gitk oder gitx. Diese Programme geben dir eine dynamischere Ansicht auf dein Repository und erlauben dir Entwicklungszweige (Branches) und Zusammenführungen (Merges) zu sehen:
 
 p=. !/images/gitk.png!
 
-Need some graphical git loving? Use gitk with most git installs by running @gitk@ or "download gitx for OSX":http://gitx.frim.nl/. Windows users, if you know of an equivalent, comment away!
+Benutze gitk aus deiner Git-Installation indem du @gitk@ ausführst oder "lade dir gitx für OSX":http://gitx.frim.nl/ herunter. Wenn die Windows-Anwender etwas kennen, lassen sie bitte einen Kommentar da.
 
-There's also plenty of git graphical love over at "GitHub":http://github.com for every project, be it visualizing the impact individuals have had on the project, times that people have worked on the project, and even more. Definitely play around with various graphs they have to offer if you haven't yet.
+Es gibt genügend graphische Darstellungen für git auf "GitHub":http://github.com für jedes Projekt. Sei es die Darstellung der Auswirkungen eines Einzelnen auf das Projekt, Zeiten, in denen am Projekt gearbeitet wurde oder viel mehr. Spiele einfach mit den verschiedenen Darstellungen herum und finde heraus, was sie dir anbieten können.
 
 p=. !/images/impact.png!
 
 p=. !/images/punchcard.png!
 
-There's also plenty of other good visualizers over at the "GitWiki":http://git.or.cz/gitwiki/InterfacesFrontendsAndTools#head-60c66fc11f2aaab74873cbb3c434f2075abd5d87. If you know of any other good ways to see your repository graphically, let us know in the comments. I'll continue to update the post with more and better knowledge as it becomes available.
+Es gibt auch eine Reihe guter Darstellungen im "GitWiki":http://git.or.cz/gitwiki/InterfacesFrontendsAndTools#head-60c66fc11f2aaab74873cbb3c434f2075abd5d87. Falls du andere Möglichkeiten kennst, dein Repository graphisch darzustellen, teile es uns in einem Kommentar mit. Ich werde den Beitrag aktualisieren, sobald mehr Informationen dazu verfügbar sind.

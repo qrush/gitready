@@ -1,0 +1,74 @@
+---
+layout: post
+title: what's inside your .git directory
+category: advanced
+published: false
+---
+
+*UPDATE*: I've recieved some very helpful comments regarding corrections to the various files and what they do. Thanks for letting me know and keeping me on my toes.
+
+One of the things I like best about Git is that it keeps all of its information in one place: your @.git@ directory in your project's root. If you haven't been digging around it yet, don't fret! There's plenty of goodies to be had within it. Let's take a look into the important files and folders and try to get a better sense of what's going on under the hood.
+
+The basic structure looks like this:
+
+<pre>
+.
+|-- COMMIT_EDITMSG
+|-- FETCH_HEAD
+|-- HEAD
+|-- ORIG_HEAD
+|-- branches
+|-- config
+|-- description
+|-- hooks
+|   |-- applypatch-msg
+|   |-- commit-msg
+|   |-- post-commit
+|   |-- post-receive
+|   |-- post-update
+|   |-- pre-applypatch
+|   |-- pre-commit
+|   |-- pre-rebase
+|   |-- prepare-commit-msg
+|   `-- update
+|-- index
+|-- info
+|   `-- exclude
+|-- logs
+|   |-- HEAD
+|   `-- refs
+|-- objects
+`-- refs
+    |-- heads
+    |-- remotes
+    |-- stash
+    `-- tags
+</pre>
+
+Let's go over some of the normal files that you may see living in the base directory:
+
+* @COMMIT_EDITMSG@: This is the last commit's message. It's not actually used by Git at all, but it's there mostly for your reference after you made a commit.
+* @config@: Contains settings for this repository. Specific configuration variables can be dumped in here (and even "aliases":http://gitready.com/intermediate/2009/02/06/helpful-command-aliases.html!) What this file is most used for is defining where remotes live and some core settings, such as if your repository is bare or not.
+* @description@: If you're using "gitweb":http://git.or.cz/gitwiki/Gitweb or firing up @git instaweb@, this will show up when you view your repository or the list of all versioned repositories.
+* @FETCH_HEAD@: The SHAs of branch/remote heads that were updated during the last @git fetch@
+* @HEAD@: The current ref that you're looking at. In most cases it's probably @refs/heads/master@
+* @index@: The "staging area":http://gitready.com/beginner/2009/01/18/the-staging-area.html with meta-data such as timestamps, file names and also SHAs of the files that are already wrapped up by Git.
+* @packed-refs@: Packs away dormant refs, this is not the definitive list of refs in your repository (the @refs@ folder has the real ones!) Take a look at gitster's comment to see more information on this.
+* @ORIG_HEAD@: When doing a merge, this is the SHA of the branch you're merging into.
+* @MERGE_HEAD@: When doing a merge, this is the SHA of the branch you're merging from.
+* @MERGE_MODE@: Used to communicate constraints that were originally given to @git merge@ to @git commit@ when a merge conflicts, and a separate @git commit@ is needed to conclude it.  Currently @--no-ff@ is the only constraints passed this way.
+* @MERGE_MSG@: Enumerates conflicts that happen during your current merge.
+* @RENAMED-REF@: Still trying to track this one down. From a basic grep through the source, it seems like this file is related to errors when saving refs.
+
+There's plenty of directories as well:
+
+* @hooks@: A directory that will fast become your best friend: this contains scripts that are executed at certain times when working with Git, such as after a commit or before a rebase. An entire series of articles will be coming about hooks.
+* @info@: Relatively uninteresting except for the @exclude@ file that lives inside of it. We've seen this before in the "ignoring files":http://gitready.com/beginner/2009/01/19/ignoring-files.html article, but as a reminder, you can use this file to ignore files for this project, but beware! It's not versioned like a @.gitignore@ file would be.
+* @logs@: Contains history for different branches. Seems to be used mostly with the "reflog":http://gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html command.
+* @objects@: Git's internal warehouse of blobs, all indexed by SHAs.
+* @rebase-apply@: The workbench for "rebasing":http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html and for @git am@. You can dig into its @patch@ file when it does not apply cleanly if you're brave.
+* @refs@: The master copy of all refs that live in your repository, be they for stashes, tags, remote tracking branches, or local branches.
+
+Just one word of wisdom when messing around with Git internals: make sure you know what you're doing, and if not, have a backup! Messing around with the config files or hooks is pretty simple but I wouldn't go spelunking in the datastore if I didn't have to. If for some reason you are as part of your normal workflow, you might be doing it wrong.
+
+There's plenty more about the internals of Git that we haven't covered yet. One of the best guides is the "Git Community Book":http://book.git-scm.com, and of course, you can just "download the source for yourself":http://git.kernel.org/?p=git/git.git;a=summary and take a look. If you have more information about what's going on in the @.git@ folder, let us know in the comments!

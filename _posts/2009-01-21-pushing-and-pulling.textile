@@ -6,46 +6,18 @@ published: true
 translated: true
 ---
 
-Heute schauen wir ein weiteres mächtiges Grundkonzept an, das Git gegenüber
-anderen Versionskontrollsystemen besitzt: Verteilung! Wie du vielleicht weißt,
-sind deine Bereitstellungen (Commits) alle lokal und Repositories sind einfach
-nur Klone voneinandern. Die wirkliche Arbeit im Verteilen deines Projekts fällt
-beim Synchronisieren deiner Änderungen mit @git push@ und @git pull@ an.
+Heute schauen wir ein weiteres mächtiges Grundkonzept an, das Git gegenüber anderen Versionskontrollsystemen besitzt: Verteilung! Wie du vielleicht weißt, sind deine Bereitstellungen (Commits) alle lokal und Repositories sind einfach nur Klone voneinandern. Die wirkliche Arbeit im Verteilen deines Projekts fällt beim Synchronisieren deiner Änderungen mit @git push@ und @git pull@ an.
 
-Das sind viel zu hohe Unkosten die zu einem Zusammenbruch der Kontrolle führen,
-mag der Gitneuling vielleicht denken. Betrachte es auf diese Weise: Wenn dein
-Server ausfällt, wirst du meist daran gehindert weiter zu arbeiten und mit
-anderen zusammen zu arbeiten. Die tatsächliche Arbeit besteht im Erstellen von
-Revisionen auf deiner eigenen Maschine. Somit kannst du weiter programmieren,
-ob das Netzwerk nicht verfügbar ist oder sonstige Netzwerkprobleme bestehen.
-Habe ich schon erwähnt, dass Git bei Routineaufgaben um einiges Schneller ist?
-Weitere Vor- (und Nachteile) von DCVS gibt es auf
+Das sind viel zu hohe Unkosten die zu einem Zusammenbruch der Kontrolle führen, mag der Gitneuling vielleicht denken. Betrachte es auf diese Weise: Wenn dein Server ausfällt, wirst du meist daran gehindert weiter zu arbeiten und mit anderen zusammen zu arbeiten. Die tatsächliche Arbeit besteht im Erstellen von Revisionen auf deiner eigenen Maschine. Somit kannst du weiter programmieren, ob das Netzwerk nicht verfügbar ist oder sonstige Netzwerkprobleme bestehen. Habe ich schon erwähnt, dass Git bei Routineaufgaben um einiges Schneller ist? Weitere Vor- (und Nachteile) von DCVS gibt es auf
 "Wikipedia":http://en.wikipedia.org/wiki/Distributed_revision_control#Vs_Centralised.
 
-"Oliver Steele":http://osteele.com hat ein großartiges Bild zur Arbeitsweise
-von Hochladen (Push) und Ziehen (Pull) erstellt.
+"Oliver Steele":http://osteele.com hat ein großartiges Bild zur Arbeitsweise von Hochladen (Push) und Ziehen (Pull) erstellt.
 
 p=. !http://osteele.com/images/2008/git-transport.png!
 
-Der oberste Teil des Schaubilds ist einfach, deine Änderungen werden auf der
-"Arbeitsbühne":http://de.gitready.com/beginner/2009/01/18/the-staging-area.html
-bereitgestellt. Sobald das erledigt ist, befindet sich deine Versionskontrolle
-am richtigen Platz, aber jetzt möchten wir es mit dem entfernten Repository
-abgleichen. Das kann ein Hoster wie "GitHub":http://github.com sein, dein
-Git-Arbeitsserver, eine Produktiv-Maschine oder sogar das Repository eines
-Kollegen. Sobald die Änderungen ausgeliefert sind, können andere diese beziehen
-(@pull@) und mit ihnen arbeiten. Bei den meisten Aktionen in Git gibt es ein
-paar Optionen, aber heute bleiben wir bei @pull@.
+Der oberste Teil des Schaubilds ist einfach, deine Änderungen werden auf der "Arbeitsbühne":http://de.gitready.com/beginner/2009/01/18/the-staging-area.html bereitgestellt. Sobald das erledigt ist, befindet sich deine Versionskontrolle am richtigen Platz, aber jetzt möchten wir es mit dem entfernten Repository abgleichen. Das kann ein Hoster wie "GitHub":http://github.com sein, dein Git-Arbeitsserver, eine Produktiv-Maschine oder sogar das Repository eines Kollegen. Sobald die Änderungen ausgeliefert sind, können andere diese beziehen (@pull@) und mit ihnen arbeiten. Bei den meisten Aktionen in Git gibt es ein paar Optionen, aber heute bleiben wir bei @pull@.
 
-Wir gehen durch ein reales Beispiel. Ich habe den
-"Twitter":http://twitter.com/gitready Link am Fuß dieses Blogs eingefügt. Ich
-möchte die Änderungen zum "Projekt-Repository auf
-GitHub":http://github.com/qrush/gitready übertragen (@push@), um den Server zu
-aktualisieren. Die Syntax für das Kommando lautet @git push <remote> <branch>@.
-<remote> ist hauptsächlich die Adresse des geklonten Repositorys. Es enthält so
-ziemlich genau die selben Daten und Historien und wartet darauf aktualisiert zu
-werden. Die meisten Repositorys arbeiten gewöhnlich mit einer Gegenstelle
-namens @origin@ und dem Zweig @master@.
+Wir gehen durch ein reales Beispiel. Ich habe den "Twitter":http://twitter.com/gitready Link am Fuß dieses Blogs eingefügt. Ich möchte die Änderungen zum "Projekt-Repository auf GitHub":http://github.com/qrush/gitready übertragen (@push@), um den Server zu aktualisieren. Die Syntax für das Kommando lautet @git push <remote> <branch>@. <remote> ist hauptsächlich die Adresse des geklonten Repositorys. Es enthält so ziemlich genau die selben Daten und Historien und wartet darauf aktualisiert zu werden. Die meisten Repositorys arbeiten gewöhnlich mit einer Gegenstelle namens @origin@ und dem Zweig @master@.
 
 <pre>
 $ git commit -am "Adding twitter link"
@@ -61,15 +33,9 @@ $ git push origin master
      361303d..f2cd831  master -> master
 </pre>
 
-Jetzt, wo das entfernte Repository, die Gegenstelle, aktualisiert ist und wenn
-du auf GitHub vorbei schaust, "kannst du die Bereitstellungen (Commits)
-sehen":http://github.com/qrush/gitready/commits/master. Die Kommandoausgabe
-gibt an, wie Git die geänderten Datenblobs überträgt und läßt uns wissen, dass
-das Repository aktualisiert ist, indem es den geänderten SHA1-Hash zeigt.
+Jetzt, wo das entfernte Repository, die Gegenstelle, aktualisiert ist und wenn du auf GitHub vorbei schaust, "kannst du die Bereitstellungen (Commits) sehen":http://github.com/qrush/gitready/commits/master. Die Kommandoausgabe gibt an, wie Git die geänderten Datenblobs überträgt und läßt uns wissen, dass das Repository aktualisiert ist, indem es den geänderten SHA1-Hash zeigt.
 
-Aber was ist mit @pull@? Wir können es zum Abgleich der soeben gemachten
-Bereitstellungen mit jeglichen Repositories verwenden. Das Projekt-Deployment
-Script macht genau das:
+Aber was ist mit @pull@? Wir können es zum Abgleich der soeben gemachten Bereitstellungen mit jeglichen Repositories verwenden. Das Projekt-Deployment Script macht genau das:
 
 <pre>
 $ git pull origin master
@@ -82,11 +48,7 @@ $ git pull origin master
     1 files changed, 1 insertions(+), 0 deletions(-)
 </pre>
 
-Die Ausgabe zeigt uns, dass das Repository auf dem Server ein paar Änderungen
-vom entfernten Repository einholen muss und holt diese sogleich ab. Der Prozess
-wäre exakt derselbe, wenn du Bereitstellungen einer anderen Person in dein
-Repository einbringen wolltest. Jene, die das "Gitready
-Repository":http://github.com/qrush/gitready/network/members auf GitHub
+Die Ausgabe zeigt uns, dass das Repository auf dem Server ein paar Änderungen vom entfernten Repository einholen muss und holt diese sogleich ab. Der Prozess wäre exakt derselbe, wenn du Bereitstellungen einer anderen Person in dein Repository einbringen wolltest. Jene, die das "Gitready Repository":http://github.com/qrush/gitready/network/members auf GitHub
 abgespaltet haben, können nun meine vorgenommenen Änderungen abholen. Zukünftige Tutorien behandeln diesen Prozess in größere Detailtiefe.
 
 Wenn dir andere Ideen oder Konzepte einfallen, die hier vergessen wurden, lass es uns bitte wissen.
