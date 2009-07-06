@@ -30,7 +30,9 @@ If you are interested in translating posts into another language, great! Here's 
 * Translate as little or as many posts as you so desire.
 * The posts that aren't translated, add this to the YAML front matter (this way, untranslated posts don't show up):
 
-    published: false
+<pre>
+published: false
+</pre>
 
 * Submit a pull request to the main repository.
 
