@@ -6,7 +6,7 @@ category: beginner
 
 Our first reader submitted tip comes from "Dav Glass":http://blog.davglass.com/, and it elaborates on a command used to keep your repository nice and tidy. Have a tip you'd like to share? "Submit it!":http://gitready.com/submit.html
 
-Files and directories may pile up in your working directory that are left over from merges, generated, or perhaps got mistakenly put there. Whateverthe case, you don't need to ignore them in your @.gitignore@, you just need to remove them. Running
+Files and directories may pile up in your working directory that are left over from merges, generated, or perhaps got mistakenly put there. Whatever the case, you don't need to ignore them in your @.gitignore@, you just need to remove them. Running
 
 @git clean -n -d <path>@
 
