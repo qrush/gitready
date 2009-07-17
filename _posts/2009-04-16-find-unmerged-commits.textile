@@ -2,6 +2,7 @@
 layout: post
 title: find unmerged commits
 category: intermediate
+published: false
 ---
 
 So you're chugging along developing in a topic branch when you decide it's about time that your work needs to brought back into your main development line. With graphical views like "gitk or GitX":http://gitready.com/intermediate/2009/01/13/visualizing-your-repo.html, it's really easy to figure out what hasn't been merged in yet. Let's say we have the following scenario:
