@@ -1,31 +1,31 @@
 ---
 layout: post
-title: cleaning up untracked files
+title: Unverfolgte Dateien aufräumen
 category: beginner
-published: false
+published: true
 ---
 
-Our first reader submitted tip comes from "Dav Glass":http://blog.davglass.com/, and it elaborates on a command used to keep your repository nice and tidy. Have a tip you'd like to share? "Submit it!":http://gitready.com/submit.html
+Unser erster eingereichter Tip kommt von "Dav Glass":http://blog.davglass.com/. Er führt näher aus, wie das Repository schön sauber gehalten werden kann. Hast du einen Tip, den du teilen möchtest? "Reiche einen Tip ein!":http://de.gitready.com/submit.html
 
-Files and directories may pile up in your working directory that are left over from merges, generated, or perhaps got mistakenly put there. Whateverthe case, you don't need to ignore them in your @.gitignore@, you just need to remove them. Running
+Dateien und Verzeichnisse können sich in deinem Arbeitsverzeichnis anhäufen, die von Zusammenführungen (Merges) übrig blieben, erstellt oder fälschlicherweise dort abgelegt wurden. Was auch immer der Fall ist, du musst sie nicht in deine @.gitignore@-Datei eintragen. Du kannst sie einfach entfernen. 
 
 @git clean -n -d <path>@
 
-will do a 'dry run' of the command and show you just what files and folders are going to be removed. Running it on the "gitready":http://github.com/qrush/gitready gives this output:
+macht einen 'Trockenlauf' des Befehls und zeigt dir, welche Dateien und Verzeichnisse entfernt werden. Auf "gitready":http://github.com/qrush/gitready ausgeführt, kommt folgende Ausgabe:
 
 <pre>
 Would remove _posts/2009-01-16-cleaning-up-untracked-files.textile
 </pre>
 
-Which definitely would be bad if it was removed. I haven't added the post to the staging area yet, so the file appears as untracked. If you only want files to be cleaned up and not empty directories, take out the @-d@ option. Once you're sure that you do want to blow away all of those files, doing
+Es wäre definitiv schlecht, wenn die Datei entfernt werden würde. Ich habe den Beitrag noch nicht zur Arbeitsbühne hinzugefügt, so dass sie als unverfolgt gilt. Wenn du nur Dateien und keine leeren Verzeichnisse aufräumen möchtest, lasse die @-d@ Option weg. Sobald du sicher bist, dass du all diese Dateien entfernen möchtest, so entfernt ein
 
 @git clean -d <path>@ 
 
-actually performs the deletion. If you omit the @<path>@ git will perform it on your current directory. Also, you may need to throw in the @-f@ option depending on permissions and other situations that may crop up. 
+die Dateien. Wenn du @<path>@ wegläßt, wird Git den Befehl im aktuellen Verzeichnis ausführen. Vielleicht musst du noch die @-f@ Option einfügen, abhängig von Rechten und anderen Situationen, die aufkommen können.
 
-Cleaning also has a few other helpful options: if you want to perform a normal clean and clear out all the files that git usually ignores, the @-x@ flag will help immensely. If you just want to trash the ignored files and nothing else, use the @-X@ option. 
+Aufräumen hat noch ein paar andere nützliche Optionen: Wenn du normal aufräumen möchtest und alle Dateien löschen willst, die Git gewöhnlich ignoriert, so wird dir die @-x@ Option dabei behilflich sein. Wenn du die ignorierten Dateien einfach wegwerfen möchtest, so reicht die @-X@ Option.
 
-So if we wanted to do a major cleanup:
+Für einen Großputz hilft:
 
 <pre>
 $ git clean -n -d -x
@@ -37,7 +37,6 @@ Would remove images/.DS_Store
 Would remove images/_site/
 </pre>
 
-That command would clean up files listed under the project's ".gitignore":http://github.com/qrush/gitready/blob/7f51407b796c10beb11fe9e67c0f563d41a92fd8/.gitignore file as well as removing other files and directories that aren't necessary. As always use precaution when running @git clean@, and make sure to double check what you're really deleting.
+Der Befehl räumt Dateien und Verzeichnisse auf, die nicht mehr nötig sind und Dateien, die in der ".gitignore":http://github.com/qrush/gitready/blob/7f51407b796c10beb11fe9e67c0f563d41a92fd8/.gitignore Datei des Projekts genannt sind. Wie immer, sei vorsichtig bei der Verwendung von @git clean@ und prüfe, was du wirklich löschst.
 
-As always, if you know of other related tricks with @git clean@ let us know in the comments!
-
+Wie immer, wenn du andere ähnliche Tricks mit @git clean@ kennst, teile sie uns in den Kommentaren mit!.
