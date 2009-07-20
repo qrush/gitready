@@ -1,13 +1,13 @@
 ---
 layout: post
-title: restoring lost commits
+title: Verlorene Übergaben (Commits) wieder herstellen
 category: advanced
-published: false
+published: true
 ---
 
-So, you just did a @git reset --hard HEAD^@ and threw out your last commit. Well, it turns out you really did need those changes. You'll never be able to implement that algorithm that perfectly twice, so you need it back. Don't fear, git should still have your commit. When you do a reset, the commit you threw out goes to a "dangling" state. It's still in git's datastore, waiting for the next garbage collection to clean it up. So unless you've ran a @git gc@ since you tossed it, you should be in the clear to restore it.
+Du hast ein @git reset --hard HEAD^@ durchgeführt und soeben deine letzte Übergabe (Commit) weg geworfen. Es stellt sich jedoch heraus, dass du diese Änderungen wirklich brauchst. Du wirst niemals in der Lage sein, den Algorithmus ein zweites Mal so perfekt zu implementieren, also willst du ihn zurück haben. Keine Panik! Git sollte die Übergabe (Commit) noch haben. Wenn du einen Reset durchführst, geht die weggeworfene Übergabe (Commit) in einen "baumelnden" Status über. Sie befindet sich weiterhin in Gits Datenspeicher und wartet auf die nächste Müllsammlung (garbage collection), um aufgeräumt zu werden. Sofern du seit dem Wegwurf kein @git gc@ ausgeführt hast, solltest du die Übergabe wieder herstellen können.
 
-For these examples, I'm working with the "code for this blog":http://github.com/qrush/gitready. From the top, we just ran:
+Für die Beispiele arbeite ich mit dem "Code für dieses Blog":http://github.com/qrush/gitready:
 
 <pre>
 $ git show-ref -h HEAD
@@ -20,7 +20,7 @@ $ git show-ref -h HEAD
   39ba87bf28b5bb223feffafb59638f6f46908cac HEAD
 </pre>
 
-So our @HEAD@ has been backed up by one commit. At this point if we wanted it back we could just @git pull@, but we're assuming that only our local repository knows about the commit. We need the SHA1 of the commit so we can bring it back. We can prove that git knows about the commit still with the @fsck@ command:
+Unser @HEAD@ ist um eine Übergabe (Commit) zurück gesetzt worden. Mit @git pull@ können wir einfach an diesen Punkt zurück kehren. Aber wir nehmen an, dass nur unser lokales Repository von der Übergabe weiß. Wir benötigen den SHA1-Hash der Übergabe, um sie zurück zu holen. Mit dem @fsck@ Befehl können wir zeigen, dass Git die Übergabe noch kennt:
 
 <pre>
 $ git fsck --lost-found
@@ -28,7 +28,7 @@ $ git fsck --lost-found
   dangling commit 7c61179cbe51c050c5520b4399f7b14eec943754
 </pre>
 
-You can also see the that git knows about the commit still by using the @reflog@ command:
+Mit dem @reflog@ Befehl kannst du ebenfalls sehen, dass Git die Übergabe noch kennt:
 
 <pre>
 $ git reflog
@@ -37,7 +37,7 @@ $ git reflog
   [... lots of other refs ...]
 </pre>
 
-So, we now have our SHA1: @7c61179@. If we want to get immediately apply it back onto our current branch, doing a @git merge@ will recover the commit:
+Jetzt haben wir unseren SHA1-Hash: @7c61179@. Wenn wir die Übergabe sofort in unseren aktuellen Zweig zurück haben möchten, erledigt das @git merge@ für uns:
 
 <pre>
 $ git merge 7c61179
@@ -48,7 +48,7 @@ $ git merge 7c61179
     2 files changed, 6 insertions(+), 2 deletions(-)
 </pre>
 
+Dieser Befehlt holt unsere verlorenen Änderungen zurück und stellt sicher, das @HEAD@ auf die Übergabe (Commit) zeigt. Von hier aus kannst du mit der Arbeit normal fortfahren! Du kannst mit dem SHA1-Hash in einen neuen Zweig beginnen, aber eine Zusammenführung (Merge) ist die schnellste und einfachste Art, eine verlorene Übergabe wieder herzustellen, sobald du den Hash hast. Wenn du andere Alternativen kennst, teile sie uns in den Kommentaren mit!
 
-This command will bring your lost changes back and make sure that @HEAD@ is pointing at the commit. From here you can continue to work as normal! You could also checkout the SHA1 into a new branch, but really a merge is the fastest and easiest way to restore that lost commit once you have the hash. If you have other ways let us know in the comments!
-
-If you want some more options on what to do in this situation, "Mathieu Martin's":http://programblings.com/ "illustrated guide to recovering lost commits with Git":http://programblings.com/2008/06/07/the-illustrated-guide-to-recovering-lost-commits-with-git has plenty for you.
+Wenn du dir weitere Optionen für diese Situation ansehen möchtest, so verfügt "Mathieu Martin's":http://programblings.com/ "
+illustrated guide to recovering lost commits with Git":http://programblings.com/2008/06/07/the-illustrated-guide-to-recovering-lost-commits-with-git über genügend Material.
