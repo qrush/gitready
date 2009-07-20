@@ -1,39 +1,24 @@
 ---
 layout: post
-title: Herausfinden, wer was committet hat
+title: Herausfinden, wer was übergeben (committet) hat
 category: beginner
 ---
 
-Manchmal könnte es nötig sein herauszufinden, wer einen Fehler committet hat.
-Oder du möchtest einen Kollegen für die effiziente Implementierung eines
-Algorithmus beglückwünschen. Oder vielleicht auch nicht und du möchtest einfach
-nur herausfinden, wer den Build vermurkst hat. Glücklicherweise gibt es den
-@git blame@ Befehl, der genau dabei hilft und herausfindet, wer für welche
-Zeile verantwortlich ist und aus welcher Übergabe (Commit) sie kam.
+Manchmal könnte es nötig sein herauszufinden, wer einen Fehler übergeben (committed) hat. Oder du möchtest einen Kollegen für die effiziente Implementierung eines Algorithmus beglückwünschen. Oder vielleicht auch nicht und du möchtest einfach nur herausfinden, wer den Build vermurkst hat. Glücklicherweise gibt es den @git blame@ Befehl, der genau dabei hilft und herausfindet, wer für welche Zeile verantwortlich ist und aus welcher Übergabe (Commit) sie kam.
 
-Die einfach Verwendung ist ein schlichtes @git blame <file>@. Die
-Konsolenausgabe sieht gewöhnlich ähnlich wie folgt aus:
+Die einfach Verwendung ist ein schlichtes @git blame <file>@. Die Konsolenausgabe sieht gewöhnlich ähnlich wie folgt aus:
 
 p=. "!http://farm4.static.flickr.com/3606/3304779985_6c93865703.jpg!":http://farm4.static.flickr.com/3606/3304779985_2d1842b5f9_o.png
 
-Die Textwand mag einige von euch verwirren. Sie zeigt den verkürzten SHA der
-Übergabe (Commits), den Dateinamen, den Autor, das Datum, die Zeilennummer und
-die tatsächliche Quellcodezeile.
+Die Textwand mag einige von euch verwirren. Sie zeigt den verkürzten SHA der Übergabe (Commits), den Dateinamen, den Autor, das Datum, die Zeilennummer und die tatsächliche Quellcodezeile.
 
-Das allein ist natürlich schon großartig, aber es gibt eine Reihe von anderen
-Wegen den Verantwortlichen zu finden. Wenn dein Quellcode auf GitHub liegt, sind
-diese Informationen bereits eingebaut.
+Das allein ist natürlich schon großartig, aber es gibt eine Reihe von anderen Wegen den Verantwortlichen zu finden. Wenn dein Quellcode auf GitHub liegt, sind diese Informationen bereits eingebaut.
 
 p=. "!http://farm4.static.flickr.com/3463/3305616220_05a91c8e70.jpg!":http://farm4.static.flickr.com/3463/3305616220_a7b2850e62_o.jpg
 
-Ein anderer schöner Weg diese Informationen zu sehen, ist mit
-"git-age":http://wiki.github.com/krig/git-age. Es ist ein in PyGtk
-geschriebener Betrachter. Er ist recht nett und zeigt den Gravater zusammen mit
-der E-Mail der Übergabe (Commits), ältere Übergaben (Commits) werden mit einem
-dunkleren grauen Hintergrund dargestellt.
+Ein anderer schöner Weg diese Informationen zu sehen, ist mit "git-age":http://wiki.github.com/krig/git-age. Es ist ein in PyGtk geschriebener Betrachter. Er ist recht nett und zeigt den Gravater zusammen mit der E-Mail der Übergabe (Commits), ältere Übergaben (Commits) werden mit einem dunkleren grauen Hintergrund dargestellt. 
 
 p=. "!http://farm4.static.flickr.com/3454/3305608128_7000ca6fa2.jpg!":http://farm4.static.flickr.com/3454/3305608128_94edf84e1b_o.png
 
-Solltest du einen weiteren Trick zu diesem Befehl oder weiteren nützlichen
-Betrachtern kennen, teile ihn uns als Kommentar mit!
+Solltest du einen weiteren Trick zu diesem Befehl oder weiteren nützlichen Betrachtern kennen, teile ihn uns als Kommentar mit!
 
