@@ -4,63 +4,28 @@ title: Wie Git deine Daten speichert
 category: beginner
 ---
 
-Das ist eine sehr breite Übersicht über die Funktionsweise des Git
-Objektmodells, hauptsächlich basierend auf dem "Git Community
-Book":http://book.git-scm.com/1_the_git_object_model.html. Zukünftige Beiträge
-werden definitiv tiefer in das Objektmodell eintauchen, aber diese
-Information ist essentiell beim Lernen von Git. Die Bilder dieses Beitrags
-sind aus meiner Präsentation zu "Open Source Collaboration with Git and
-GitHub.":http://litanyagainstfear.com/blog/2008/12/05/open-source-collaboration-with-git-and-github/
+Das ist eine sehr breite Übersicht über die Funktionsweise des Git Objektmodells, hauptsächlich basierend auf dem "Git Community Book":http://book.git-scm.com/1_the_git_object_model.html. Zukünftige Beiträge werden definitiv tiefer in das Objektmodell eintauchen, aber diese Information ist essentiell beim Lernen von Git. Die Bilder dieses Beitrags sind aus meiner Präsentation zu "Open Source Collaboration with Git and GitHub.":http://litanyagainstfear.com/blog/2008/12/05/open-source-collaboration-with-git-and-github/
 
-Der einfachste Datenspeicher ist das Binärobjekt (Binary large object). Git speichert
-*einfach* die Inhalte einer Datei für die Verfolgungshistorie und nicht nur die
-Unterschiede zwischen den einzelnen Dateien jeder Änderung. Die Inhalte werden
-mit einem 40 Zeichen "SHA1
-hash":http://de.wikipedia.org/wiki/Secure_Hash_Algorithm des
-Inhaltes versehen, so dass deren Eindeutigkeit gewährleistet ist. So
-ziemlich jedes Objekt, sei es eine Übergabe (Commit), Baum oder ein Binärobjekt
-hat einen SHA, lerne also sie zu lieben. Glücklicherweise sind sie durch eine
-einfache Zeichenfolge aus sieben Zeichen referenziert, die in der Regel
-ausreichen die gesamte Zeichenkette zu identifizieren.
+Der einfachste Datenspeicher ist das Binärobjekt (Binary large object). Git speichert *einfach* die Inhalte einer Datei für die Verfolgungshistorie und nicht nur die Unterschiede zwischen den einzelnen Dateien jeder Änderung. Die Inhalte werden mit einem 40 Zeichen "SHA1 hash":http://de.wikipedia.org/wiki/Secure_Hash_Algorithm des Inhaltes versehen, so dass deren Eindeutigkeit gewährleistet ist. So ziemlich jedes Objekt, sei es eine Übergabe (Commit), Baum oder ein Binärobjekt hat einen SHA, lerne also sie zu lieben. Glücklicherweise sind sie durch eine einfache Zeichenfolge aus sieben Zeichen referenziert, die in der Regel ausreichen die gesamte Zeichenkette zu identifizieren.
 
-Ein grandioser Vorteil im Speichern der Inhalte besteht darin, dass Git bei
-zwei oder mehr Kopien der selben Datei intern nur eine Kopie vorhält. Ein
-Binärobjekt kann folgendermaßen dargestellt werden.
+Ein grandioser Vorteil im Speichern der Inhalte besteht darin, dass Git bei zwei oder mehr Kopien der selben Datei intern nur eine Kopie vorhält. Ein Binärobjekt kann folgendermaßen dargestellt werden.
 
 p=. !/images/object1.png!
 
-Das nächste Objekt ist ein Baum. Man kann ihn sich als Ordner oder
-Verzeichniss vorstellen: Bäume beinhalten andere Binärobjekte oder Bäume.
+Das nächste Objekt ist ein Baum. Man kann ihn sich als Ordner oder Verzeichniss vorstellen: Bäume beinhalten andere Binärobjekte oder Bäume.
 
 p=. !/images/object2.png!
 
-Das bringt uns schließlich zum wichtigsten Objekt: Die Übergabe (Commit). Man
-kann sich Übergaben (Commits) als Schnappschüsse vorstellen: Sie wissen wie der
-Baum zu einem bestimmten Zeitpunkt aussah. Darüber hinaus halten sie weitere
-Informationen wie Autor, Datum und Nachricht vor.
+Das bringt uns schließlich zum wichtigsten Objekt: Die Übergabe (Commit). Man kann sich Übergaben (Commits) als Schnappschüsse vorstellen: Sie wissen wie der Baum zu einem bestimmten Zeitpunkt aussah. Darüber hinaus halten sie weitere Informationen wie Autor, Datum und Nachricht vor.
 
 p=. !/images/object3.png!
 
-Übergaben (Commits) werden in "gerichteten azyklischen
-Graphen":http://de.wikipedia.org/wiki/Gerichteter_azyklischer_Graph
-organisiert. Für jene, die diese Vorlesung in Datenstrukturen verpaßt haben,
-es bedeuted, dass Übergaben (Commits) in eine Richtung "fließen". Gewöhnlich
-ist diese Richtung einfach der Weg der Geschichte in deinem Repository, die
-recht einfach oder recht kompliziert sein kann, wenn du viele Zweige hast. Von
-einem umfassenden Standpunkt aus betrachtet, kann es wie folgt aussehen:
+Übergaben (Commits) werden in "gerichteten azyklischen Graphen":http://de.wikipedia.org/wiki/Gerichteter_azyklischer_Graph organisiert. Für jene, die diese Vorlesung in Datenstrukturen verpaßt haben, es bedeuted, dass Übergaben (Commits) in eine Richtung "fließen". Gewöhnlich ist diese Richtung einfach der Weg der Geschichte in deinem Repository, die recht einfach oder recht kompliziert sein kann, wenn du viele Zweige hast. Von einem umfassenden Standpunkt aus betrachtet, kann es wie folgt aussehen:
 
 p=. !/images/object4.png!
 
-Das alles wird mit dem Werkzeug
-"GitX":http://gitready.com/intermediate/2009/01/13/visualizing-your-repo.html
-offensichtlich. Ganz klar können hier die Übergabe-Objekte und ihre assoziierten
-Daten betrachtet werden.
+Das alles wird mit dem Werkzeug "GitX":http://gitready.com/intermediate/2009/01/13/visualizing-your-repo.html offensichtlich. Ganz klar können hier die Übergabe-Objekte und ihre assoziierten Daten betrachtet werden.
 
 p=. !/images/object5.png!
 
-Wenn du nun einige komische Terminologien in deinen Übergaben (Commits)
-findest, wirst ein wenig besser verstehen, wo sie herkommen und wie es
-funktioniert. Schau einfach mal in der interessanten Anleitung "Git for
-Computer Scientists":http://eagain.net/articles/git-for-computer-scientists/
-und in "Scott Chacon's":http://jointheconversation.org Referat zu "Getting
-Git":http://gitcasts.com/git-talk rein.
+Wenn du nun einige komische Terminologien in deinen Übergaben (Commits) findest, wirst ein wenig besser verstehen, wo sie herkommen und wie es funktioniert. Schau einfach mal in der interessanten Anleitung "Git for Computer Scientists":http://eagain.net/articles/git-for-computer-scientists/ und in "Scott Chacon's":http://jointheconversation.org Referat zu "Getting Git":http://gitcasts.com/git-talk rein.

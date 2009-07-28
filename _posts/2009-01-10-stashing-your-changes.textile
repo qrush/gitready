@@ -4,42 +4,31 @@ title: Verstaue deine Änderungen
 category: beginner
 ---
 
-Änderungen verstauen (Stashing) ist eine großartige Möglichkeit eine Pause bei
-der Arbeit einzulegen und später zu ihr zurück zu kommen. Du arbeitest
-beispielsweise an dieser großartigen neuen Funktion, aber jemand hat gerade
-einen üblen Fehler gefunden, den du beheben mußt. Füge deine Änderungen zum
-Index hinzu:
+Änderungen verstauen (Stashing) ist eine großartige Möglichkeit eine Pause bei der Arbeit einzulegen und später zu ihr zurück zu kommen. Du arbeitest beispielsweise an dieser großartigen neuen Funktion, aber jemand hat gerade einen üblen Fehler gefunden, den du beheben mußt. Füge deine Änderungen zum Index hinzu:
 
 @git add .@
 
-Oder du fügst einzelne Dateien deiner Wahl zum Index hinzu. Verstaue deine
-Änderungen mit:
+Oder du fügst einzelne Dateien deiner Wahl zum Index hinzu. Verstaue deine Änderungen mit:
 
 @git stash@
 
-Und boom! Du bist zurück in deinem ursprünglichen Arbeitszustand. Der Fehler
-ist behoben? Hol deine Arbeit zurück mit:
+Und boom! Du bist zurück in deinem ursprünglichen Arbeitszustand. Der Fehler ist behoben? Hol deine Arbeit zurück mit:
 
 @git stash apply@
 
-Du kannst sogar verschiedene Ebenen von Lagern mit Änderungen (Stashes)
-anlegen, gehe also sicher, dass du
+Du kannst sogar verschiedene Ebenen von Lagern mit Änderungen (Stashes) anlegen, gehe also sicher, dass du
 
 @git stash list@ 
 
-ausführst, um alle aktuellen Lager (Stashes) anzuzeigen. Solltest du ein
-Lager tiefer im Stapel anwenden wollen, ist das auch einfach. Das zweite Lager
-wendest du folgendermaßen an:
+ausführst, um alle aktuellen Lager (Stashes) anzuzeigen. Solltest du ein Lager tiefer im Stapel anwenden wollen, ist das auch einfach. Das zweite Lager wendest du folgendermaßen an:
 
 <code>git stash apply stash@{1}</code>
 
-Du kannst einfach auch das oberste Lager vom Stapel holen, indem du ("Danke
-jamesgolick!":http://jamesgolick.com/):
+Du kannst einfach auch das oberste Lager vom Stapel holen, indem du ("Danke jamesgolick!":http://jamesgolick.com/):
 
 @git stash pop@
 
-benutzt. Ein Hinweis zu diesem Befehl, er löscht dieses Lager, wohingegen apply
-dies nicht macht. Lager (Stashes) können manuell gelöscht werden:
+benutzt. Ein Hinweis zu diesem Befehl, er löscht dieses Lager, wohingegen apply dies nicht macht. Lager (Stashes) können manuell gelöscht werden:
 
 @git stash drop <id>@
 

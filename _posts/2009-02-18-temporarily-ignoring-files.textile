@@ -4,18 +4,9 @@ title: Dateien temporär ignorieren
 category: intermediate
 ---
 
-Normalerweise ist das "Ignorieren von
-Dateien":http://gitready.com/beginner/2009/01/19/ignoring-files.html mit Git
-ziemlich einfach. Manchmal möchte man jedoch schnell eine Datei für die gesamte
-Entwicklungsphase oder aus anderen Gründen verstecken. Glücklicherweise gibt es
-hierfür einen einfachen Weg, dank einer cleveren Anleitung von "Eelco
-Wiersma":http://www.pagebakers.nl/2009/01/29/git-ignoring-changes-in-tracked-files/.
+Normalerweise ist das "Ignorieren von Dateien":http://gitready.com/beginner/2009/01/19/ignoring-files.html mit Git ziemlich einfach. Manchmal möchte man jedoch schnell eine Datei für die gesamte Entwicklungsphase oder aus anderen Gründen verstecken. Glücklicherweise gibt es hierfür einen einfachen Weg, dank einer cleveren Anleitung von "Eelco Wiersma":http://www.pagebakers.nl/2009/01/29/git-ignoring-changes-in-tracked-files/.
 
-Sein Hauptproblem war @git commit -a@, das automatisch veränderte Dateien zum
-Übergabe-Objekt (Commit) hinzufügt. Das ist eine nützliche Abkürzung, vergewissere dich
-aber, dass du die "Staging area
-verstehst":http://gitready.com/beginner/2009/01/18/the-staging-area.html, vor
-allem falls du feststellst, dass du dieses Kommando die ganze Zeit benutzt.
+Sein Hauptproblem war @git commit -a@, das automatisch veränderte Dateien zum Übergabe-Objekt (Commit) hinzufügt. Das ist eine nützliche Abkürzung, vergewissere dich aber, dass du die "Staging area verstehst":http://gitready.com/beginner/2009/01/18/the-staging-area.html, vor allem falls du feststellst, dass du dieses Kommando die ganze Zeit benutzt.
 
 Um temporär Änderungen in einer Datei zu ignorieren, ist folgender Befehl auszuführen:
 
@@ -25,10 +16,7 @@ Sollen die Änderungen wieder verfolgt werden:
 
 @git update-index --no-assume-unchanged <file>@
 
-Es kommen offensichtlich ein paar Einsprüche ins Spiel. Mit @git add@ wird die
-Datei direkt zum Index hinzugefügt. Das Zusammenführen (Merge) einer Übergabe
-(Commit) mit diesem aktivierten Schalter führt zum sanften Abbruch des Merges,
-so dass er manuell behandelt werden kann.
+Es kommen offensichtlich ein paar Einsprüche ins Spiel. Mit @git add@ wird die Datei direkt zum Index hinzugefügt. Das Zusammenführen (Merge) einer Übergabe (Commit) mit diesem aktivierten Schalter führt zum sanften Abbruch des Merges, so dass er manuell behandelt werden kann.
 
 Wir gehen durch ein kurzes Beispiel für dieses Kommando. An einigen Dateien im Arbeitsverzeichnis wurden Änderungen vorgenommen:
 
@@ -46,12 +34,10 @@ $ git status
 no changes added to commit (use "git add" and/or "git commit -a")
 </pre>
 
-Wenn ich @git commit -a@ an dieser Stelle ausführe, würden alle Dateien zur
-neuen Übergabe (Commit) hinzugefügt. Ich möchte jedoch die Änderungen in einer Datei
-temporär ignorieren:
+Wenn ich @git commit -a@ an dieser Stelle ausführe, würden alle Dateien zur neuen Übergabe (Commit) hinzugefügt. Ich möchte jedoch die Änderungen in einer Datei temporär ignorieren:
 
 <pre>
-$ git update-index --assume-unchanged README.textile   
+$ git update-index --assume-unchanged README.textile
 $ git status
 # On branch master
 #
@@ -64,11 +50,7 @@ $ git status
 no changes added to commit (use "git add" and/or "git commit -a")
 </pre>
 
-Wenn wir die Arbeit also jetzt committen und dann den Schalter deaktivieren,
-können wir sehen, dass Git die ursprünglichen Änderungen an README behalten
-hat. Von da an könntest du die Änderungen zu einer neuen Übergabe (Commit)
-hinzufügen oder "auf die aktuelle Kopie
-zurückgreifen":http://gitready.com/beginner/2009/01/11/reverting-files.html.
+Wenn wir die Arbeit also jetzt committen und dann den Schalter deaktivieren, können wir sehen, dass Git die ursprünglichen Änderungen an README behalten hat. Von da an könntest du die Änderungen zu einer neuen Übergabe (Commit) hinzufügen oder "auf die aktuelle Kopie zurückgreifen":http://gitready.com/beginner/2009/01/11/reverting-files.html.
 
 <pre>
 $ git update-index --no-assume-unchanged README.textile
@@ -84,9 +66,4 @@ $ git status
 no changes added to commit (use "git add" and/or "git commit -a")
 </pre>
 
-Sieh
-"hier":http://www.kernel.org/pub/software/scm/git/docs/git-update-index.html in
-der Man Page für @git update-index@ nach. Falls du einen weiteren cleveren
-Trick zum Index kennst, hinterlasse einen Kommentar oder "Sende einen
-Tip!":/submit.html
-
+Sieh "hier":http://www.kernel.org/pub/software/scm/git/docs/git-update-index.html in der Man Page für @git update-index@ nach. Falls du einen weiteren cleveren Trick zum Index kennst, hinterlasse einen Kommentar oder "Sende einen Tip!":/submit.html

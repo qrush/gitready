@@ -4,16 +4,11 @@ title: Einen entfernten, verfolgen Zweig auschecken
 category: intermediate
 ---
 
-Die folgenden Schritte führe ich regelmäßig durch, wenn ich meine zahlreichen
-Computer aufsetze oder synchronisiere und jedesmal scheine ich die Kommandos
-dafür zu vergessen. So laß uns annehmen, dass du mehr als einen Zweig in deinem
-entfernten Repository hast und du möchtest ihn auch in dein lokales Repository
-einbringen:
+Die folgenden Schritte führe ich regelmäßig durch, wenn ich meine zahlreichen Computer aufsetze oder synchronisiere und jedesmal scheine ich die Kommandos dafür zu vergessen. So laß uns annehmen, dass du mehr als einen Zweig in deinem entfernten Repository hast und du möchtest ihn auch in dein lokales Repository einbringen:
 
 p=. !http://gitready.com/images/branches.png!
 
-Das Anzeigen von Informationen in einem entfernten Repository sieht in etwa wie
-folgt aus:
+Das Anzeigen von Informationen in einem entfernten Repository sieht in etwa wie folgt aus:
 
 <pre>
 $ git remote show origin

@@ -4,43 +4,28 @@ title: Wo die Git Community zu finden ist
 category: beginner
 ---
 
-Für jene, die sich mit Git beschäftigen, könnte das Wissen, wo die Git
-Community täglich herumhängt, hilfreich sein. Natürlich sind online eine
-Menge Quelle für jene verfügbar, die lernen möchten, wie man Git
-benutzt. Aber manchmal ist die Kommunikation und Teilnahme an
-Diskussionen sehr viel vorteilhafter und wünschenswert.
+Für jene, die sich mit Git beschäftigen, könnte das Wissen, wo die Git Community täglich herumhängt, hilfreich sein. Natürlich sind online eine
+Menge Quelle für jene verfügbar, die lernen möchten, wie man Git benutzt. Aber manchmal ist die Kommunikation und Teilnahme an Diskussionen sehr viel vorteilhafter und wünschenswert.
 
-Dieser Beitrag nennt ein paar Orte, wo du genau die Leute finden kannst,
-die eine Leidenschaft für Git haben und hoffentlich auch deine Fragen
-beantworten. Solltest du einen Ort kennen, der hier vergessen wurde,
-lass es uns in einem Kommentar wissen!
+Dieser Beitrag nennt ein paar Orte, wo du genau die Leute finden kannst, die eine Leidenschaft für Git haben und hoffentlich auch deine Fragen
+beantworten. Solltest du einen Ort kennen, der hier vergessen wurde, lass es uns in einem Kommentar wissen!
 
 1) Der #git channel auf "FreeNode":http://freenode.net/.
 
-Für die Freunde der Echtzeitkommunikation ist IRC der beste Weg. Bitte
-beachte aber: Die Teilnehmer im Channel sind Freiwillige! Informationen
-einfordern oder einfach nur um Hilfe trollen, bringt dich nicht sehr
-weit. Hänge einfach im Channel herum und beobachte die vorbei fliegenden
+Für die Freunde der Echtzeitkommunikation ist IRC der beste Weg. Bitte beachte aber: Die Teilnehmer im Channel sind Freiwillige! Informationen
+einfordern oder einfach nur um Hilfe trollen, bringt dich nicht sehr weit. Hänge einfach im Channel herum und beobachte die vorbei fliegenden
 Gespräche. Du könntest dabei etwas lernen!
 
 2) "Github":http://github.com
 
-Diese Seite ist der heißeste Platz, um Open Source Projekte zusammen mit
-deinem eigenen privaten Code unterzubringen. Der Vorteil besteht darin,
-dass du eine Menge anderer Benutzer finden kannst, die Git täglich
-benutzen und wie sie es nutzen. Es gibt eine Menge verschiedener
-Modelle, die du beobachten kannst: Alles vom einzelnen Entwickler, der
-an Hobby-Projekten arbeitet, bis hin zu sehr aktiven
-Entwicklungsprojekten mit Zehn bis Hunderten von Forks (Abspaltungen).
-Solltest du noch kein Konto haben, melde dich an und finde ein Projekte
+Diese Seite ist der heißeste Platz, um Open Source Projekte zusammen mit deinem eigenen privaten Code unterzubringen. Der Vorteil besteht darin,
+dass du eine Menge anderer Benutzer finden kannst, die Git täglich benutzen und wie sie es nutzen. Es gibt eine Menge verschiedener
+Modelle, die du beobachten kannst: Alles vom einzelnen Entwickler, der an Hobby-Projekten arbeitet, bis hin zu sehr aktiven
+Entwicklungsprojekten mit Zehn bis Hunderten von Forks (Abspaltungen). Solltest du noch kein Konto haben, melde dich an und finde ein Projekte
 deiner "Lieblingssprache":http://github.com./languages.
 
 3) Die "Git Mailing List":http://vger.kernel.org/vger-lists.html#git
 
-Die offizielle Mailingliste der Git Entwickler ist überaus aktiv und
-wohl der beste Weg mit jenen in Kontakt zu treten, die Git nicht nur
-täglich benutzen, sondern eine maßgebliche Rolle in seiner Entwicklung
-spielten. Deine Frage wird höchstwahrscheinlich dort beantwortet. Stelle
-aber sicher, dass du deine
-"Hausaufgaben":http://letmegooglethatforyou.com machst, bevor du fragst!
-Hier fängst du auch an, wenn du selbst zu Git beitragen möchtest.
+Die offizielle Mailingliste der Git Entwickler ist überaus aktiv und wohl der beste Weg mit jenen in Kontakt zu treten, die Git nicht nur
+täglich benutzen, sondern eine maßgebliche Rolle in seiner Entwicklung spielten. Deine Frage wird höchstwahrscheinlich dort beantwortet. Stelle
+aber sicher, dass du deine "Hausaufgaben":http://letmegooglethatforyou.com machst, bevor du fragst! Hier fängst du auch an, wenn du selbst zu Git beitragen möchtest.
