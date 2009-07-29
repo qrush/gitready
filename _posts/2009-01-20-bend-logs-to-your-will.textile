@@ -1,52 +1,50 @@
 ---
 layout: post
-title: bend logs to your will
+title: Protokolle (Logs) nach eigenem Willen verbiegen
 category: advanced
-published: false
+published: true
 ---
 
-@git log@ is an extremely powerful command with plenty of options that are helpful for figuring out what work has been done on your repositories and just who's done it. This post enumerates a few of the more useful options. Most of these tips were farmed from Scott Chacon's "gitcast on git log":http://gitcasts.com/posts/git-log and R. Tyler Ballance's "git protip series":http://unethicalblogger.com/posts/2008/12/git_protip_learning_your_history_git_log.
+@git log@ ist ein extrem mächtiger Befehl mit einer Reihe von Optionen. Er ist äußerst nützlich, um herauszufinden, welche Arbeit im Repository durch wen gemacht wurde. Dieser Beitrag listet ein paar mehr Optionen auf. Die meisten Tipps wurden aus Scott Chacons "gitcast on git log":http://gitcasts.com/posts/git-log und R. Tyler Ballances "git protip series":http://unethicalblogger.com/posts/2008/12/git_protip_learning_your_history_git_log entnommen.
 
 @git log -<n>@
 
-Show the log for @n@ number of commits. For example, @git log -2@ for the last two commits.
+Zeigt das Protokoll für @n@ Übergaben (Commits). @git log -2@ zum Beispiel zeigt die letzten zwei Übergaben.
 
 @git log --stat@
 
-Show the log with output for files changed and insertions/deletions. Basically the normal output of @git commit@ appended to each message.
+Zeigt das Protokoll mit einer Darstellung für geänderte Dateien und deren Einfügungen und Löschungen. Im Grunde genommen handelt es sich um die normale Ausgabe von @git commit@, die an jeden Protokolleintrag angehängt wird.
 
 @git log --name-status@
 
-Attaches SVN-like add/modified/deleted for each commit. Very basic but still gives a decent idea about what's changed.
+Hängt SVN-ähnliche add/modified/deleted Informationen für jede Übergabe an. Das ist recht einfach, liefert aber eine anständige Idee davon, was sich geändert hat.
 
 @git log --pretty=oneline@
 
-Compresses each commit to its SHA1 and message on one line. Pipe to @wc -l@ if you want to count commits!
+Reduziert jede Übergabe auf ihren SHA und ihre Nachricht auf eine Zeile. Über eine Pipe an @wc -l@ übergeben, wird die Anzahl der Übergaben gezählt!
 
 @git log origin..HEAD@
 
-See if there's any commits that have not been pushed to your @origin@ remote. (Thanks for the tip, Ryan Bates!)
+Zeigt Übergaben, die noch nicht an deinen @origin@ Remote hochgeladen wurden. (Danke für den Tip, Ryan Bates!)
 
 @git log <file>@
 
-See all commits that affected only the file given.
+Zeigt alle Übergaben, die nur eine Datei betreffen.
 
 @git log --no-merges --author=dave@
 
-See all commits that dave has worked on, and ignore any merge commits to reduce noise.
+Zeigt alle Übergaben, an denen dave gearbeitet hat und ignoriert alle Zusammenführungen um das "Rauschen" zu unterdrücken.
 
 @git log --since="1 week ago"@
 
-View commits that have happened since last week. Could easily be replaced with @yesterday@, @1 year ago@, @3 months ago@, @1/20/09@ and so on. There's also other time based options: @--after@, @--until@, and @--before@ if you want to get creative.
+Gibt alle Übergaben aus, die in der vergangenen Woche dazu gekommen sind. Die Option kann einfach mit @yesterday@ (gestern), @1 year ago@ (vor einem Jahr), @3 months ago@ (vor drei Monaten), @1/20/09@ und so weiter ersetzt werden. Es gibt auch anderen zeitbasierte Optionen: @--after@, @--until@ und @--before@, falls du kreativ werden möchtest.
 
 @git log --grep='^Bump'@
 
-Search through commit messages to find ones that start with the string "Bump". This will take in any regular expression, so if you're looking for that one commit you did and all you can remember is a part of the message, @--grep@ will find it.
+Durchsucht die Übergabenachrichten nach jenen Übergaben, die mit der Zeichenkette "Bump" beginnen. Der Befehl nimmt jegliche regulären Ausdrücke entgegen. Du suchst nach einer Übergabe und du kannst dich nur an einen Teil der Übergabenachricht erinnern, @--grep@ wird sie finden.
 
 @git --no-pager log@
 
-Don't want to use @less@ to view your commits? This option will just give you the straight output if you need it.
+Du möchtest kein @less@ für die Ausgabe der Übergaben benutzen. Diese Option liefert dir die direkte Ausgabe, falls du sie brauchst.
 
-Of course, check out the "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-log.html to see all of the options available to you. If you have a nice tip that was missed and you'd like to share, let us know in the comments and I'll update the post.
-
-
+Natürlich kannst du die "Manpage":http://www.kernel.org/pub/software/scm/git/docs/git-log.html für alle verfügbaren Optionen konsultieren. Wenn du einen nützlichen Tip hast, den wir vergessen haben und du ihn gerne mitteilen möchtest, hinterlasse uns einen Kommentar und wir aktualisieren den Beitrag.
