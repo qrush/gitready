@@ -1,29 +1,29 @@
 ---
 layout: post
-title: pick out individual commits
+title: Einzelne Übergaben aussuchen
 category: intermediate
 published: false
 ---
 
-Sometimes you might only want one commit out of a branch, or perhaps you'll need to pluck a file from only one changeset. This tip is going to go over some ways on how to pull out one individual commit and work with it.
+Du möchtest manchmal vielleicht nur eine Übergabe (Commit) aus einem Zweig oder nur eine Datei einer Änderung lesen. Dieser Beitrag beschäftigt sich mit der Frage, wie man einzelne Übergaben auswählt und mit ihnen arbeitet.
 
 p=. "!http://farm4.static.flickr.com/3290/2767960923_92b8e5a8db.jpg!":http://flickr.com/photos/waltjabsco/2767960923/
 
-The basic case here is that you're looking at another branch or perhaps someone's fork of a project, but you only want to bring over one commit, a few commits, or what have you. Luckily, Git has plenty of tools to make this easy for you. Here's the scenario. There's been a lot of development on "jekyll":http://github.com/mojombo/jekyll lately, but I only want to bring in one or two specific changesets. The repository looks like this:
+Beim einfachen Fall siehst du einen anderen Zweig oder vielleicht die Abspaltung (Fork) eines Projekts, aber du möchtest nur eine Übergabe, ein paar wenige Übergaben oder was auch immer du hast, übernehmen. Glücklicherweise hat Git eine ganze Menge an Werkzeugen, um dir diese Aufgabe zu erleichtern. Hier ist as Szenario. Es gab in letzter Zeit eine ganze Menge an Entwicklungen an "jekyll":http://github.com/mojombo/jekyll, aber ich möchte nur oder zwei einzelne Änderungen übernehmen. Das Repository sieht folgendermaßen aus:
 
 p=. !/images/pick.png!
 
-As you can see, our master branch is at the bottom of this flurry of activity, and there's been quite a lot of activity above it. However, I just want the commit highlighted to be brought into my repository. Once you've got the commit SHA, you have a few options:
+Wie du sehen kannst, ist unser Hauptzweig (master) um unteren Ende dieser aufregenden Entwicklung und darüber gibt es eine ganze Reihe an Aktivitäten. Ich möchte jedoch nur die markierte Übegabe in mein Repository übernehmen. Sobald der SHA bekannt ist, gibt es ein paar Optionen:
 
-1) Use @git cherry-pick@ to pluck out the commit. This will create a new commit and preserve the old commit's metadata.
+1) Benutze @git cherry-pick@ für die Auswahl der Übergabe. Das erzeugt eine neue Übergabe und behält die Metadaten der alten Übergabe bei.
 
-2) Create a patch using @git format-patch@ then bring that in using @git am@. This allows you to @--signoff@ the commit too! This also makes a new commit.
+2) Erzeuge einen Patch mit @git format-patch@ und übernehme ihn mit @git am@. Das erlaubt dir eine Gegenzeichnung der Übergabe mit @--signoff@. Auch dieser Schritt erzeugt eine neue Übergabe.
 
-3) Use @git apply@ with the patch to put the changes into your working directory so you can edit them further.
+3) Benutze @git apply@ mit dem Patch, um die Änderungen in dein Arbeitsverzeichnis zu übernehmen und sie weiter zu bearbeiten.
 
-4) @git merge@ the changes right in, which preserves the original commit (provided there's no conflicts)
+4) Übernehme die Änderungen direkt mit @git merge@. Dieser Weg bewahrt die ursprüngliche Übergabe, sofern keine Konflikte auftreten.
 
-Let's try out all four. We know the commit SHA is b50788b, so we can work with that. First off, let's "cherry pick":http://www.kernel.org/pub/software/scm/git/docs/git-cherry-pick.html the commit.
+Wir versuchen alle vier Möglichkeiten. Wir kennen den SHA b50788b der Übergabe und können mit ihm arbeiten. Als erstes wählen wir die Übergabe mit "cherry-pick":http://www.kernel.org/pub/software/scm/git/docs/git-cherry-pick.html.
 
 <pre>
 $ git cherry-pick b50788b
@@ -38,11 +38,11 @@ bcb0d1b... First pass at rake task.
 2135a53... Using block syntax of popen4 to ensure that subprocesses...
 </pre>
 
-As you can see, it created a new commit, and the work has been brought in successfully. Both this method and the third method will produce a history like so, with the new commit on top:
+Wie du sehen kannst, wurde eine neue Übergabe erzeugt und die Änderung wurde erfolgreich übernommen. Die erste und dritte Methode erzeugen beide eine ähnliche Historie mit einer neuen Übergabe:
 
 p=. !/images/pick-cherry.png!
 
-Here's how to wrap up the commit with "format-patch":http://www.kernel.org/pub/software/scm/git/docs/git-format-patch.html and apply it using "git am":http://www.kernel.org/pub/software/scm/git/docs/git-am.html.
+Mit "format-patch":http://www.kernel.org/pub/software/scm/git/docs/git-format-patch.html wird eine Übergabe eingepackt und mit "git am"::http://www.kernel.org/pub/software/scm/git/docs/git-am.html angewendet.
 
 <pre>
 $ git format-patch -1 b50788b
@@ -57,9 +57,9 @@ c05eaa1... First pass at rake task.
 2135a53... Using block syntax of popen4 to ensure that subprocesses...
 </pre>
 
-This process is normally how projects accept patches over email, but this method works out quite nicely for this purpose as well. Of course, you could pipe @format-patch@ and @am@ into one command if you feel like it, and that will save you having to worry about the file left over. 
+Über diesen Prozess werden normalerweise Patches per E-Mail angenommen. Aber die Methode funktioniert ebenso für unsere Zwecke. Natürlich könnten @format-patch@ und @am@ über eine Pipe zu einem Befehl zusammengefügt werden. Auf diese Weise musst du dich nicht um die zusätzliche Datei kümmern, die sonst erzeugt werden würde.
 
-Next, if we use "git apply":http://www.kernel.org/pub/software/scm/git/docs/git-apply.html, then we can get the changes live and work with them.
+Als nächstes benutzen wir "git apply":http://www.kernel.org/pub/software/scm/git/docs/git-apply.html und erhalten die Änderungen in unserem Arbeitsverzeichnis und können noch an ihnen arbeiten.
 
 <pre>
 $ git format-patch -1 b50788b
@@ -89,7 +89,7 @@ $ git status
 no changes added to commit (use "git add" and/or "git commit -a")
 </pre>
 
-Finally, we can simply merge the commit right in, which is quite simple in this case since there's no conflicts.
+Abschließend können wir die Übergabe mit einer Zusammenführung (Merge) übernehmen, was in diesem Fall sehr einfach ist, da keine Konflikte auftreten.
 
 <pre>
 $ git merge b50788b
@@ -107,8 +107,8 @@ b50788b... First pass at rake task.
 2135a53... Using block syntax of popen4 to ensure that subprocesses...
 </pre>
 
-Graphically, we can see that the commit has been brought into the mainline on the far left:
+Die Grafik zeigt die Übernahme der Übergabe auf der linke Seite in die Hauptlinie:
 
 p=. !/images/pick-merge.png!
 
-As always, if you mess up you can go back one commit after you've applied a patch by using @git reset --hard HEAD^@ or possibly even by "reverting files":http://gitready.com/beginner/2009/01/11/reverting-files.html. If things go really haywire you can always "check the reflog":http://gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html. If you have other ways of dealing with this situation, let us know in the comments!
+Du kannst, wie immer, mit @git reset --hard HEAD^@ eine Übergabe zurück gehen, falls etwas nach der Anwendung des Patches schief gelaufen ist. Vielleicht ist es sogar möglich, auf die "Dateien zurück zu kehren":http://de.gitready.com/beginner/2009/01/11/reverting-files.html. Wenn alles drunter und drüber geht, kannst du immer noch das "Reflog prüfen":http://gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html. Wenn du andere Wege kennst, wie man mit dieser Situation klar kommt, teile sie uns mit einem Kommentar mit!
