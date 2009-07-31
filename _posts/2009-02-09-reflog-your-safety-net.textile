@@ -1,41 +1,46 @@
 ---
 layout: post
-title: reflog, your safety net
+title: reflog, dein Sicherheitsnetz
 category: intermediate
-published: false
+published: true
 ---
 
-We've covered the "reflog":http://www.kernel.org/pub/software/scm/git/docs/git-reflog.html command briefly in a previous article on how to "restore lost commits":http://gitready.com/advanced/2009/01/17/restoring-lost-commits.html but it was never fully explained. Today we'll look into what it does and how you can use it as a safety net to recover your work.
+Wir haben den "reflog":http://www.kernel.org/pub/software/scm/git/docs/git-reflog.html Befehl kurz in dem früheren Beitrag "Verlorene Übergaben (Commits) wieder herstellen":http://de.gitready.com/advanced/2009/01/17/restoring-lost-commits.html behandelt. Er wurde aber bisher nie erklärt. Heute schauen wir uns an, wie man ihn als Sicherheitsnetz zum Wiederherstellen verwendet.
 
 p=. "!http://farm4.static.flickr.com/3462/3222479388_abcb084c1a.jpg?v=0!":http://flickr.com/photos/paradisecircus/3222479388/
 
-Once again the man pages are pretty terse about what this command actually does:
+Die Manpages zu diesem Befehl sind sehr knapp gehalten:
 
 <blockquote>
 git-reflog - Manage reflog information
 </blockquote>
 
-This definition is a little better, from later in the document:
+Die Definition an späterer Stelle im Dokument ist ein wenig besser:
 
 <blockquote>
 Reflog is a mechanism to record when the tip of branches are updated. This command is to manage the information recorded in it.
 </blockquote>
 
-Basically every action you perform inside of Git where data is stored, you can find it inside of the reflog. Git tries really hard not to lose your data, so if for some reason you think it has, chances are you can dig it out using @git reflog@. What this means is that you can use it as a safety net: you shouldn't be worried that a merge, rebase, or some other action will destroy your work since you can find it again using this command.
+Übersetzung:
+<blockquote>
+Reflog ist ein Mechanismus, der sich den Aktualisierungszeitpunkt der Spitze eines Zweiges merkt. Der Befehl verwaltet die aufgezeichneten Informationen.
+</blockquote>
 
-The most common usage of this command is that you've just done a @git reset@ and moved your @HEAD@ back a few commits. But oops, you need that bit of code you left in the second commit. Crap. Now what? Running @git reflog@ will probably result in something like this:
+Jede unternommene Aktion in Git wird grundsätzlich im Reflog gespeichert. Git versucht äußerst stark keine Daten zu verlieren. Wenn du also denkst, etwas verloren zu haben, stehen die Chancen recht gut, dass du sie mit @git reflog@ wieder ausgraben kannst. Das bedeutet, der Befehl läßt sich als Sicherheitsnetz verwenden: Du brauchst dir also keine Gedanken darüber zu machen, dass eine Zusammenführung (Merge), eine Neuanordnung (Rebase) oder eine andere Aktion deine Arbeit zerstört, weil du sie mit dem Befehl wieder finden kannst.
+
+Die gebräuchlichste Verwendung von @git reflog@ beläuft sich darin, dass du soeben ein @git reset@ durchgeführt und den @HEAD@ ein paar Übergaben zurück gesetzt hast. Aber leider brauchst du den Codeteil, den du in der zweiten Übergabe zurück gelassen hast. Mist. Was nun? @git reflog@ wird wahrscheinlich ein Ergebnis der folgenden Art erzeugen:
 
 p=. !/images/reflog.png!
 
-What this shows is a list of commits that Git still has in its storage. The first 7 characters are the beginning of the commit's SHA1 hash, followed by the commit's pointer, action, and message. You can see that not just commits are listed: switching branches, merges, rebases, and more are shown. The important part is the commit pointer and the SHA1: once you have that, you can do a @git show@ to see the diff, or perhaps a @checkout@, @cherry-pick@, or @merge@ depending on how you want to get the change back into your history.
+Du siehst eine Liste von Übergaben, die Git noch in seinem Speicher hat. Die ersten 7 Zeichen sind der Anfang des SHA, gefolgt vom Übergabe-Zeiger, der Aktion und der Nachricht. Es werden nicht nur Übergaben aufgelistet: Der Wechsel von Zweigen, Zusammenführungen, Neuanordnungen (rebase) und mehr werden angezeigt. Die wichtigen Teile sind der Zeiger und der SHA-Hash. Sobald du den hast, kannst du die Änderung mit @git show@ anzeigen oder vielleicht ein @checkout@, @cherry-pick@ oder @merge@ durchführen, abhängig davon, wie du die Änderung in deine Historie zurück haben möchtest.
 
-You can also use the @--all@ option to get more detailed information about different branches and even the stash:
+Du kannst auch die @--all@ Option für detailliertere Informationen über verschiedene Zweige und sogar das Lager (stash) verwenden:
 
 p=. !/images/reflog-all.png!
 
-This command is also used for another purpose: deleting old entries that you won't need anymore. This may be done to conserve space in your repository, or perhaps since you want to take out the garbage every once in a while. You could knock off individual reflogs using the @delete@ subcommand, but the @expire@ subcommand is much more useful since it can be given a date to remove entries from. 
+Der Befehl wird auch zu einem anderen Zweck eingesetzt: Alte Einträge löschen, die du nicht mehr benötigst. Das passiert beim Platz sparen in deinem Repository oder vielleicht weil du ab und zu den Müll rausbringen möchtest. Du kannst einzelne Reflogs mit dem @delete@ Befehl beseitigen. Der @expire@ Befehl ist nützlicher, da ihm ein Datum übergeben werden kann. Es gibt den Zeitpunkt an, bis wohin Einträge gelöscht werden sollen.
 
-An example of using this command to quickly pack up your repository can be found on "John Wiegley's":http://www.newartisans.com/blog/ post on "Diving into Git":http://www.newartisans.com/blog/2008/04/diving-into-git.html, where he compresses his repository with the following commands:
+Ein Beispiel zum schnellen Zusammenpacken deines Repositories findet sich in "John Wiegley's":http://www.newartisans.com/blog/ Beitrag in "Diving into Git":http://www.newartisans.com/blog/2008/04/diving-into-git.html, wo er sein Repository mit den folgenden Befehlen komprimiert:
 
 <pre>
 $ git reflog expire --expire=1.minute refs/heads/master
@@ -44,6 +49,6 @@ $ git prune
 $ git gc                      
 </pre>
 
-Basically this removes all reflogs that are older than a minute for the master branch, finds and deletes any commits that aren't being used, then does some general cleanup on the whole repository to further compress it. This could have had its own tip, but it's probably better to illustrate a great use of the subject's subcommands in your workflow.
+Die Befehlsabfolge entfernt alle Reflogs im Hauptzweig, die älter als eine Minute sind, findet und löscht alle Übergaben, die nicht mehr verwendet werden. Anschließend erfährt das gesamte Repository einen Großputz und wird weiter komprimiert. Dieser Vorgang könnte einen eigenen Beitrag vertragen, aber es ist wahrscheinlich besser, den enormen Nutzen eines Befehls in deinem Arbeitsablauf zu veranschaulichen.
 
-As always, check out the "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-reflog.html for the other options, and if you have other uses for this command let us know!
+Schau in der "Manpage":http://www.kernel.org/pub/software/scm/git/docs/git-reflog.html nach für weitere Optionen. Und wenn du weitere Verwendungsmöglichkeiten kennst, lass es uns wissen!
