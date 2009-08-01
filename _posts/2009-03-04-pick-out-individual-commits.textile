@@ -2,7 +2,7 @@
 layout: post
 title: Einzelne Übergaben aussuchen
 category: intermediate
-published: false
+published: true
 ---
 
 Du möchtest manchmal vielleicht nur eine Übergabe (Commit) aus einem Zweig oder nur eine Datei einer Änderung lesen. Dieser Beitrag beschäftigt sich mit der Frage, wie man einzelne Übergaben auswählt und mit ihnen arbeitet.
