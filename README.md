@@ -3,50 +3,51 @@
 > There is only one way to *get ready* for immortality, and that is to love this life and live it as bravely and faithfully and cheerfully as we can.<br />
 > ~ Henry Van Dyke
 
-## About
+## Über
 
-This repository hosts the HTML, CSS, images, and posts for [gitready.com](http://gitready.com). Git Ready publishes (was daily, then tri-weekly, and now) weekly tips for those who want to learn more about the VCS or just get started. The blog as a whole started as a journey to learn more about Git and show others how useful it is. If you find issues with the content, just send [qrush a message on GitHub](http://github.com/qrush) or email him at [nick@quaran.to](mailto://nick@quaran.to).
+Dieses Repository beinhaltet HTML, CSS, Bilder und Beitrage für [gitready.com](http://gitready.com). Git Ready (war täglich, dann drei-wöchentlich, und jetzt) wöchentlich Tips für jene, die mehr über dieses verteilte Versionskontrollsystem lernen möchten oder gerade damit angefangen haben. Dieses Blog als Ganzes startete als Reise, um mehr über Git zu lernen und Anderen seine Nützlichkeit zu zeigen. Wenn du eine Frage zum Inhalt hast, schicke [qrush eine Nachricht auf GitHub](http://github.com/qrush) oder schreibe eine E-Mail an [nick@quaran.to](mailto://nick@quaran.to).
 
-## Publishing
+## Veröffentlichen
 
-This blog is generated with the [Jekyll](http://github.com/mojombo/jekyll) engine. Simple and easy formatting that sticks to the basics. All static HTML too, so worrying about scalability is non-existent.
+Das Blog wird mit der [Jekyll](http://github.com/mojombo/jekyll) Engine erzeugt. Die Formatierung orientiert sich an den Grundlagen, auch das statische HTML. Sorgen zur Skalierbarkeit existieren nicht.
 
-## Contributing
+## Mitmachen
 
-If you have ideas about new pages, layouts, or what have you, fork away!<br /> If you want to submit tips, [please do so here](http://gitready.com/submit.html).
+Wenn du Ideen zu neuen Seiten, Layouts oder irgendetwas hast, spalte ab (fork)!<br /> Wenn du Tips einreichen möchtest, [mache das hier](http://gitready.com/submit.html).
 
-## Translating
+## Übersetzung
 
-If you are interested in translating posts into another language, great! Here's what to do:
+Wenn du daran interessiert bist, Beiträge in deine Sprache zu übersetzen, großartig! Hier eine kurze Anleitung:
 
-* Fork the project.
-* Create a branch with the ISO code for your language, so for english:
+* Spalte das Projekt ab (fork).
+* Erzeuge einen Zweig mit dem ISO Code für deine Sprache, für Englisch:
 
 <pre>
 git checkout -b en
 </pre>
 
-* Unpublish all the posts (and commit your changes):
+* Markiere alle Beiträge als unveröffentlicht und übergebe deine Änderungen:
 
 <pre>
 rake unpublish
 git commit -am "Unpublishing all the posts"
 </pre>
 
-* Translate the front page headers, footers. Check out the other translated sites for an example, such as the [german one](http://de.gitready.com).
-* Translate as little or as many posts as you so desire.
+* Übersetze die Kopf- und Fußzeilen der Startseite. Schau dir die anderen übersetzen Seiten als Beispiele an, wie die [deutsche Seite](http://de.gitready.com).
+* Übersetze so wenige oder so viele Beiträge, wie du möchtest.
+* Lade deine Arbeit hoch (push) und vergiß nicht den richtigen Zweig zu verwenden!:
 * Push your work back up (remember to use the right branch name!):
 
 <pre>
 git push origin en
 </pre>
 
-* Submit a pull request to qrush's repository.
+* Reiche alle Pull-Anfragen an qrushs Repository.
 
-Once that's done, I'll add your language's subdomain and get it published.
+Sobald das erledigt ist, füge ich die Subdomain deiner Sprache hinzu und veröffentliche deine Arbeit.
 
-## Licensing
+## Lizensierung
 
-The actual content of the articles is licensed under Creative Commons. The code that this project consists of is licensed under MIT.
+Der tatsächliche Inhalt der Artikel ist unter der Creative Commons lizensiert. Der Quellcode, der dieses Projekt erzeugt, ist unter MIT lizensiert.
 
-Basically, if you're going to redistribute a blog post, just make sure to link back. If you'd like to publish the content, that's fine too, just please keep the licensing information in.
+Grundsätzlich, wenn du die Blogbeiträge weiter verteilen möchtest, stelle die Rückverlinkung sicher. Wenn du den Inhalt veröffentlichen möchtest, ist das auch in Ordnung, behalte bitte die Lizenzinformationen bei.
