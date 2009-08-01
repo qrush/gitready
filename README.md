@@ -25,16 +25,28 @@ If you want to submit tips, [please do so here](http://gitready.com/submit.html)
 If you are interested in translating posts into another language, great! Here's what to do:
 
 * Fork the project.
-* Create a branch with the ISO code for your language 
-* Translate the front page headers, footers. Check out the other translated sites for an example, such as the [german one](http://de.gitready.com).
-* Translate as little or as many posts as you so desire.
-* The posts that aren't translated, add this to the YAML front matter (this way, untranslated posts don't show up):
+* Create a branch with the ISO code for your language, so for english:
 
 <pre>
-published: false
+git checkout -b en
 </pre>
 
-* Submit a pull request to the main repository.
+* Unpublish all the posts (and commit your changes):
+
+<pre>
+rake unpublish
+git commit -am "Unpublishing all the posts"
+</pre>
+
+* Translate the front page headers, footers. Check out the other translated sites for an example, such as the [german one](http://de.gitready.com).
+* Translate as little or as many posts as you so desire.
+* Push your work back up (remember to the right branch name!):
+
+<pre>
+git push origin en
+</pre>
+
+* Submit a pull request to qrush's repository.
 
 Once that's done, I'll add your language's subdomain and get it published.
 
