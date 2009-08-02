@@ -5,7 +5,7 @@ category: intermediate
 published: true
 ---
 
-Wir haben den "reflog":http://www.kernel.org/pub/software/scm/git/docs/git-reflog.html Befehl kurz in dem früheren Beitrag "Verlorene Übergaben (Commits) wieder herstellen":http://de.gitready.com/advanced/2009/01/17/restoring-lost-commits.html behandelt. Er wurde aber bisher nie erklärt. Heute schauen wir uns an, wie man ihn als Sicherheitsnetz zum Wiederherstellen verwendet.
+Wir haben den "reflog":http://www.kernel.org/pub/software/scm/git/docs/git-reflog.html Befehl kurz in dem früheren Beitrag "Verlorene Commits wieder herstellen":http://de.gitready.com/advanced/2009/01/17/restoring-lost-commits.html behandelt. Er wurde aber bisher nie erklärt. Heute schauen wir uns an, wie man ihn als Sicherheitsnetz zum Wiederherstellen verwendet.
 
 p=. "!http://farm4.static.flickr.com/3462/3222479388_abcb084c1a.jpg?v=0!":http://flickr.com/photos/paradisecircus/3222479388/
 
@@ -26,15 +26,15 @@ Reflog is a mechanism to record when the tip of branches are updated. This comma
 Reflog ist ein Mechanismus, der sich den Aktualisierungszeitpunkt der Spitze eines Zweiges merkt. Der Befehl verwaltet die aufgezeichneten Informationen.
 </blockquote>
 
-Jede unternommene Aktion in Git wird grundsätzlich im Reflog gespeichert. Git versucht äußerst stark keine Daten zu verlieren. Wenn du also denkst, etwas verloren zu haben, stehen die Chancen recht gut, dass du sie mit @git reflog@ wieder ausgraben kannst. Das bedeutet, der Befehl läßt sich als Sicherheitsnetz verwenden: Du brauchst dir also keine Gedanken darüber zu machen, dass eine Zusammenführung (Merge), eine Neuanordnung (Rebase) oder eine andere Aktion deine Arbeit zerstört, weil du sie mit dem Befehl wieder finden kannst.
+Jede unternommene Aktion in Git wird grundsätzlich im Reflog gespeichert. Git versucht äußerst stark keine Daten zu verlieren. Wenn du also denkst, etwas verloren zu haben, stehen die Chancen recht gut, dass du sie mit @git reflog@ wieder ausgraben kannst. Das bedeutet, der Befehl läßt sich als Sicherheitsnetz verwenden: Du brauchst dir also keine Gedanken darüber zu machen, dass ein Merge, ein Rebase oder eine andere Aktion deine Arbeit zerstört, weil du sie mit dem Befehl wieder finden kannst.
 
-Die gebräuchlichste Verwendung von @git reflog@ beläuft sich darin, dass du soeben ein @git reset@ durchgeführt und den @HEAD@ ein paar Übergaben zurück gesetzt hast. Aber leider brauchst du den Codeteil, den du in der zweiten Übergabe zurück gelassen hast. Mist. Was nun? @git reflog@ wird wahrscheinlich ein Ergebnis der folgenden Art erzeugen:
+Die gebräuchlichste Verwendung von @git reflog@ beläuft sich darin, dass du soeben ein @git reset@ durchgeführt und den @HEAD@ ein paar Commits zurück gesetzt hast. Aber leider brauchst du den Codeteil, den du im zweiten Commit zurück gelassen hast. Mist. Was nun? @git reflog@ wird wahrscheinlich ein Ergebnis der folgenden Art erzeugen:
 
 p=. !/images/reflog.png!
 
-Du siehst eine Liste von Übergaben, die Git noch in seinem Speicher hat. Die ersten 7 Zeichen sind der Anfang des SHA, gefolgt vom Übergabe-Zeiger, der Aktion und der Nachricht. Es werden nicht nur Übergaben aufgelistet: Der Wechsel von Zweigen, Zusammenführungen, Neuanordnungen (rebase) und mehr werden angezeigt. Die wichtigen Teile sind der Zeiger und der SHA-Hash. Sobald du den hast, kannst du die Änderung mit @git show@ anzeigen oder vielleicht ein @checkout@, @cherry-pick@ oder @merge@ durchführen, abhängig davon, wie du die Änderung in deine Historie zurück haben möchtest.
+Du siehst eine Liste von Übergaben, die Git noch in seinem Speicher hat. Die ersten 7 Zeichen sind der Anfang des SHA, gefolgt vom Commit-Pointer, der Aktion und der Nachricht. Es werden nicht nur Übergaben aufgelistet: Der Wechsel von Branches, Merges, Rebases und mehr werden angezeigt. Die wichtigen Teile sind der Pointer und der SHA-Hash. Sobald du den hast, kannst du die Änderung mit @git show@ anzeigen oder vielleicht ein @checkout@, @cherry-pick@ oder @merge@ durchführen, abhängig davon, wie du die Änderung in deine Historie zurück haben möchtest.
 
-Du kannst auch die @--all@ Option für detailliertere Informationen über verschiedene Zweige und sogar das Lager (stash) verwenden:
+Du kannst auch die @--all@ Option für detailliertere Informationen über verschiedene Branches und sogar den Stash verwenden:
 
 p=. !/images/reflog-all.png!
 
@@ -49,6 +49,6 @@ $ git prune
 $ git gc                      
 </pre>
 
-Die Befehlsabfolge entfernt alle Reflogs im Hauptzweig, die älter als eine Minute sind, findet und löscht alle Übergaben, die nicht mehr verwendet werden. Anschließend erfährt das gesamte Repository einen Großputz und wird weiter komprimiert. Dieser Vorgang könnte einen eigenen Beitrag vertragen, aber es ist wahrscheinlich besser, den enormen Nutzen eines Befehls in deinem Arbeitsablauf zu veranschaulichen.
+Die Befehlsabfolge entfernt alle Reflogs im Hauptzweig, die älter als eine Minute sind, findet und löscht alle Commits, die nicht mehr verwendet werden. Anschließend erfährt das gesamte Repository einen Großputz und wird weiter komprimiert. Dieser Vorgang könnte einen eigenen Beitrag vertragen, aber es ist wahrscheinlich besser, den enormen Nutzen eines Befehls in deinem Arbeitsablauf zu veranschaulichen.
 
 Schau in der "Manpage":http://www.kernel.org/pub/software/scm/git/docs/git-reflog.html nach für weitere Optionen. Und wenn du weitere Verwendungsmöglichkeiten kennst, lass es uns wissen!

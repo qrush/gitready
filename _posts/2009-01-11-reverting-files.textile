@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Auf Dateien zurückgreifen (revert)
+title: Revert Dateien 
 category: beginner
 published: true
 translated: true
@@ -8,11 +8,11 @@ translated: true
 
 Dieses Thema ist eine konstante Quelle der Verwirrung für viele Git Anwender, weil es hierfür mehrere Möglichkeiten gibt. Wir gehen über einige der notwendigen Kommandos, um deine Arbeit rückgängig zu machen.
 
-Du möchtest auf eine Datei in ihrem ursprünglichen Zustand zurückgreifen (revert):
+Du möchtest auf eine Datei in ihrem ursprünglichen Zustand reverten:
 
 @git checkout <file>@
 
-Ein Problem könnte es damit geben, dass eine Datei und ein Zweig (branch) gleich benannt sind. Da das Checkout-Kommando für das Zurückgreifen auf Dateien und das Auschecken von Zweigen (branches) verwendet wird, mußt du folgende Syntax verwenden (Danke "Norbauer":http://norbauer.com/notebooks/code/notes/git-revert-reset-a-single-file).
+Ein Problem könnte es damit geben, dass eine Datei und ein Branch gleich benannt sind. Da das Checkout-Kommando für das Reverting auf Dateien und das Auschecken von Branches verwendet wird, mußt du folgende Syntax verwenden (Danke "Norbauer":http://norbauer.com/notebooks/code/notes/git-revert-reset-a-single-file).
 
 @git checkout -- <file>@
 
@@ -20,6 +20,6 @@ Möchtest du alle Änderungen, an denen du gearbeitet hast, wegwerfen, gibt es h
 
 @git checkout -f@ or @git reset --HARD@
 
-Sobald diese Kommandos ausgeführt werden, wirst du die gesamte Arbeit verlieren, die du nicht übergeben (committed) hast. Stelle also sicher, dass du die Kommandos mit Vorsicht verwendest.
+Sobald diese Kommandos ausgeführt werden, wirst du die gesamte Arbeit verlieren, die du nicht committed hast. Stelle also sicher, dass du die Kommandos mit Vorsicht verwendest.
 
-Beachte auch, dass "'git revert' nicht äquivalent mit 'svn revert'!":http://bryan-murdock.blogspot.com/2007/07/git-revert-is-not-equivalent-to-svn.html ist. @git-revert@ wird für das Umdrehen (reverse) von Übergaben (Commits) verwendet. Ein zukünftiger Tip wird das Thema abdecken.
+Beachte auch, dass "'git revert' nicht äquivalent mit 'svn revert'!":http://bryan-murdock.blogspot.com/2007/07/git-revert-is-not-equivalent-to-svn.html ist. @git-revert@ wird für das Umdrehen (reverse) von Commits verwendet. Ein zukünftiger Tip wird das Thema abdecken.

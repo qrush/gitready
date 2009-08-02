@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Protokolle (Logs) nach eigenem Willen verbiegen
+title: Logs nach eigenem Willen verbiegen
 category: advanced
 published: true
 ---
@@ -9,42 +9,42 @@ published: true
 
 @git log -<n>@
 
-Zeigt das Protokoll für @n@ Übergaben (Commits). @git log -2@ zum Beispiel zeigt die letzten zwei Übergaben.
+Zeigt das Log für @n@ Commits. @git log -2@ zum Beispiel zeigt die letzten zwei Commits.
 
 @git log --stat@
 
-Zeigt das Protokoll mit einer Darstellung für geänderte Dateien und deren Einfügungen und Löschungen. Im Grunde genommen handelt es sich um die normale Ausgabe von @git commit@, die an jeden Protokolleintrag angehängt wird.
+Zeigt das Log mit einer Darstellung für geänderte Dateien und deren Inserts/Deletions. Im Grunde genommen handelt es sich um die normale Ausgabe von @git commit@, die an jeden Logeintrag angehängt wird.
 
 @git log --name-status@
 
-Hängt SVN-ähnliche add/modified/deleted Informationen für jede Übergabe an. Das ist recht einfach, liefert aber eine anständige Idee davon, was sich geändert hat.
+Hängt SVN-ähnliche add/modified/deleted Informationen für jeden Commit an. Das ist recht einfach, liefert aber eine anständige Idee davon, was sich geändert hat.
 
 @git log --pretty=oneline@
 
-Reduziert jede Übergabe auf ihren SHA und ihre Nachricht auf eine Zeile. Über eine Pipe an @wc -l@ übergeben, wird die Anzahl der Übergaben gezählt!
+Reduziert jeden Commit auf seinen SHA und seine Nachricht auf eine Zeile. Über eine Pipe an @wc -l@ übergeben, wird die Anzahl der Übergaben gezählt!
 
 @git log origin..HEAD@
 
-Zeigt Übergaben, die noch nicht an deinen @origin@ Remote hochgeladen wurden. (Danke für den Tip, Ryan Bates!)
+Zeigt Commits, die noch nicht an deinen @origin@ Remote hochgeladen wurden. (Danke für den Tip, Ryan Bates!)
 
 @git log <file>@
 
-Zeigt alle Übergaben, die nur eine Datei betreffen.
+Zeigt alle Commits, die nur eine Datei betreffen.
 
 @git log --no-merges --author=dave@
 
-Zeigt alle Übergaben, an denen dave gearbeitet hat und ignoriert alle Zusammenführungen um das "Rauschen" zu unterdrücken.
+Zeigt alle Commits, an denen dave gearbeitet hat und ignoriert alle Merges, um das "Rauschen" zu unterdrücken.
 
 @git log --since="1 week ago"@
 
-Gibt alle Übergaben aus, die in der vergangenen Woche dazu gekommen sind. Die Option kann einfach mit @yesterday@ (gestern), @1 year ago@ (vor einem Jahr), @3 months ago@ (vor drei Monaten), @1/20/09@ und so weiter ersetzt werden. Es gibt auch anderen zeitbasierte Optionen: @--after@, @--until@ und @--before@, falls du kreativ werden möchtest.
+Gibt alle Commits aus, die in der vergangenen Woche hinzugefügt wurden. Die Option kann einfach mit @yesterday@ (gestern), @1 year ago@ (vor einem Jahr), @3 months ago@ (vor drei Monaten), @1/20/09@ und so weiter ersetzt werden. Es gibt auch anderen zeitbasierte Optionen: @--after@, @--until@ und @--before@, falls du kreativ werden möchtest.
 
 @git log --grep='^Bump'@
 
-Durchsucht die Übergabenachrichten nach jenen Übergaben, die mit der Zeichenkette "Bump" beginnen. Der Befehl nimmt jegliche regulären Ausdrücke entgegen. Du suchst nach einer Übergabe und du kannst dich nur an einen Teil der Übergabenachricht erinnern, @--grep@ wird sie finden.
+Durchsucht die Commit-Nachricht nach jenen Commits, die mit der Zeichenkette "Bump" beginnen. Der Befehl nimmt jegliche regulären Ausdrücke entgegen. Du suchst nach einem Commit und du kannst dich nur an einen Teil der Commit-Nachricht erinnern? @--grep@ wird sie finden.
 
 @git --no-pager log@
 
-Du möchtest kein @less@ für die Ausgabe der Übergaben benutzen. Diese Option liefert dir die direkte Ausgabe, falls du sie brauchst.
+Du möchtest kein @less@ für die Ausgabe des Commit benutzen? Diese Option liefert dir die direkte Ausgabe, falls du sie brauchst.
 
 Natürlich kannst du die "Manpage":http://www.kernel.org/pub/software/scm/git/docs/git-log.html für alle verfügbaren Optionen konsultieren. Wenn du einen nützlichen Tip hast, den wir vergessen haben und du ihn gerne mitteilen möchtest, hinterlasse uns einen Kommentar und wir aktualisieren den Beitrag.

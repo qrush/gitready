@@ -1,29 +1,29 @@
 ---
 layout: post
-title: Einzelne Übergaben aussuchen
+title: Einzelne Commits auswählen
 category: intermediate
 published: true
 ---
 
-Du möchtest manchmal vielleicht nur eine Übergabe (Commit) aus einem Zweig oder nur eine Datei einer Änderung lesen. Dieser Beitrag beschäftigt sich mit der Frage, wie man einzelne Übergaben auswählt und mit ihnen arbeitet.
+Du möchtest manchmal vielleicht nur einen Commit aus einem Branch oder nur eine Datei aus einem Changeset lesen. Dieser Beitrag beschäftigt sich mit der Frage, wie man einzelne Commits auswählt und mit ihnen arbeitet.
 
 p=. "!http://farm4.static.flickr.com/3290/2767960923_92b8e5a8db.jpg!":http://flickr.com/photos/waltjabsco/2767960923/
 
-Beim einfachen Fall siehst du einen anderen Zweig oder vielleicht die Abspaltung (Fork) eines Projekts, aber du möchtest nur eine Übergabe, ein paar wenige Übergaben oder was auch immer du hast, übernehmen. Glücklicherweise hat Git eine ganze Menge an Werkzeugen, um dir diese Aufgabe zu erleichtern. Hier ist as Szenario. Es gab in letzter Zeit eine ganze Menge an Entwicklungen an "jekyll":http://github.com/mojombo/jekyll, aber ich möchte nur oder zwei einzelne Änderungen übernehmen. Das Repository sieht folgendermaßen aus:
+Beim einfachen Fall siehst du einen anderen Branch oder vielleicht den Fork eines Projekts, aber du möchtest nur einen Commit, ein paar wenige Commits oder was auch immer du hast, übernehmen. Glücklicherweise hat Git eine ganze Menge an Werkzeugen, um dir diese Aufgabe zu erleichtern. Hier ist as Szenario. Es gab in letzter Zeit eine ganze Menge an Entwicklungen an "jekyll":http://github.com/mojombo/jekyll, aber ich möchte nur oder zwei einzelne Changesets übernehmen. Das Repository sieht folgendermaßen aus:
 
 p=. !/images/pick.png!
 
-Wie du sehen kannst, ist unser Hauptzweig (master) um unteren Ende dieser aufregenden Entwicklung und darüber gibt es eine ganze Reihe an Aktivitäten. Ich möchte jedoch nur die markierte Übegabe in mein Repository übernehmen. Sobald der SHA bekannt ist, gibt es ein paar Optionen:
+Wie du sehen kannst, ist unser Hauptzweig (master) um unteren Ende dieser aufregenden Entwicklung und darüber gibt es eine ganze Reihe an Aktivitäten. Ich möchte jedoch nur den markierten Commit in mein Repository übernehmen. Sobald der SHA bekannt ist, gibt es ein paar Optionen:
 
-1) Benutze @git cherry-pick@ für die Auswahl der Übergabe. Das erzeugt eine neue Übergabe und behält die Metadaten der alten Übergabe bei.
+1) Benutze @git cherry-pick@ zur Auswahl des Commits. Das erzeugt einen neuen Commit und behält die Metadaten der alten Übergabe bei.
 
-2) Erzeuge einen Patch mit @git format-patch@ und übernehme ihn mit @git am@. Das erlaubt dir eine Gegenzeichnung der Übergabe mit @--signoff@. Auch dieser Schritt erzeugt eine neue Übergabe.
+2) Erzeuge einen Patch mit @git format-patch@ und übernehme ihn mit @git am@. Das erlaubt dir eine Gegenzeichnung des Commits mit @--signoff@. Auch dieser Schritt erzeugt einen neuen Commit.
 
 3) Benutze @git apply@ mit dem Patch, um die Änderungen in dein Arbeitsverzeichnis zu übernehmen und sie weiter zu bearbeiten.
 
-4) Übernehme die Änderungen direkt mit @git merge@. Dieser Weg bewahrt die ursprüngliche Übergabe, sofern keine Konflikte auftreten.
+4) Übernehme die Änderungen direkt mit @git merge@. Dieser Weg bewahrt den ursprünglichen Commit, sofern keine Konflikte auftreten.
 
-Wir versuchen alle vier Möglichkeiten. Wir kennen den SHA b50788b der Übergabe und können mit ihm arbeiten. Als erstes wählen wir die Übergabe mit "cherry-pick":http://www.kernel.org/pub/software/scm/git/docs/git-cherry-pick.html.
+Wir versuchen alle vier Möglichkeiten. Wir kennen den SHA b50788b des Commits und können mit ihm arbeiten. Als erstes wählen wir den Commit mit "cherry-pick":http://www.kernel.org/pub/software/scm/git/docs/git-cherry-pick.html.
 
 <pre>
 $ git cherry-pick b50788b
@@ -38,11 +38,11 @@ bcb0d1b... First pass at rake task.
 2135a53... Using block syntax of popen4 to ensure that subprocesses...
 </pre>
 
-Wie du sehen kannst, wurde eine neue Übergabe erzeugt und die Änderung wurde erfolgreich übernommen. Die erste und dritte Methode erzeugen beide eine ähnliche Historie mit einer neuen Übergabe:
+Wie du sehen kannst, wurde ein neuer Commit erzeugt und die Arbeit wurde erfolgreich übernommen. Die erste und dritte Methode erzeugen beide eine ähnliche Historie mit einem neuen Commit:
 
 p=. !/images/pick-cherry.png!
 
-Mit "format-patch":http://www.kernel.org/pub/software/scm/git/docs/git-format-patch.html wird eine Übergabe eingepackt und mit "git am"::http://www.kernel.org/pub/software/scm/git/docs/git-am.html angewendet.
+Mit "format-patch":http://www.kernel.org/pub/software/scm/git/docs/git-format-patch.html wird ein Commit eingepackt und mit "git am"::http://www.kernel.org/pub/software/scm/git/docs/git-am.html angewendet.
 
 <pre>
 $ git format-patch -1 b50788b
@@ -89,7 +89,7 @@ $ git status
 no changes added to commit (use "git add" and/or "git commit -a")
 </pre>
 
-Abschließend können wir die Übergabe mit einer Zusammenführung (Merge) übernehmen, was in diesem Fall sehr einfach ist, da keine Konflikte auftreten.
+Abschließend können wir den Commit mit einem Merge übernehmen, was in diesem Fall sehr einfach ist, da keine Konflikte auftreten.
 
 <pre>
 $ git merge b50788b
@@ -107,8 +107,8 @@ b50788b... First pass at rake task.
 2135a53... Using block syntax of popen4 to ensure that subprocesses...
 </pre>
 
-Die Grafik zeigt die Übernahme der Übergabe auf der linke Seite in die Hauptlinie:
+Die Grafik zeigt die Übernahme des Commits auf der linke Seite in die Hauptlinie:
 
 p=. !/images/pick-merge.png!
 
-Du kannst, wie immer, mit @git reset --hard HEAD^@ eine Übergabe zurück gehen, falls etwas nach der Anwendung des Patches schief gelaufen ist. Vielleicht ist es sogar möglich, auf die "Dateien zurück zu kehren":http://de.gitready.com/beginner/2009/01/11/reverting-files.html. Wenn alles drunter und drüber geht, kannst du immer noch das "Reflog prüfen":http://de.gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html. Wenn du andere Wege kennst, wie man mit dieser Situation klar kommt, teile sie uns mit einem Kommentar mit!
+Du kannst, wie immer, mit @git reset --hard HEAD^@ einen Commit zurück gehen, falls etwas nach der Anwendung des Patches schief gelaufen ist. Vielleicht ist es sogar möglich, ein "Revert der Dateien":http://de.gitready.com/beginner/2009/01/11/reverting-files.html durchzuführen. Wenn alles drunter und drüber geht, kannst du immer noch das "Reflog prüfen":http://de.gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html. Wenn du andere Wege kennst, wie man mit dieser Situation klar kommt, teile sie uns mit einem Kommentar mit!

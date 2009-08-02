@@ -1,30 +1,30 @@
 ---
 layout: post
-title: Beschädigte Übergabenachrichten beheben
+title: Misslungene Committ-Nachrichten korrigieren
 category: advanced
 published: true
 translated: true
 ---
 
-Du hast soeben diese großartige Feature, den Test, die Fehlerbehebung übergeben, aber etwas ist einfach nicht korrekt. Entweder ist eine Information nicht ausgefüllt, die Übergabenachricht (Commit message) ist falsch oder etwas anderes lief einfach total schief. Wir betrachten nun, was du tun kannst, um die betroffenen Daten nachträglich zu korrigieren.
+Du hast soeben diese großartige Feature, den Test, die Fehlerbehebung committed, aber etwas ist einfach nicht korrekt. Entweder ist eine Information nicht ausgefüllt, die Commit-Nachricht ist falsch oder etwas anderes lief einfach total schief. Wir betrachten nun, was du tun kannst, um die betroffenen Daten nachträglich zu korrigieren.
 
-Die vorangegangene Übergabe kann sehr einfach korrigiert werden. Verwende einfach
+Der vorangegangene Commit kann sehr einfach korrigiert werden. Verwende einfach
 
 @git commit --amend@
 
-Das wird dir den Übergabe-Patch im $EDITOR öffnen, um damit zu arbeiten. Bearbeite einfach die Nachricht in der obersten Zeile der Datei, speichere sie ab, beende den Editor und schon bist du fertig.
+Das wird dir den Commit-Patch im $EDITOR öffnen, um damit zu arbeiten. Bearbeite einfach die Nachricht in der obersten Zeile der Datei, speichere sie ab, beende den Editor und schon bist du fertig.
 
-Laß uns annehmen, du hast ein paar Übergaben (Commits) zu korrigieren, oder die kaputte Übergabe liegt ein paar Übergaben (Commits) zurück. Der Ablauf hierfür ist etwas komplexer, aber es ist nicht so schlimm. (Danke an "Evan Phoenix":http://blog.fallingsnow.net/.)
+Laß uns annehmen, du hast ein paar Commits zu korrigieren, oder der kaputte Commit liegt ein paar Commits zurück. Der Ablauf hierfür ist etwas komplexer, aber es ist nicht so schlimm. (Danke an "Evan Phoenix":http://blog.fallingsnow.net/.)
 
-Hier ist das Szenario: Die letzten 3 Übergaben haben den falschen Benutzername und die falsche E-Mailadresse, oder vielleicht auch die falsche Übergabenachricht. Zunächst erstellen wir für die Übergaben die entsprechenden Patch-Dateien:
+Hier ist das Szenario: Die letzten 3 Commits haben den falschen Benutzername und die falsche E-Mailadresse, oder vielleicht auch die falsche Commit-Nachricht. Zunächst erstellen wir für die Commits die entsprechenden Patch-Dateien:
 
 @git format-patch HEAD^^^@
 
-Es werden Dateien in der Form 0001-commit-message erzeugt, die die Übergabeänderungen und Metadaten enthalten. Ein Hinweis zu den drei Caret Symbolen: Füge einfach eins pro Übergabe hinzu, die du zurück gehen möchtest, und sei konsistent! *Update:* Auf die letzten Übergaben kannst du auch mit der Syntax HEAD~n verweisen, in diesem Beispiel würden wir HEAD~3 verwenden. Fahre fort und bearbeite diese Dateien, so dass sie die passenden Informationen erhalten. Sobald du fertig bist, setzt du dein Repository um ein paar Übergaben zurück:
+Es werden Dateien in der Form 0001-commit-message erzeugt, die die Commit-Diffs und Metadaten enthalten. Ein Hinweis zu den drei Caret Symbolen: Füge einfach eins pro Commit hinzu, die du zurück gehen möchtest, und sei konsistent! *Update:* Auf die letzten Commits kannst du auch mit der Syntax HEAD~n verweisen, in diesem Beispiel würden wir HEAD~3 verwenden. Fahre fort und bearbeite diese Dateien, so dass sie die passenden Informationen erhalten. Sobald du fertig bist, setzt du dein Repository um ein paar Commits zurück:
 
 @git reset --hard HEAD^^^@
 
-Jetzt kann jede Übergabe angewendet werden und die Informationen werden behoben. Stelle die richtige Reihenfolge sicher! (gewöhnlich in aufsteigender Reihenfolge)
+Jetzt kann jeder Commit angewendet werden und die Informationen werden behoben. Stelle die richtige Reihenfolge sicher! (gewöhnlich in aufsteigender Reihenfolge)
 
 <pre>
 git am < 0001...
@@ -40,6 +40,6 @@ zurück zu deinen ursprünglichen Änderungen. Sobald deine Informationen korrig
 
 @git push -f@
 
-Wenn du @-f@ nicht hinzufügst, wird sich Git beschweren. *WARNUNG!* Bitte beachte, dass die Änderung von Übergabenachrichten das Repository von anderen Entwicklern verhunzen könnte und sollte deshalb mit Vorsicht benutzt werden. Andere Entwickler könnten dich dafür hassen. Sollte es weit genug zurück liegen, ist es wahrscheinlich eine schlechte Idee, die "Historie neu zu schreiben.":http://www.youtube.com/watch?v=BytKSy8M4bk
+Wenn du @-f@ nicht hinzufügst, wird sich Git beschweren. *WARNUNG!* Bitte beachte, dass die Änderung von Commit-Nachrichten das Repository von anderen Entwicklern verhunzen könnte und sollte deshalb mit Vorsicht benutzt werden. Andere Entwickler könnten dich dafür hassen. Sollte es weit genug zurück liegen, ist es wahrscheinlich eine schlechte Idee, die "Historie neu zu schreiben.":http://www.youtube.com/watch?v=BytKSy8M4bk
 
 Solltest du unerwartete oder unentdeckte Konsequenzen kennen, lass sie uns bitte in den Kommentaren wissen. Ein weiterer zukünftiger Tipp wird sich mit dem Korrigieren von tatsächlich übergebenen Dateien befassen und sicherstellen, dass alle Repositories aktuell sind.

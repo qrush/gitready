@@ -18,7 +18,7 @@ Course":http://git.or.cz/course/svn.html leistet großartige Arbeit für alle Je
 
 h3. 2. Git ist nicht aufwändig bei Netzwerk oder Platzverbrauch
 
-Lokale Übergaben (Commits) sind ein riesiger Vorteil bei der Verwendung von Git und es kann deinen Arbeitsablauf sehr viel angenehmer gestalten, weil Git für die meisten Aktionen nicht über das Netzwerk mit einem zentralen Server sprechen muss. Wenn du mehr darüber wissen möchtest, wie das funktioninert, lies den "Beitrag zur Arbeitsbühne":http://de.gitready.com/beginner/2009/01/18/the-staging-area.html oder diesen zu "Hochladen (Push) und Ziehen (Pull)":http://de.gitready.com/beginner/2009/01/21/pushing-and-pulling.html Ein weitere großartiger Vorteil ist *ein* Ort, wo Git seine Dateien für dein Repository speichert (gewöhnlich das @.git@ Verzeichnis) und es müllt dein Verzeichnis nicht mit tausenden von versteckten Verzeichnissen und Dateien zu, wie es SVN macht.
+Lokale Commits sind ein riesiger Vorteil bei der Verwendung von Git und es kann deinen Arbeitsablauf sehr viel angenehmer gestalten, weil Git für die meisten Aktionen nicht über das Netzwerk mit einem zentralen Server sprechen muss. Wenn du mehr darüber wissen möchtest, wie das funktioninert, lies den "Beitrag zur Staging Area":http://de.gitready.com/beginner/2009/01/18/the-staging-area.html oder diesen zu "Push und Pull":http://de.gitready.com/beginner/2009/01/21/pushing-and-pulling.html Ein weitere großartiger Vorteil ist *ein* Ort, wo Git seine Dateien für dein Repository speichert (gewöhnlich das @.git@ Verzeichnis) und es müllt dein Verzeichnis nicht mit tausenden von versteckten Verzeichnissen und Dateien zu, wie es SVN macht.
 
 h3. 3. Git ist nicht nur für Linux Kernel Hacker oder jene, die die ganze Zeit in Flugzeugen zu Konferenzen fliegen.
 
@@ -27,7 +27,7 @@ Git kann so ziemlich auf jedem modernen Betriebssystem "installiert":http://gitr
 h3. 4. Git ist nicht schwer aufzusetzen
 
 Das Aufsetzen eines Git Repository ist so einfach wie das Ausführen von @git init@ in irgend einem Verzeichnis. Das kann fast kaum einfacher gehen. Beim Verteilen deiner Änderungen für andere Entwickler werden die Dinge ein bißchen interessanter. Gewöhnlich ist das "Verteilen von Änderungen":http://de.gitready.com/intermediate/2009/01/24/sharing-your-changes.html nur ein oder zwei Befehle entfernt. Die korrekte Bereitstellung deiner Änderungen kann jedoch ein wenig trickreich sein: Gewöhnlich ist für das eigene Setup die Verwendung von "gitosis":http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way zu empfehlen. Gitosis ist ein Werkzeug, das bei den SSH Benutzerschlüsseln für
-den Übergabe-Zugriff (Commit) hilft.
+den Commit-Zugriff hilft.
 
 h3. 5. Git ist nicht schwer zu lernen.
 

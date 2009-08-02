@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Unverfolgte Dateien aufräumen
+title: Untracked Dateien aufräumen
 category: beginner
 published: true
 ---
 
 Unser erster eingereichter Tip kommt von "Dav Glass":http://blog.davglass.com/. Er führt näher aus, wie das Repository schön sauber gehalten werden kann. Hast du einen Tip, den du teilen möchtest? "Reiche einen Tip ein!":http://de.gitready.com/submit.html
 
-Dateien und Verzeichnisse können sich in deinem Arbeitsverzeichnis anhäufen, die von Zusammenführungen (Merges) übrig blieben, erstellt oder fälschlicherweise dort abgelegt wurden. Was auch immer der Fall ist, du musst sie nicht in deine @.gitignore@-Datei eintragen. Du kannst sie einfach entfernen. 
+Dateien und Verzeichnisse können sich in deinem Arbeitsverzeichnis anhäufen, die von Merges übrig blieben, erstellt oder fälschlicherweise dort abgelegt wurden. Was auch immer der Fall ist, du musst sie nicht in deine @.gitignore@-Datei eintragen. Du kannst sie einfach entfernen. 
 
 @git clean -n -d <path>@
 
@@ -17,7 +17,7 @@ macht einen 'Trockenlauf' des Befehls und zeigt dir, welche Dateien und Verzeich
 Would remove _posts/2009-01-16-cleaning-up-untracked-files.textile
 </pre>
 
-Es wäre definitiv schlecht, wenn die Datei entfernt werden würde. Ich habe den Beitrag noch nicht zur Arbeitsbühne hinzugefügt, so dass sie als unverfolgt gilt. Wenn du nur Dateien und keine leeren Verzeichnisse aufräumen möchtest, lasse die @-d@ Option weg. Sobald du sicher bist, dass du all diese Dateien entfernen möchtest, so entfernt ein
+Es wäre definitiv schlecht, wenn die Datei entfernt werden würde. Ich habe den Beitrag noch nicht zur staging Area hinzugefügt, so dass sie als "untracked" gilt. Wenn du nur Dateien und keine leeren Verzeichnisse aufräumen möchtest, lasse die @-d@ Option weg. Sobald du sicher bist, dass du all diese Dateien entfernen möchtest, so entfernt ein
 
 @git clean -d <path>@ 
 

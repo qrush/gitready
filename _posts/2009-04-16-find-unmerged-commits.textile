@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Nicht zusammengeführte Übergaben finden
+title: Unmerged Commits finden
 category: intermediate
 published: true
 ---
 
-Du hast dich in einem thematischen Zweig bei der Entwicklung deiner Software voran gearbeitet und es ist an der Zeit, deine Arbeit in die Hauptentwicklungslinie zu überführen (merge). Mit grafischen Ansichten wie "gitk oder GitX":http://de.gitready.com/intermediate/2009/01/13/visualizing-your-repo.html ist es recht einfach heraus zu finden, welche Änderungen (Changesets) noch zu überführen sind. Stellen wir uns folgendes Szenario vor:
+Du hast dich in einem thematischen Branch (Zweig) bei der Entwicklung deiner Software voran gearbeitet und es ist an der Zeit, deine Arbeit in die Hauptentwicklungslinie zu mergen. Mit grafischen Ansichten wie "gitk oder GitX":http://de.gitready.com/intermediate/2009/01/13/visualizing-your-repo.html ist es recht einfach heraus zu finden, welche Changesets noch zu mergen sind. Stellen wir uns folgendes Szenario vor:
 
 p=. !/images/cherry-gitx.png!
 
@@ -15,7 +15,7 @@ Auf der Kommandozeile hast du ein paar Optionen. Eine anständige Art der Visual
 
 p=. !/images/cherry-log.png!
 
-Du kannst auch die Bereichssyntax in @git log@ verwenden, um jene Übergaben (Commits) zu bekommen, die noch nicht zusammengeführt sind.
+Du kannst auch die Bereichssyntax in @git log@ verwenden, um jene Commits zu bekommen, die noch nicht zusammengeführt sind.
 
 <pre>
 $ git checkout master
@@ -24,7 +24,7 @@ $ git log ..42-adding-replies
 
 @git log master..42-adding-replies@
 
-Es gibt noch eine weitere Möglichkeit: @git cherry@. Sie macht genau, was wir wollen und sagt uns, welche Übergaben noch nicht im genannten Zweig sind. Im Master-Zweig führe ich folgenden Befehl aus:
+Es gibt noch eine weitere Möglichkeit: @git cherry@. Sie macht genau, was wir wollen und sagt uns, welche Commits noch nicht im genannten Branch sind. Im Master-Branch führe ich folgenden Befehl aus:
 
 <pre>
 $ git cherry -v master 42-adding-replies
@@ -36,7 +36,7 @@ $ git cherry -v master 42-adding-replies
 + c3481fd0d6279f5bd45c455b915e0b4b1c0d8909 Wrapping this up. Ship it.
 </pre>
 
-Wir haben soeben Git gefragt, was nicht im @master@, aber im @42-adding-replies@-Zweig ist. Wie in den Abbildungen oben sehen wir, was noch zusammenzuführen ist. Die @-v@ Option gibt die Übergabenachricht zusammen mit dem SHA Hash aus. Der Befehl nimmt auch ein drittes, optionales Argument für einen Startpunkt oder eine Grenze auf. Wenn wir alles nach der Übergabe @7e71af@ überprüfen wollen, nehmen wir:
+Wir haben soeben Git gefragt, was nicht im @master@, aber im @42-adding-replies@-Branch ist. Wie in den Abbildungen oben sehen wir, was noch zu mergen ist. Die @-v@ Option gibt die Commit Nachricht zusammen mit dem SHA Hash aus. Der Befehl nimmt auch ein drittes, optionales Argument für einen Startpunkt oder eine Grenze auf. Wenn wir alles nach dem Commit @7e71af@ überprüfen wollen, nehmen wir:
 
 <pre>
 $ git cherry -v master 42-adding-replies 7e71af
@@ -46,7 +46,7 @@ $ git cherry -v master 42-adding-replies 7e71af
 + c3481fd0d6279f5bd45c455b915e0b4b1c0d8909 Wrapping this up. Ship it.
 </pre>
 
-Wie du sehen kannst, wurden die ersten beiden Übergaben in unserem Themenzweig ausgelassen. Wenn du überprüfen möchtest, was nicht im Upstream-Zweig ist, wenn du dich nicht im Upstream-Zweig befindest, ist es wieder einfacher:
+Wie du sehen kannst, wurden die ersten beiden Commits in unserem Themenzweig ausgelassen. Wenn du überprüfen möchtest, was nicht im Upstream-Branch ist, wenn du dich nicht im Upstream-Branch befindest, ist es wieder einfacher:
 
 <pre>
 $ git checkout 42-adding-replies
@@ -59,4 +59,4 @@ $ git cherry master
 + c3481fd0d6279f5bd45c455b915e0b4b1c0d8909
 </pre>
 
-Ein wirklich nützlicher Aspekt des Befehls besteht darin, dass er wirklich die Änderungen anstatt nur die SHAs vergleicht. Die Übergabe (Commit) könnten sich durch Hinzufügen einer Signatur oder auch im Elternknoten verändert haben. In jedem Fall kannst du dich auf den Befehl verlassen. Er sagt dir, was noch nicht in den Upstream-Zweig überführt wurde. Verwechsle den Befehl nicht mit "cherry-pick":http://de.gitready.com/intermediate/2009/03/04/pick-out-individual-commits.html, der etwas ganz anderes macht.
+Ein wirklich nützlicher Aspekt des Befehls besteht darin, dass er wirklich die Changesets anstatt nur die SHAs vergleicht. Der Commit könnte sich durch Hinzufügen einer Signatur oder auch im Elternknoten verändert haben. In jedem Fall kannst du dich auf den Befehl verlassen. Er sagt dir, was noch nicht in den Upstream-Branch überführt wurde. Verwechsle den Befehl nicht mit "cherry-pick":http://de.gitready.com/intermediate/2009/03/04/pick-out-individual-commits.html, der etwas ganz anderes macht.

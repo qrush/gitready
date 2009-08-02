@@ -11,7 +11,7 @@ Die erste Option besteht darin, das Repository im Browser anzusehen. Diese Funkt
 
 @git instaweb@
 
-Das startet einen Server, gewöhnlich "lighttpd":http://lighttpd.net, um eine einfache Webdarstellung deines Repositories anzubieten. Du kannst durch Übergaben (Commits) und Bäume (Trees) blättern, sowie Dateien anzeigen, alles was du hast.
+Das startet einen Server, gewöhnlich "lighttpd":http://lighttpd.net, um eine einfache Webdarstellung deines Repositories anzubieten. Du kannst durch Commits und Trees blättern, sowie Dateien anzeigen, alles was du hast.
 
 p=. !/images/instaweb.png!
 
@@ -21,7 +21,7 @@ Das ist wirklich nützlich, wenn du in die Historie eintauchen möchtest, aber d
 
 zwingt WEBrick die Seite zu bedienen, dass so gut funktioniert, als wenn Ruby auf deinem System installiert ist. Es funktioniert auch mit Apache, schaue einfach in der "instaweb Man Page":http://www.kernel.org/pub/software/scm/git/docs/git-instaweb.html nach den unterstützten Servern und anderen Perlen.
 
-Webseiten sind großartig und alles, aber was wenn du deine Übergaben (Commits) in einer eher ... graphischen Art sehen möchtest? Schaue nicht weiter als gitk oder gitx. Diese Programme geben dir eine dynamischere Ansicht auf dein Repository und erlauben dir Entwicklungszweige (Branches) und Zusammenführungen (Merges) zu sehen:
+Webseiten sind großartig und alles, aber was wenn du deine Commits in einer eher ... graphischen Art sehen möchtest? Schaue nicht weiter als gitk oder gitx. Diese Programme geben dir eine dynamischere Ansicht auf dein Repository und erlauben dir Entwicklungszweige und Merges zu sehen:
 
 p=. !/images/gitk.png!
 

@@ -1,14 +1,14 @@
 ---
 layout: post
-title: Stückweise Übergaben an den Index
+title: Schrittweise Commits an den Index
 category: advanced
 published: true
 translated: true
 ---
 
-Das ist eine Fortschreibung des gestrigen Artikels über das "interactive Hinzufügen":http://de.gitready.com/intermediate/2009/01/14/interactive-adding.html. Die Leser baten um einen Artikel zum mächtigen @git add -p@ Kommando, eine Abkürzung zum Patch-Modus beim interaktiven Hinzufügen. Dieses Kommando ist in der Lage, Änderungen in Dateien in kleinere Brocken (hunks) aufzuteilen, so dass du *exakt* das übergeben (commit) kannst, was du möchtest, und nicht nur die gesamte Datei.
+Das ist eine Fortschreibung des gestrigen Artikels über das "interactive Hinzufügen":http://de.gitready.com/intermediate/2009/01/14/interactive-adding.html. Die Leser baten um einen Artikel zum mächtigen @git add -p@ Kommando, eine Abkürzung zum Patch-Modus beim interaktiven Hinzufügen. Dieses Kommando ist in der Lage, Änderungen in Dateien in kleinere Brocken (hunks) aufzuteilen, so dass du *exakt* das committen kannst, was du möchtest, und nicht nur die gesamte Datei.
 
-Das Verhalten ist sehr hilfreich. Es erlaubt jeden "Textbrocken" (hunk) in einer Datei zu versionieren. Die Codezeile bricht vielleicht den Build auf den Maschinen anderer oder auf dem Build-Server, aber nicht bei dir. Du verstehst, was ich meine.
+Das Verhalten ist sehr hilfreich. Es erlaubt jeden "Brocken" (hunk) in einer Datei zu versionieren. Die Codezeile bricht vielleicht den Build auf den Maschinen anderer oder auf dem Build-Server, aber nicht bei dir. Du verstehst, was ich meine.
 
 Gehen wir durch ein Beispiel und nehmen wieder Änderungen an der README Datei vor. @git diff@ zeigt uns folgende vorgenommenen Änderungen an:
 
@@ -82,7 +82,7 @@ If you have ideas about...
 Stage this hunk [y/n/a/d/K/e/?]? y
 </pre>
 
-@git status@ zeigt uns die zu übergebenden Änderungen und die Änderungen, die für eine Datei auf die Arbeitsbühne (stage) kommen. Komisch, aber es macht Sinn: Wir haben die Hälfte der Änderungen auf die Arbeitsbühne gehoben und die andere Hälfte wurde noch nicht zum Index hinzugefügt.
+@git status@ zeigt uns die zu committenden Änderungen und die Änderungen, die für eine Datei auf die staging area kommen. Komisch, aber es macht Sinn: Wir haben die Hälfte der Änderungen auf die staging area gehoben und die andere Hälfte wurde noch nicht zum Index hinzugefügt.
 
 Es gibt auch die @e@ Option, die das manuelle An- und Abschalten der Brocken in deinem Lieblingseditor erlaubt. Die Option beinhaltet Instruktionen, spiele also damit ein wenig herum, sobald du die Gelegenheit dazu hast (Das ist kein Wortspiel).
 

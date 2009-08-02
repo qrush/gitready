@@ -6,7 +6,7 @@ published: true
 translated: true
 ---
 
-Manchmal ist das einfache Hinzufügen mit @git add .@ oder @git commit -am@ nicht genug. Du möchtest deine Änderungen vielleicht in verschiedene kleine Übergaben (Commits) aufteilen, oder du bist einfach noch nicht bereit alles hinzuzufügen. Und wer möchte schon einzelne Dateien auf einmal hinzufügen? Das ist langweilig. Öffne den interaktiven Modus mit:
+Manchmal ist das einfache Hinzufügen mit @git add .@ oder @git commit -am@ nicht genug. Du möchtest deine Änderungen vielleicht in verschiedene kleine Commits aufteilen, oder du bist einfach noch nicht bereit alles hinzuzufügen. Und wer möchte schon einzelne Dateien auf einmal hinzufügen? Das ist langweilig. Öffne den interaktiven Modus mit:
 
 @git add -i@
 
@@ -34,7 +34,7 @@ Wir fügen die Änderungen an der Readme hinzu. Das @update@ Kommando erlaubt un
 Update>>
 </pre>
 
-Sobald wir Update 1 auswählen, wird uns mitgeteilt, dass die Datei für die Übergabe bereitgestellt ist. Wenn wir in den Status schauen, sehen wir, dass unsere Readme korrekt bereitgestellt ist.
+Sobald wir Update 1 auswählen, wird uns mitgeteilt, dass die Datei für den Commit bereitgestellt ist. Wenn wir in den Status schauen, sehen wir, dass unsere Readme korrekt bereitgestellt ist.
 
 <pre>
           staged  unstaged  path
@@ -42,7 +42,7 @@ Sobald wir Update 1 auswählen, wird uns mitgeteilt, dass die Datei für die Üb
 2:    unchanged      +1/-1  _layouts/default.html
 </pre>
 
-Sobald du fertig bist, kannst du mit dem @quit@ Kommando abschließen und deine Arbeit wird übergeben (Commit). Solltest du dem interaktiven Modus nicht trauen, zeigt dir @git status@, dass nur die Readme für die Übergabe bereitgestellt wurde:
+Sobald du fertig bist, kannst du mit dem @quit@ Kommando abschließen und deine Arbeit wird committed. Solltest du dem interaktiven Modus nicht trauen, zeigt dir @git status@, dass nur die Readme für den Commit bereitgestellt wurde:
 
 <pre>
 # On branch master

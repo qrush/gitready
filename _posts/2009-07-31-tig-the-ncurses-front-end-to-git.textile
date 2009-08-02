@@ -11,15 +11,15 @@ Ich war nie ein Fan von gitk, aber als ich anfing, Git zu benutzen, fand ich ein
 
 p=. "!/images/main-view-split.png(Die geteilte Hauptansicht - Oben das Protokoll, Unten die Unterschiede)!":http://jonas.nitro.dk/tig/screenshots/main-view-split.png
 
-Tig wird am einfachsten im Git Repository mit @tig@ gestartet. Die graphische Git-Protokollansicht startet du kannst mit den Pfeiltasten nach unten und oben durch das Protokoll navigieren (oder mit den @j@ und @k@ Tasten, wenn du die VIM Tastenkürzel gewöhnt bist). @<enter>@ auf einen Protokolleintrag öffnet ein geteiltes Fenster mit den Änderungen der Übergabe. Die @<Leertaste>@ bewegt dich durch die Änderung und die Pfeiltasten bewegen dich zwischen den Änderungen hindurch. @q@ schließt das geteilte Fenster und nochmal @q@ beendet tig.
+Tig wird am einfachsten im Git Repository mit @tig@ gestartet. Die graphische Git-Log-Ansicht startet und du kannst mit den Pfeiltasten nach unten und oben durch das Protokoll navigieren (oder mit den @j@ und @k@ Tasten, wenn du die VIM Tastenkürzel gewöhnt bist). @<enter>@ auf einen Logeintrag öffnet ein geteiltes Fenster mit dem Diff dieses Commits. Die @<Leertaste>@ bewegt dich durch das Diff und die Pfeiltasten bewegen dich zwischen den Commits hindurch. @q@ schließt das geteilte Fenster und nochmal @q@ beendet tig.
 
-Ein weiteres Feature von tig ist die Baumansicht. Nach dem Start von tig öffnet @t@ in der Protokollansicht eine navigierbare Dateiansicht des Repositorys. @<enter>@ bringt dich durch Verzeichnisse oder Dateien. @<shift>-B@ auf eine Datei zeigt die Kommentaransicht.
+Ein weiteres Feature von tig ist die Baumansicht. Nach dem Start von tig öffnet @t@ in der Log-Ansicht eine navigierbare Dateiansicht des Repositorys. @<enter>@ bringt dich durch Verzeichnisse oder Dateien. @<shift>-B@ auf eine Datei zeigt die Annotated-Ansicht.
 
 p=. "!/images/tree-view.png(Die Baumansicht)!":http://jonas.nitro.dk/tig/screenshots/tree-view.png
 
-Bisher haben wir tig nur für den Zweig verwendet, den wir vorher ausgewählt hatten. Aber tig versteht auch Revisionsargumente wie Zweig, Tag oder Hash, etc. Ich persönlich finde das sehr nützlich, weil damit die Aktivitäten in einem entfernten Zweig verfolgt werden können. Der Befehl hierfür könnte so aussehen @tig origin/rel-1.5@.
+Bisher haben wir tig nur für den Branch verwendet, den wir vorher ausgewählt hatten. Aber tig versteht auch Revisionsargumente wie Branch, Tag oder Hash, etc. Ich persönlich finde das sehr nützlich, weil damit die Aktivitäten in einem entfernten Branch verfolgt werden können. Der Befehl hierfür könnte so aussehen @tig origin/rel-1.5@.
 
-Einen Zweig aus einem anderen Zweig heraus anzusehen, kann auch nützlich sein, wenn einzelne "Übergaben übernommen (cherry-pick)":http://de.gitready.com/intermediate/2009/03/04/pick-out-individual-commits.html werden sollen. Nehmen wir an, ich habe eine Übergabe in @master@ vorgenommen, die ich im Release-Zweig @origin/rel-1.5@ verfügbar machen möchte. Ich muss lediglich den Release-Zweig mit @git checkout -b 1.5 origin/rel-1.5@ auschecken, tig mit @tig master@ öffnen und zu der Änderung navigieren, die ich gerne mit @<shift>-C@ übernehmen möchte. Wiederhole diesen Schritt so oft, wie nötig.
+Einen Branch aus einem anderen Branch heraus anzusehen, kann auch nützlich sein, wenn einzelne "Commits übernommen (cherry-pick)":http://de.gitready.com/intermediate/2009/03/04/pick-out-individual-commits.html werden sollen. Nehmen wir an, ich habe einen Commit in @master@ vorgenommen, die ich im Release-Branch @origin/rel-1.5@ verfügbar machen möchte. Ich muss lediglich den Release-Branch mit @git checkout -b 1.5 origin/rel-1.5@ auschecken, tig mit @tig master@ öffnen und zu dem Changeset navigieren, das ich gerne mit @<shift>-C@ übernehmen möchte. Wiederhole diesen Schritt so oft, wie nötig.
 
 p=. "!/images/blame-view.png(Die Schuldansicht)!":http://jonas.nitro.dk/tig/screenshots/blame-view.png
 
