@@ -1,17 +1,17 @@
 ---
 layout: post
-title: ignoring files
+title: Dateien ignorieren
 category: beginner
-published: false
+published: true
 ---
 
-We don't need Git to version everything in our projects, be it compiled source, files with passwords, or temporary files that editors love to create. Usually keeping stuff out of your VCS' hands is a task that is hard to manage and annoying to set up. Not with Git! Using the @.gitignore@ file along with some other options, we're going to learn how to set up per-project and per-user ignores. 
+Git muss nicht alles in unserem Projekt versionieren. Seien es kompilierte Quellen, Dateien mit Passwörter oder temporäre Dateien, die gerne erstellt werden. Zeugs aus der Verwaltung des VCS herauszuhalten, ist gewöhnlich eine schwer zu verwaltende und ärgerliche Aufgabe. Nicht mit Git! Mit der @.gitignore@ Datei und ein paar anderen Optionen lernen wir, wie Ignore-Regeln pro Projekt und pro Benutzer aufgesetzt werden können.
 
 p=. "!http://farm1.static.flickr.com/4/7240060_1332e880ff.jpg!":http://flickr.com/photos/miskan/7240060/
 
-The easiest and simplest way is to create a @.gitignore@ file in your project's root directory. The files you choose to ignore here take affect for all directories in your project, unless if they include their own @.gitignore@ file. This is nice since you have one place to configure ignores unlike SVN's svn:ignore which must be set on every folder. Also, the file itself can be versioned, which is definitely good.
+Am einfachsten ist das Erstellen der @.gitignore@ Datei im Hauptverzeichnis deines Projekts. Die zum Ignorieren ausgewählten Dateien werden alle Verzeichnisse in deinem Projekt betreffen. Es sei denn einzelne Verzeichnisse haben ihre eigene @.gitignore@ Datei. Das ist besonders schön, weil es einen Ort für diese Konfiguration gibt, nicht wie SVNs svn:ignore, dass für jedes Verzeichnis gesetzt werden musste. Darüber hinaus werden die Ignore-Dateien selbst versioniert.
 
-Here's a basic @.gitignore@:
+Hier ist eine einfache @.gitignore@ Datei:
 
 <pre>
 $ cat .gitignore
@@ -27,16 +27,14 @@ $ cat .gitignore
 tmp/**/* 
 </pre>
 
-Of course, this could get a lot more complex. You can also add exceptions to ignore rules by starting the line with @!@. See an example of this at the "GitHub guide on ignores":http://github.com/guides/ignore-for-git.
+Natürlich kann die Datei beliebig komplex werden. Du kannst auch Ausnahmen zu den Ignore-Regeln festlegen, indem die Zeile mit @!@ beginnt. Im "GitHub guide on ignores":http://github.com/guides/ignore-for-git gibt es dazu ein Beispiel.
 
-Two things to keep in mind with ignoring files: First, if a file is already being tracked by Git, adding the file to @.gitignore@ won't stop Git from tracking it. You'll need to do @git rm --cached <file>@ to keep the file in your tree and then ignore it. Secondly, empty directories do not get tracked by Git. If you want them to be tracked, they need to have something in them. Usually doing a @touch .gitignore@ is enough to keep the folder tracked.
+Zwei Dinge solltest du beim Umgang mit Ignore-Dateien im Hinterkopf behalten: Erstens, wenn die Datei schon von Git verwaltet wird, wird sie trotz Hinzufügen in @.gitignore@ weiterhin getracked. Du musst @git rm --cached <Datei>@ ausführen, um die Datei im Verzeichnisbaum zu behalten und sie dann ignorieren. Zweitens, leere Verzeichnisse werden nicht von Git verwaltet. Wenn leere Verzeichnisse von Git verwaltet werden sollen, müssen sie eine Datei beinhalten. Gewöhnlich reicht ein @touch .gitignore@ aus.
 
-You can also open up @$GIT_DIR/info/exclude@ (@$GIT_DIR@ is usually your @.git@ folder) and edit that file for project-only ignores. The problem with this is that those changes aren't checked in, so use this only if you have some personal files that don't need to be shared with others on the same project.
+Du kannst auch @$GIT_DIR/info/exclude@ öffnen (@$GIT_DIR@ ist normalerweise dein @.git@ Verzeichnis) und diese Datei für Ignores nur das Projekt betreffend editieren. Das Problem besteht allerdings darin, dass diese Änderungen nicht von Git verwaltet werden. Benutze diese Variante also nur, wenn du ein paar persönliche Dateien hast, die du nicht mit anderen in diesem Projekt teilen möchtest.
 
-Your final option with ignoring folders is adding a per-user ignore by setting up a @core.excludesfiles@ option in your config file. You can set up a @.gitignore@ file in your HOME directory that will affect all of your repositories by running this command:
+Die abschließende Option zum Ignorieren von Verzeichnissen betrifft die benutzerorientierten Ignore-Regeln, die mit der @core.excludesfiles@ Option in der Konfigurationsdatei aktiviert werden. Du kannst auch eine @.gitignore@ Datei in deinem HOME Verzeichnis anlegen. Sie betrifft alle deine Repositories, nachdem du folgenden Befehl ausgeführt hast:
 
 @git config --global core.excludesfile ~/.gitignore@
 
-Read up on the "manpage":http://www.kernel.org/pub/software/scm/git/docs/gitignore.html if you'd like to learn more about how ignores work. As always, if you have other ignore-related tips let us know in the comments.
-
-
+Lies die "Manpage":http://www.kernel.org/pub/software/scm/git/docs/gitignore.html, wenn du mehr darüber lernen möchtest, wie Ignores arbeiten. Wenn du einen Tipp zum Thema Ignorieren von Dateien hast, teile ihn uns in den Kommentaren mit.
