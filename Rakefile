@@ -14,23 +14,27 @@ task :deploy do
   password = ask("Password:  ") { |q| q.echo = "*" }
 
   Net::SSH.start('gitready.com', username, :port => 1337, :password => password) do |ssh|
-    commands = "cd ~/gitready/cached-copy; "
+    commands = "cd ~/gitready/cached-copy; git fetch;"
     branches.each do |branch|
 
       commands << <<EOF
-git checkout #{branch} 
-git pull origin #{branch}
-git checkout -f
-rm -rf _site
-jekyll --no-auto
-mv _site ../_#{branch}
-mv ../#{branch} _old
-mv ../_#{branch} ../#{branch}
-rm -rf _old
+git reset --hard origin/#{branch}
+rm -rf ../#{branch}
+jekyll --no-auto ../#{branch}
 EOF
     end
       commands = commands.gsub(/\n/, "; ")
       #puts commands
       ssh.exec commands
+  end
+end
+
+desc "Unpublish all posts"
+task :unpublish do
+  Dir["_posts/*.textile"].each do |post|
+    puts "Unpublishing #{post}"
+    lines = File.readlines(post)
+    lines.insert(1, "published: false\n")
+    File.open(post, "w") { |f| f.write lines.join }
   end
 end

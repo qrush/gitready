@@ -1,0 +1,26 @@
+---
+layout: post
+title: tig, the ncurses front-end to Git
+category: advanced
+---
+
+p=. This is a guest post from "Nathan de Vries":http://www.atnan.com/.
+
+I've never really been a fan of gitk, but early on when I started using Git I found a tool called "tig":http://jonas.nitro.dk/tig/. It's available in "MacPorts":http://tig.darwinports.com/ and Ubuntu (since Gutsy) through @apt-get install tig@. Tig provides a simple command-line yet visual interface to Git.
+
+p=. "!/images/main-view-split.png(The main view split - log on top, diff on bottom)!":http://jonas.nitro.dk/tig/screenshots/main-view-split.png
+
+The simplest usage is just running @tig@ when you're in a git repository. This will bring up visual git-log, but the nice thing about it is that you can navigate up and down the log using the up and down keys (or @j@ and @k@ keys if you're used to vim keys). Hit @<enter>@ on a log entry, and it will open a split-pane window with the diff of that commit. Using @<space>@ will move you through the diff, and up and down will move you between commits. Hitting @q@ will close the split-pane, and hitting @q@ again will close tig altogether.
+
+Another useful aspect of tig is the tree-view. When you launch tig, hit @t@ when you're in log view and it will bring up a navigatable tree view of the repository. Hit @<enter>@ to descend into directories or view files, or @<shift>-B@ on a file to see an annotated view.
+
+p=. "!/images/tree-view.png(The tree view)!":http://jonas.nitro.dk/tig/screenshots/tree-view.png
+
+So far we've just been using tig on whichever branch we have checked out at the time, but tig also takes a revision argument (i.e. branch, tag, hash etc.). I personally find this useful for seeing what's going on in remote branches, by using a command like @tig origin/rel-1.5@.
+
+Showing another branch from within a different branch can also be incredibly handy if you'd like to "cherry-pick":http://gitready.com/intermediate/2009/03/04/pick-out-individual-commits.html a change from another branch into the current branch. Say I've committed a change to @master@ that I'd like to make available to the release branch @origin/rel-1.5@. All I need to do is checkout the release branch with @git checkout -b 1.5 origin/rel-1.5@, open tig using @tig master@, navigate to the changeset I'd like to cherry-pick, and hit @<shift>-C@. Repeat as necessary.
+
+p=. "!/images/blame-view.png(The blame view)!":http://jonas.nitro.dk/tig/screenshots/blame-view.png
+
+I haven't really had a chance to investigate many of the other features of tig, other than @tig show [rev]@ and @tig blame [file]@ which I use every day. If anyone has some more tips as to how to make good use of tig, be sure to share them in the comments!
+
