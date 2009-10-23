@@ -1,13 +1,13 @@
 ---
 layout: post
-title: count your commits
+title: Commits zählen
 category: intermediate
-published: false
+published: true
 ---
 
-Ever wondered how many commits you've contributed to a project? Or perhaps, which coworker has really done nothing (or maybe they have huge changes and fewer commits!) Well, wonder no more, for @git shortlog@ is a nice way to find out. 
+Hast du dich jemals gewundert, wie viele Commits du zu einem Projekt beigetragen hast? Oder vielleicht, welcher Mitarbeiter nichts gemacht hat (oder vielleicht hat er große Änderungen in wenigen Commits eingebracht!). Wundere dich nicht länger, @git shortlog@ ist ein schöner Weg, das heraus zu finden.
 
-I'm running this on my "clone of jekyll":http://github.com/qrush/jekyll, which is how this blog is generated:
+Der Befehl wird gegen meinen "Clone von jekyll":http://github.com/qrush/jekyll ausgeführt, der für das Erzeugen dieses Blogs verantwortlich ist:
 
 <pre>
 $ git shortlog -s -n
@@ -28,7 +28,6 @@ $ git shortlog -s -n
   1  Tom Kirchner
 </pre>
 
-The @-s@ option squashes all of the commit messages into the number of commits, and the @-n@ option sorts the list by number of commits. 
+Die @-s@ Option führt alle Commit-Nachrichten in die Zahl der Commits zusammen und die @-n@ Option sortiert die Liste nach der Anzahl der Commits.
 
-This command could also be useful for changelogs, since you could easily dump all the changes each person has done. There's a few other neat options: @-e@ will append emails, and you can control columns widths with @-w@. Check out the "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-shortlog.html for more information.
-
+Der Befehl kann auch für Changelogs sehr nützlich sein, weil einfach alle Änderungen jeder Person ausgegeben werden können. Es gibt weitere geschickte Optionen: @-e@ fügt E-Mails an und die Spaltenbreite wird mit @-w@ kontrolliert. Schau in der "Manpage":http://www.kernel.org/pub/software/scm/git/docs/git-shortlog.html nach für weitere Informationen.
