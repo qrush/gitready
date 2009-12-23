@@ -1,22 +1,22 @@
 ---
 layout: post
-title: zsh git status
+title: zsh Git Status
 category: advanced
-published: false
+published: true
 ---
 
-Sure, you could have status shown in your "bash prompt":http://gitready.com/advanced/2009/01/23/status-in-your-prompt.html but that's not your only option for shells! "zsh":http://www.zsh.org/, or "Z Shell":http://en.wikipedia.org/wiki/Zsh is another popular command line interface that is in use by plenty of programmers, and there's quite a few scripts that will get your repo's status shown easily and quickly.
+Du kannst dir den Status natürlich im "Bash Prompt":http://de.gitready.com/advanced/2009/01/23/bash-git-status.html anzeigen lassen. Aber das ist nicht einzige Option für die Shell! "ZSH":http://www.zsh.org/ oder die "Z Shell":http://de.wikipedia.org/wiki/Zsh ist eine andere beliebte Kommandozeile, die von vielen Entwicklern verwendet wird. Und es gibt eine ganze Reihe an Scripten, die den Repository Status schnell und einfach auf deine Shell bringen.
 
-"Joshua Corbin":http://github.com/jcorbin has thrown together a fantastic set of scripts dubbed "zsh-git":http://github.com/jcorbin/zsh-git that provides a great mix of colors and information about your repository. The basics are explained on the "project page":http://www.wunjo.org/zsh-git/ but images are a lot more fun. 
+"Joshua Corbin":http://github.com/jcorbin hat ein paar Scripte unter "zsh-git":http://github.com/jcorbin/zsh-git zusammengefaßt, die eine großartige Mischung von Farben und Informationen über dein Repository zusammentragen. Die Grundlagen werden auf der "Projektwebsite":http://www.wunjo.org/zsh-git/ erläutert und die Bilder machen sehr viel Spaß.
 
-This is what the shell looks by default. Plenty of colors, and even using both sides of the screen! In a repository with no changes, it shows the branch name and where HEAD is currently pointing:
+Die Shell sieht standardmäßig so aus. Eine Fülle von Farben, die sogar beide Seiten des Bildschirms nutzen. In einem Repository ohne Änderungen werden der Branch-Name angezeigt und wohin der HEAD aktuell zeigt:
 
 p=. !/images/zsh-normal.png!
 
-Once a change is made, a ! appears (@git status@ is run since the author can't break habits easily) If untracked files are created, it adds ? to the prompt, and adding files causes a + to be printed to the prompt. Also, if you're tracking the branch, it will alert you and let you know when you're ahead in commits. 
+Sobald eine Änderung gemacht wurde, erscheint ein ! (@git status@ wird ausgeführt, weil der Autor nur schwer mit Gewohnheiten brechen kann). Werden ungetrackte Dateien erzeugt, wird ein ? im Prompt hinzugefügt. Hinzugefügte Daten schreiben ein + auf den Prompt. Wenn du einen Branch verfolgst, wirst du benachrichtigt, sobald du mit den Commits voraus eilst.
 
 p=. !/images/zsh-workflow.png!
 
-If you're looking for a more DIY version, "Bart Trojanowski":http://www.jukie.net/~bart has a "great tutorial on adding branch status":http://www.jukie.net/~bart/blog/20071219221358 that can be easily extended. If you're looking for another nice and easy zsh setup, "zshkit":http://github.com/mattfoster/zshkit/tree/master and its various forks are fun to use and come packaged with plenty of helper commands. 
+Wenn du nach einer mehr DIY Version suchst, bietet "Bart Trojanowski":http://www.jukie.net/~bart ein schönes "Tutorial zum Hinzufügen des Branch Status":http://www.jukie.net/~bart/blog/20071219221358, das einfach erweitert werden kann. Wenn du nach einem weiteren einfachen ZSH Setup suchst, könnten dir "zshkit":http://github.com/mattfoster/zshkit/tree/master und seine verschiedenen Forks Spaß bereiten. Sie sind mit ausreichenden Hilfebefehlen ausgestattet.
 
-Of course, if you have other zsh scripts or different shells that deserve their own tip, "submit one!":http://gitready.com/submit.html
+Wie immer, wenn du andere zsh Scripte oder andere Shells benutzt, die ihren eigenen Tipp verdienen, "reiche einen Tipp ein!":http://de.gitready.com/submit.html
