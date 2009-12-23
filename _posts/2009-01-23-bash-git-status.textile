@@ -5,7 +5,7 @@ category: advanced
 published: true
 ---
 
-Wir kennen alle den @git status@ Befehl. Aber das sind einfach zu viele Zeichen, die immer und immer wieder getippt werden müssen. Warum sollte man sich um diese 10 Tastenschläge kümmern, wenn die Shell einfach Gits Arbeitsstatus ausgeben kann? Klingt großartig, richtig? Glücklicherweise haben ein paar Hacker ihre Scripte zusammen geworfen, um genau das in deinem Bash Prompt zu erledigen. Wenn du diese oder ähnliche Scripte in deiner Shell arbeiten läßt, "schicke uns einen Tip dazu!":http://gitready.com/submit.html
+Wir kennen alle den @git status@ Befehl. Aber das sind einfach zu viele Zeichen, die immer und immer wieder getippt werden müssen. Warum sollte man sich um diese 10 Tastenschläge kümmern, wenn die Shell einfach Gits Arbeitsstatus ausgeben kann? Klingt großartig, richtig? Glücklicherweise haben ein paar Hacker ihre Scripte zusammen geworfen, um genau das in deinem Bash Prompt zu erledigen. Wenn du diese oder ähnliche Scripte in deiner Shell arbeiten läßt, "schicke uns einen Tip dazu!":http://de.gitready.com/submit.html
 
 p=. <a href="http://flickr.com/photos/levitateme/195355984/" title="I need one of these for IRC.">!http://farm1.static.flickr.com/72/195355984_7d6153610b.jpg!</a>
 

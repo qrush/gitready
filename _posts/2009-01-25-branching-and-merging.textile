@@ -97,5 +97,5 @@ $ git show HEAD
       Fixing conflict!
 </pre>
 
-Künftige Tips werden Helferwerkzeuge für diesen Prozess abdecken, wie "git-mergetool":http://www.kernel.org/pub/software/scm/git/docs/git-mergetool.html und @gitk --merge@. Wenn du ein gutes Tutorial dazu oder andere Arten der Zusammenführung kennst, "schicke uns einen Tip!":http://gitready.com/submit.html Schaue dir in der Zwischenzeit "Scott Chacons Gitcast zu diesem Thema an":http://gitcasts.com/posts/branching-and-merging oder lies den "Git Community Book's guide,":http://book.git-scm.com/3_basic_branching_and_merging.html wenn du mehr Informationen zu diesem Thema möchtest.
+Künftige Tips werden Helferwerkzeuge für diesen Prozess abdecken, wie "git-mergetool":http://www.kernel.org/pub/software/scm/git/docs/git-mergetool.html und @gitk --merge@. Wenn du ein gutes Tutorial dazu oder andere Arten der Zusammenführung kennst, "schicke uns einen Tip!":http://de.gitready.com/submit.html Schaue dir in der Zwischenzeit "Scott Chacons Gitcast zu diesem Thema an":http://gitcasts.com/posts/branching-and-merging oder lies den "Git Community Book's guide,":http://book.git-scm.com/3_basic_branching_and_merging.html wenn du mehr Informationen zu diesem Thema möchtest.
 
