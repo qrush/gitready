@@ -1,19 +1,19 @@
 ---
 layout: post
-title: finding what has been changed
+title: Finden, was sich geändert hat
 category: intermediate
-published: false
+published: true
 ---
 
-Frequently you may want to easily see what has been changed as you're working. Perhaps you just went out for a bite to eat and temporarily forgot, or maybe you need to check to see just what will be added into your newest commit. There's a few Git commands that can help with this and make it very easy to figure out what has been modified.
+Häufig möchtest du einfach sehen, was sich während deiner Arbeit verändert hat. Vielleicht bist gerade etwas Essen gegangen und hast kurzzeitig vergessen, woran du gearbeitet hast, oder du möchtest überprüfen, was mit dem neuesten Commit hinzugefügt wird. Es gibt ein paar Git-Befehle, die dir damit helfen und einfach anzeigen, was geändert wurde.
 
-Probably the easiest option is doing a @git diff@. It will print out the lines that have changed in your working directory compared to what's stored in @HEAD@. So changing just one line in a README file would give me this output:
+Die wahrscheinlich einfachste Möglichkeit ist ein @git diff@. Es zeigt die Zeilen an, die in deinem Arbeitsverzeichnis im Vergleich zum @HEAD@ geändert wurden. Die Veränderung einer Zeile in der README würde folgende Ausgabe erzeugen:
 
 p=. !/images/diff.png!
 
-Provided your color options are turned on, it should be really easy to see what lines have been added, changed, or removed. There's tons of other options for this command, but we'll cover them and the other diff related helpers in future tips.
+Sofern deine Farboptionen eingeschalten sind, sollte sehr einfach zu sehen sein, welche Zeilen hinzugefügt, verändert uoder entfernt wurden. Es gibt einen Haufen anderer Optionen für diesen Befehl, aber ich werde sie und andere Diff-relevanten Helferlein in künftigen Tipps behandeln.
 
-Using @git diff@ will compare what is in the "staging area":http://gitready.com/beginner/2009/01/18/the-staging-area.html and what's last been committed. However, you may want to see what files were modified in the last commit. You could play around with the various "logging options":http://gitready.com/advanced/2009/01/20/bend-logs-to-your-will.html, or use @git whatchanged@. This shortcut brings in the commit message, author information, and prints out exactly what files were touched for that changeset. So, if you wanted to see what the last commit changed:
+@git diff@ vergleicht die "Staging Area":http://de.gitready.com/beginner/2009/01/18/the-staging-area.html und den letzten Commit miteinander. Vielleicht möchtest du aber auch sehen, welche Dateien im letzten Commit geändert wurden. Du könntest mit ein paar "Log Optionen":http://de.gitready.com/advanced/2009/01/20/bend-logs-to-your-will.html herumspielen oder @git whatchanged@ benutzen. Die Abkürzung zeigt dir die Commit-Nachricht, Autoreninformationen und druckt dir exakt aus, welche Dateien von dem Änderungssatz berührt wurden. Die Änderungen im letzten Commit:
 
 <pre>
 $ git whatchanged -n 1
@@ -32,4 +32,4 @@ $ git whatchanged -n 1
       :100644 100644 03bf166... 7bcf6de... M  test/test_site.rb
 </pre>
 
-Of course, plenty of other options exist for this command at its "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-whatchanged.html. If you have good ideas or ways to figure out what has changed in your repository from commit to commit, let us know!
+Natürlich gibt es reichlich andere Optionen für diesen Befehl in der "Manpage.":http://www.kernel.org/pub/software/scm/git/docs/git-whatchanged.html Wenn du andere gute Ideen oder Wege für das Herausfinden von Änderungen im Repository kennst, lass sie uns wissen!
