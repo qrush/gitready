@@ -1,24 +1,25 @@
 ---
 layout: post
-title: push to only bare repositories
+title: Push in ein Bare Repository
 category: advanced
-published: false
-published: false
+published: true
 ---
 
-Typically Git allows you to build whatever kind of workflow you'd like. Instead of saying "you must use it this way", Git lets you figure out what best works for you and your organization. Like every system though, there are caveats and gotchas, and this tip goes over one of them. Let's go over some definitions about the subject first:
+Typischerweise erlaubt dir Git, jede Art von Workflow aufzubauen. Anstatt zu sagen "du musst Git auf diese Art benutzen", erlaubt dir Git herauszufinden, welcher Workflow für dich und deine Organisation am besten ist. Aber wie in jedem System gibt es Ecken und Ösen, die dieser Tip behandelt. Lass uns als Erstes ein paar Definitionen zu Grunde legen:
 
-*bare repository*: a repository cloned using the @--bare@ option, only includes the files/folders inside of the @.git@ directory
-*non-bare repository*: a normal clone, has a working directory with checked out files
+*Bare Repository": Ein Repository, das mit der @--bare@-Option geklont wurde. Es beinhaltet nur Dateien und Verzeichnisse im @.git@ Verzeichnis.
+*Non-Bare Repositry": Ein normaler Klon, der ein Arbeitsverzeichnis mit ausgecheckten Dateien besitzt.
 
-There's easy ways to "share your changes":http://gitready.com/intermediate/2009/01/24/sharing-your-changes.html with Git, but sometimes you want to "push and pull":http://gitready.com/beginner/2009/01/21/pushing-and-pulling.html from a repository instead. The best practice here is when you want to push changes, don't push to a non-bare repository. In other words, from the "GitFaq":http://git.or.cz/gitwiki/GitFaq#head-b96f48bc9c925074be9f95c0fce69bcece5f6e73:
+Es gibt einen einfachen Weg, "deine Änderungen mit Git zu teilen,":http://de.gitready.com/intermediate/2009/01/24/sharing-your-changes.html aber manchmal möchtest du stattdessen "Push und Pull":http://de.gitready.com/beginner/2009/01/21/pushing-and-pulling.html gegenüber einem Repository ausführen. Wenn du deine Änderungen in ein Repository pushen möchtest, verwende nie ein non-bare Repository. Mit anderen Worten aus der "Git FAQ":https://git.wiki.kernel.org/index.php/GitFaq#Why_won.27t_I_see_changes_in_the_remote_repo_after_.22git_push.22.3F zitiert:
 
 <blockquote>
 A quick rule of thumb is to never push into a repository that has a work tree attached to it, until you know what you are doing. 
+
+Eine kurze Daumenregel lautet, nie in ein Repository zu pushen, das mit einer Arbeitskopie verknüpft ist, bis du weißt, was du tust.
 </blockquote>
 
-The lesson here is that if you're going to push changes, make a bare repository clone with @git clone --bare@. From this point, you could host the changes from with "git daemon":http://www.kernel.org/pub/software/scm/git/docs/git-daemon.html so others can access them. (Tips on this command will be coming!) The reason why Git was built to be unhappy with pushing to non-bare repositories is because one of its main goals is to *not* lose your data. 
+Die Lektion besteht darin, dass wenn du Änderungen pushen möchtest, erstelle einen Bare Repository Klon mit @git clone --bare@. Ab diesem Punkt kannst du die Änderungen mit "git daemon":http://www.kernel.org/pub/software/scm/git/docs/git-daemon.html bereit stellen, so dass andere Nutzer darauf zugreifen können. Das Hauptziel von Git ist es, *keine* Daten zu verlieren. Aus diesem Grunde wurde es so gebaut, dass es mit dem Pushen in non-bare Repositories unglücklich ist.
 
-If you do want to for some reason, measures are in place so you don't accidentally lose your changes. Once you have pushed to a non-bare repository, you'd have to @git reset --hard HEAD@ to throw your changes out, and then do a @git checkout -f@ to bring the pushed changes in. Even if you did lose some work that was committed, you could use @git reflog@ to pull the objects back out of Git's datastore. 
+Wenn du es dennoch aus irgendeinem Grund tun möchtest, gibt es Mechanismen, die dafür sorgen, dass du nicht versehentlich deine Daten verlierst. Sobald du in ein non-bare Repository gepusht hast, müsstest du deine Änderungen mit @git reset --hard HEAD@ wegwerfen und mit @git checkout -f@ deine gepushten Änderungen holen. Sogar wenn du etwas von deiner committeten Arbeit verloren hast, könntest du die Objekte mit @git reflog@ aus Gits Datenspeicher wiederherstellen.
 
-Now that you know what it takes to push to a non-bare repository, hopefully you'll take the easier route and just use the @--bare@ option. If for some reason you don't want to, now you know what can be done to work around it.
+Jetzt, wo du über das Pushen in non-bare Repositories Bescheid weißt, wirst du hoffentlich den einfacheren Weg nehmen und einfach die Option @--bare@ benutzen. Wenn du das aus irgendeinem Grund nicht möchtest, weißt du jetzt, wie du es umgehen kannst.
