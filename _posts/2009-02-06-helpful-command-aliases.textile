@@ -1,11 +1,11 @@
 ---
 layout: post
-title: helpful command aliases
+title: Hilfreiche Befehlsaliase
 category: intermediate
-published: false
+published: true
 ---
 
-A great way to make your life using Git easier is to add aliases for commands that you use all the time into your @.gitconfig@ file. It might not be as elegant as adding shortcuts to your shell, but at least this will work consistently across all shells and is a breeze to set up. The "Git Cheat Sheet":http://cheat.errtheblog.com/s/git suggests adding this block to your config file:
+Das Hinzufügen von häufig verwendeten Befehlen als Aliase in deine @.gitconfig@ Datei vereinfacht dir dein Leben im Umgang mit Git. Es mag nicht ganz so elegant sein wie das Hinzufügen von Aliasen zur Shell, aber es funktioniert wenigstens über alle Shells hinweg und ist sehr einfach einzurichten. Das "Git Cheat Sheet":http://cheat.errtheblog.com/s/git schlägt vor, folgenden Block in deine Konfigurationsdatei einzufügen:
 
 <pre>
 [alias]
@@ -17,7 +17,7 @@ A great way to make your life using Git easier is to add aliases for commands th
   lg = log -p
 </pre>
 
-Once you've got this block added to your config file, it should work immediately:
+Sobald der Block in deine Konfigurationsdatei eingefügt wurde, sollte es sofort funktionieren:
 
 <pre>
 $ git st
@@ -29,14 +29,13 @@ $ git st
 nothing added to commit but untracked files present (use "git add" to track)
 </pre>
 
-You can also add aliases like so, and they will get added to your @.gitconfig@ file automatically.
+Du kannst Aliase auch mit folgendem Befehl hinzufügen und sie stehen dann automatisch in der @.gitconfig@ Datei:
 
 <pre>
 $ git config –-global alias.rb rebase
 </pre>
 
-
-For the SVN converts, Alex Soto has suggested a few alias helpers that will help with interacting with Subversion repositories:
+Für SVN-Konvertiten: Alex Soto hat ein paar Alias-Helfer vorgeschlagen, die bei der Interaktion mit Subversion-Repositories helfen:
 
 <pre>
 [alias]
@@ -44,5 +43,4 @@ For the SVN converts, Alex Soto has suggested a few alias helpers that will help
   spush = !git-svn dcommit
 </pre>
 
-There's also plenty of other advanced commands at the "GitWiki":http://git.or.cz/gitwiki/Aliases. If you've got an alias that others could find useful, comment or "submit":/submit.html away and it will be added!
-
+Es gibt eine Menge anderer fortgeschrittener Befehle im "GitWiki":http://git.or.cz/gitwiki/Aliases. Wenn du Aliase hast, die für andere nützlich sein könnten, füge bitte einen Kommentar hinzu oder "reiche einen Tip ein":http://de.gitready.com/submit.html und sie werden hinzugefügt!
