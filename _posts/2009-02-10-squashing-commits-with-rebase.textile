@@ -1,21 +1,21 @@
 ---
 layout: post
-title: squashing commits with rebase
+title: Commits mit Rebase vereinen
 category: advanced
-published: false
+published: true
 ---
 
-The "rebase":http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html command has some awesome options available in its @--interactive@ (or @-i@) mode, and one of the most widely used is the ability to squash commits. What this does is take smaller commits and combine them into larger ones, which could be useful if you're wrapping up the day's work or if you just want to package your changes differently. We're going to go over how you can do this easily.
+Der "Rebase-Befehl":http://de.gitready.com/intermediate/2009/01/31/intro-to-rebase.html hat ein paar großartige Optionen in seinem @--interactive@ (oder @-i@) Modus. Eine der wohl am weitesten verbreiteten Optionen ist das Zusammenführen/Vereinen oder "Squashen" von Commits. Es nimmt kleinere Commits und vereint sie zu größeren Commits. Das kann zum Beispiel nützlich sein, wenn du die Tagesarbeit zusammenfassen oder wenn du deine Änderungen anders paketieren möchtest. Im Folgenden wird beschrieben, wie das geht.
 
 p=. "!http://farm4.static.flickr.com/3073/2926413646_8e4a7b7db4.jpg?v=0!":http://flickr.com/photos/7552532@N07/2926413646/
 
-*A word of caution:* Only do this on commits that haven't been pushed an external repository. If others have based work off of the commits that you're going to delete, plenty of conflicts can occur. Just don't rewrite your history if it's been shared with others. 
+*Vorsicht:* Führe die Aktion nur für Commits durch, die du noch nicht zu einem externen Repository geschickt hast. Wenn andere Entwickler ihre Arbeit auf der Basis deiner Commits aufbauen, die du aber ändern oder löschen wirst, können eine ganze Reihe von Konflikten auftreten. Schreibe deine History einfach nicht neu, sobald du sie mit anderen geteilt hast!
 
-So let's say you've just made a few small commits, and you want to make one larger commit out of them. Our repository's history currently looks like this:
+Lass uns annehmen, du hast soeben ein paar kleine Commits vorgenommen und du möchtest daraus einen größeren Commit machen. Unsere Repository-History sieht derzeit ungefähr so aus:
 
 p=. !/images/squash1.png!
 
-The last 4 commits would be much happier if they were wrapped up together, so let's do just that through interactive rebasing:
+Die letzten 4 Commits würden schöner aussehen, wenn sie zu einem zusammengefasst wären. Das machen wir jetzt, indem wir ein interaktives Rebase durchführen:
 
 <pre>
 $ git rebase -i HEAD~4
@@ -37,7 +37,7 @@ pick 30e0ccb Changed the tagline in the binary, too.
 #
 </pre>
 
-So, a few things have happened here. First of all, I told Git that I wanted to rebase using the last four commits from where the @HEAD@ is with @HEAD~4@. Git has now put me into an editor with the above text in it, and a little explanation of what can be done. You have plenty of options available to you from this screen, but right now we're just going to squash everything into one commit. So, changing the first four lines of the file to this will do the trick:
+Ein paar Dinge passieren hier. Als erstes habe ich Git gesagt, dass es einen Rebase mit den letzten vier Commits machen soll, ausgehend vom @HEAD@, also @HEAD~4@. Git hat mir einen Editor mit dem obigen Text geöffnet und eine kleine Erklärung eingefügt, was ich nun machen kann. Nun stehen ein paar Optionen zur Verfügung, aber wir möchten vorerst alles in einen Commit zusammenführen. Ändere die ersten vier Zeilen der Datei folgendermaßen und das gewünschte Ergebnis wird erreicht:
 
 <pre>
 pick 01d1124 Adding license
@@ -46,7 +46,7 @@ squash ebfd367 Jekyll has become self-aware.
 squash 30e0ccb Changed the tagline in the binary, too.
 </pre>
 
-Basically this tells Git to combine all four commits into the the first commit in the list. Once this is done and saved, another editor pops up with the following:
+Im Grunde genommen wird Git gesagt, alle vier Commits sollen in den ersten Commit in der Liste zusammenführt werden. Sobald das erledigt und gespeichert ist, kommt wieder ein Editor mit dem folgenden Inhalt:
 
 <pre>
 # This is a combination of 4 commits.
@@ -79,7 +79,7 @@ Changed the tagline in the binary, too.
 #
 </pre>
 
-Since we're combining so many commits, Git allows you to modify the new commit's message based on the rest of the commits involved in the process. Edit the message as you see fit, then save and quit. Once that's done, your commits have been successfully squashed!
+Weil wir mehrere Commits zu einem zusammenführen, erlaubt uns Git die Commitnachricht auf der Grundlage der im Prozess involvierten Commits zu ändern. Bearbeite die Nachricht, wie es dir gefällt, speichere und schließe den Editor. Jetzt sind deine Commits erfolgreich zusammengeführt, sie sind "squashed"!
 
 <pre>
 Created commit 0fc4eea: Creating license file, and making jekyll self-aware.
@@ -88,10 +88,10 @@ Created commit 0fc4eea: Creating license file, and making jekyll self-aware.
 	Successfully rebased and updated refs/heads/master.
 </pre>
 
-And if we look at the history again...
+Und wenn du wieder in die History schaust...
 
 p=. !/images/squash2.png!
 
-So, this has been a relatively painless so far. If you run into conflicts during the rebase, they're usually quite easy to resolve and Git leads you through as much as possible. The basics of this is fix the conflict in question, @git add@ the file, and then @git rebase --continue@ will resume the process. Of course, doing a @git rebase --abort@ will bring you abck to your previous state if you want. If for some reason you've lost a commit in the rebase, you can use the "reflog":http://gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html to get it back.
+Das war soweit relativ schmerzfrei. Wenn du während des Rebase auf Konflikte triffst, sind sie in der Regel recht einfach aufzulösen und Git führt dich so gut es kann durch. Die Grundlage besteht in der Auflösung des fraglichen Konflikts. @git add@ auf die Datei und dann ein @git rebase --continue@ setzt den Prozess fort. Natürlich bringt dich ein @git rebase --abort@ zurück zu deinem vorherigen Zustand, wenn du möchtest. Solltest du aus irgendeinem Grund während des Rebase einen Commit verloren haben, kannst du "reflog":http://de.gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html benutzen, um ihn wiederherzustellen.
 
-There's plenty of other uses for @git rebase -i@ that haven't been covered yet. If you have one you'd like to share, "please do so!":/submit.html "GitCasts":http://gitcasts.com also has a "fantastic video":http://gitcasts.com/posts/rebasing on this process as a whole that also covers some more complex examples of the command.
+Es gibt eine ganze Reihe von anderen Nutzungsmöglichkeiten für @git rebase -i@, die noch nicht betrachtet wurden. Falls du eine kennst, die du mitteilen möchtest, "reiche einen Tip ein!":http://de.gitready.com/submit.html "GitCasts":http://gitcasts.com/ hat ein "schönes Video":http://gitcasts.com/posts/rebasing über den gesamten Prozess und behandelt ein paar komplexere Beispiele dieses Befehls.
